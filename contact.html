@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aloqa — UzLitrPro</title>
+<meta name="description" content="UzLitrPro bilan bog'laning — buyurtma, hamkorlik yoki savollar bo'yicha murojaat qiling.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar-left">
+      <a href="tel:+998770900550" class="phone-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +998 77 090 05 50
+      </a>
+      <span class="top-bar-item hours" data-i18n="hours">Dushanba – Shanba, 9:00 AM – 6:00 PM</span>
+    </div>
+    <div class="lang-switch" id="lang-switch">
+      <div class="lang-current" id="lang-current">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span id="lang-label">O'zbek</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="lang-dropdown" id="lang-dropdown">
+        <button data-lang="uz" class="active">O'zbek</button>
+        <button data-lang="ru">Русский</button>
+        <button data-lang="en">English</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <nav class="container nav">
+    <a href="index.html" class="brand">
+      <span class="brand-name">UzLitr<span>Pro</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav_home">Bosh sahifa</a></li>
+      <li><a href="products.html" data-i18n="nav_products">Mahsulotlar</a></li>
+      <li><a href="about.html" data-i18n="nav_about">Biz haqimizda</a></li>
+      <li><a href="news.html" data-i18n="nav_news">Yangiliklar</a></li>
+      <li><a href="contact.html" class="active" data-i18n="nav_contact">Aloqa</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span data-i18n="nav_cta">Bog'lanish</span>
+    </a>
+    <button class="nav-toggle" aria-label="Menyuni ochish" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero blueprint-bg">
+    <div class="container">
+      <span class="eyebrow" data-i18n="contact_eyebrow">Aloqa</span>
+      <h1 data-i18n="contact_h1">Biz bilan bog'laning</h1>
+      <p data-i18n="contact_p">Buyurtma berish, hamkorlik yoki savolingiz bormi? Quyidagi forma orqali yozing yoki to'g'ridan-to'g'ri qo'ng'iroq qiling.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+
+      <div class="contact-info-card reveal">
+        <h3 data-i18n="contact_info_h">Bog'lanish ma'lumotlari</h3>
+        <div class="contact-info-row">
+          <span class="icon">☎</span>
+          <span>+998 77 090 05 50</span>
+        </div>
+        <div class="contact-info-row">
+          <span class="icon">📍</span>
+          <span data-i18n="contact_address">Toshkent shahri, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy</span>
+        </div>
+        <div class="contact-info-row">
+          <span class="icon">🏢</span>
+          <span>MCHJ «LITR ENERGY GROUP»</span>
+        </div>
+        <div class="contact-info-row">
+          <span class="icon">🕐</span>
+          <span data-i18n="hours">Dushanba – Shanba, 9:00 AM – 6:00 PM</span>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <h3 style="margin-bottom: 22px;" data-i18n="contact_form_h">Xabar yuborish</h3>
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name" data-i18n="form_name">Ismingiz</label>
+              <input type="text" id="name" name="name" required data-i18n-placeholder="form_name_ph" placeholder="Ismingizni kiriting">
+            </div>
+            <div class="form-group">
+              <label for="phone" data-i18n="form_phone">Telefon raqami</label>
+              <input type="tel" id="phone" name="phone" required placeholder="+998 __ ___ __ __">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="size" data-i18n="form_size">Qiziqtirgan o'lcham</label>
+            <select id="size" name="size">
+              <option value="15">15∅</option>
+              <option value="20">20∅</option>
+              <option value="25">25∅</option>
+              <option value="notsure" data-i18n="form_notsure">Hali aniq emas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="form_message">Xabaringiz</label>
+            <textarea id="message" name="message" data-i18n-placeholder="form_message_ph" placeholder="Buyurtma miqdori, yetkazib berish manzili yoki savolingizni yozing..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" data-i18n="form_submit">Xabarni yuborish</button>
+          <p class="form-note" data-i18n="form_note">Bu forma frontend namoyishi sifatida ishlaydi. Haqiqiy xabarlarni qabul qilish uchun uni backend yoki elektron pochta xizmatiga ulash kerak bo'ladi.</p>
+          <div class="form-success" id="form-success" data-i18n="form_success">Rahmat! Xabaringiz qabul qilindi (namoyish rejimi) — tez orada siz bilan bog'lanamiz.</div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><span class="brand-name">UzLitr<span>Pro</span></span></a>
+        <p data-i18n="footer_desc">Sovuq va issiq suv uchun ishonchli, aniq hisoblagichlar. MCHJ «LITR ENERGY GROUP» tomonidan Toshkentda ishlab chiqariladi.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_nav_h">Navigatsiya</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">Bosh sahifa</a></li>
+          <li><a href="products.html" data-i18n="nav_products">Mahsulotlar</a></li>
+          <li><a href="about.html" data-i18n="nav_about">Biz haqimizda</a></li>
+          <li><a href="news.html" data-i18n="nav_news">Yangiliklar</a></li>
+          <li><a href="contact.html" data-i18n="nav_contact">Aloqa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact_h">Aloqa</h4>
+        <ul>
+          <li>Toshkent sh., Yakkasaroy t., Rakatboshi MFY</li>
+          <li>O'rikzor 1-tor ko'chasi, 40-uy</li>
+          <li>+998 77 090 05 50</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_rights">© 2026 UzLitrPro / LITR ENERGY GROUP. Barcha huquqlar himoyalangan.</span>
+      <span>O'zMsT ISO 4064-1:2024</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
