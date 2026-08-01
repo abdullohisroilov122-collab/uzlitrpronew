@@ -321,7 +321,7 @@ function applyLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (key === "hero_h1") {
-      el.innerHTML = `${dict.hero_h1_pre}<em>${dict.hero_h1_em}</em>${dict.hero_h1_post}`;
+      el.innerHTML = `<span class="h1-line">${dict.hero_h1_pre.trim()}</span><span class="h1-line h1-line2">${dict.hero_h1_em}${dict.hero_h1_post}<span class="h1-dot" aria-hidden="true"></span></span>`;
     } else if (dict[key] !== undefined) {
       el.textContent = dict[key];
     }

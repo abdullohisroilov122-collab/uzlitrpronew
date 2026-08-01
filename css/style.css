@@ -100,7 +100,7 @@ h1, h2, h3, h4 {
   display: inline-block;
 }
 
-.section-head { max-width: 640px; margin-bottom: 44px; }
+.section-head { max-width: 640px; margin-bottom: 36px; }
 .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-top: 10px; }
 .section-head p { color: var(--ink-soft); margin-top: 14px; font-size: 1.05rem; }
 
@@ -315,23 +315,39 @@ h1, h2, h3, h4 {
   gap: 40px;
   align-items: center;
 }
-.hero-copy .eyebrow { color: var(--red-500); }
-.hero-copy h1 {
+/* Pill-shaped trust badge above the headline */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(6px);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
+.hero-pill svg { width: 15px; height: 15px; color: var(--red-500); flex-shrink: 0; }
+
+.hero-copy h1.hero-h1-split {
   color: var(--white);
-  font-size: clamp(2.4rem, 4.6vw, 3.6rem);
-  margin-top: 18px;
+  font-size: clamp(2.5rem, 4.8vw, 3.8rem);
+  font-weight: 700;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
-.hero-copy h1 em {
-  font-style: normal;
-  background: linear-gradient(100deg, var(--red-500), #ff8a7a 60%, var(--red-500));
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shine 4s linear infinite;
-}
-@keyframes shine {
-  to { background-position: 200% center; }
+.h1-line { display: block; }
+.h1-line2 { position: relative; display: inline-flex; align-items: baseline; gap: 10px; }
+.h1-dot {
+  width: 0.36em;
+  height: 0.36em;
+  border-radius: 3px;
+  background: var(--red-500);
+  display: inline-block;
+  flex-shrink: 0;
 }
 .hero-copy p {
   color: rgba(255,255,255,0.72);
@@ -341,20 +357,35 @@ h1, h2, h3, h4 {
 }
 .hero-actions { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
 
-.hero-stats {
-  display: flex;
-  gap: 30px;
-  margin-top: 54px;
+/* Checklist-style feature row */
+.hero-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 14px 32px;
+  margin-top: 40px;
   padding-top: 26px;
   border-top: 1px solid rgba(255,255,255,0.14);
 }
-.hero-stats div strong {
-  font-family: var(--font-mono);
-  font-size: 1.5rem;
-  display: block;
-  color: var(--white);
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
 }
-.hero-stats div span { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
+.check-ico {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(34,184,118,0.18);
+  color: var(--green-500);
+  font-size: 0.7rem;
+  display: flex; align-items: center; justify-content: center;
+}
+@media (max-width: 420px) {
+  .hero-checklist { grid-template-columns: 1fr; }
+}
 
 /* ---- Orbit system ---- */
 .hero-orbit-wrap {
@@ -434,39 +465,25 @@ h1, h2, h3, h4 {
   50% { transform: translateY(-10px); }
 }
 
-/* Rotating conic scanner sweep behind the rings */
-.orbit-scanner {
+/* Large faded wordmark watermark behind the logo lockup — confident, low-noise background element */
+.hero-watermark {
   position: absolute;
   top: 50%; left: 50%;
-  width: 92%; height: 92%;
   transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, transparent 0deg, rgba(232,70,83,0.22) 18deg, transparent 50deg, transparent 360deg);
-  animation: spin 7s linear infinite;
+  width: 150%;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 6vw, 2.6rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.05);
+  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+  white-space: nowrap;
   z-index: 0;
+  pointer-events: none;
 }
-
-/* Rising bubble particles */
-.bubble {
-  position: absolute;
-  bottom: 6%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.9), rgba(120,180,255,0.15));
-  border: 1px solid rgba(255,255,255,0.35);
-  animation: rise linear infinite;
-  z-index: 2;
-}
-.bubble.b1 { width: 8px; height: 8px; left: 18%; animation-duration: 6s; animation-delay: 0s; }
-.bubble.b2 { width: 5px; height: 5px; left: 32%; animation-duration: 4.5s; animation-delay: 1.4s; }
-.bubble.b3 { width: 10px; height: 10px; left: 55%; animation-duration: 7s; animation-delay: 0.6s; }
-.bubble.b4 { width: 6px; height: 6px; left: 68%; animation-duration: 5s; animation-delay: 2.4s; }
-.bubble.b5 { width: 7px; height: 7px; left: 80%; animation-duration: 6.4s; animation-delay: 3.1s; }
-@keyframes rise {
-  0% { transform: translateY(0) translateX(0); opacity: 0; }
-  10% { opacity: 0.9; }
-  90% { opacity: 0.5; }
-  100% { transform: translateY(-360px) translateX(14px); opacity: 0; }
-}
+.hero-watermark span { color: rgba(232,70,83,0.08); -webkit-text-stroke: 1px rgba(232,70,83,0.12); }
 
 /* Floating glass spec badges */
 .glass-badge {
@@ -497,10 +514,8 @@ h1, h2, h3, h4 {
 .glass-badge strong { display: block; font-size: 0.82rem; color: var(--white); white-space: nowrap; }
 .glass-badge span { font-size: 0.7rem; color: rgba(255,255,255,0.55); }
 
-.glass-badge.gb1 { top: 4%; left: -4%; animation-delay: 0s; }
-.glass-badge.gb2 { top: 12%; right: -6%; animation-delay: 1.2s; }
-.glass-badge.gb3 { bottom: 10%; left: -8%; animation-delay: 2.1s; }
-.glass-badge.gb4 { bottom: 2%; right: -2%; animation-delay: 0.6s; }
+.glass-badge.gb1 { top: 2%; left: 4%; animation-delay: 0s; }
+.glass-badge.gb2 { bottom: 6%; right: -4%; animation-delay: 1.2s; }
 
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
@@ -523,7 +538,7 @@ h1, h2, h3, h4 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero::before, .hero::after, .orbit-ring, .orbit-dot, .hero-meter-core img, .hero-meter-core::before, .orbit-scanner, .bubble, .glass-badge { animation: none !important; }
+  .hero::before, .hero::after, .orbit-ring, .orbit-dot, .hero-meter-core img, .hero-meter-core::before, .glass-badge { animation: none !important; }
 }
 
 /* ==========================================================================
@@ -532,7 +547,7 @@ h1, h2, h3, h4 {
 .trust-strip {
   background: var(--white);
   border-bottom: 1px solid var(--steel-200);
-  padding: 22px 0;
+  padding: 18px 0;
 }
 .trust-strip ul {
   display: flex;
@@ -550,7 +565,7 @@ h1, h2, h3, h4 {
 /* ==========================================================================
    Feature grid
    ========================================================================== */
-.section { padding: 90px 0; }
+.section { padding: 76px 0; }
 .section-alt { background: var(--white); }
 
 .feature-grid {
@@ -623,7 +638,7 @@ h1, h2, h3, h4 {
 .cta-band {
   background: var(--navy-950);
   color: var(--white);
-  padding: 70px 0;
+  padding: 60px 0;
   text-align: center;
 }
 .cta-band h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.2rem); }
