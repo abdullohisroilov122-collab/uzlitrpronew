@@ -411,9 +411,9 @@ h1, h2, h3, h4 {
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
-.orbit-ring.r1 { width: 100%; height: 100%; animation: spin 26s linear infinite; }
-.orbit-ring.r2 { width: 78%; height: 78%; border-style: solid; border-color: rgba(0,163,224,0.28); animation: spin-rev 20s linear infinite; }
-.orbit-ring.r3 { width: 56%; height: 56%; animation: spin 34s linear infinite; }
+.orbit-ring.r1 { width: 100%; height: 100%; animation: spin 16s linear infinite; }
+.orbit-ring.r2 { width: 78%; height: 78%; border-style: solid; border-color: rgba(0,163,224,0.28); animation: spin-rev 13s linear infinite; }
+.orbit-ring.r3 { width: 56%; height: 56%; animation: spin 22s linear infinite; }
 
 @keyframes spin { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
 @keyframes spin-rev { from { transform: translate(-50%, -50%) rotate(360deg); } to { transform: translate(-50%, -50%) rotate(0deg); } }
@@ -427,8 +427,8 @@ h1, h2, h3, h4 {
   top: 50%; left: 50%;
   transform-origin: 0 0;
 }
-.orbit-dot.d1 { animation: orbit1 26s linear infinite; }
-.orbit-dot.d2 { width: 7px; height: 7px; background: var(--blue-500); box-shadow: 0 0 0 4px rgba(0,163,224,0.22), 0 0 12px rgba(0,163,224,0.8); animation: orbit2 20s linear infinite reverse; }
+.orbit-dot.d1 { animation: orbit1 16s linear infinite; }
+.orbit-dot.d2 { width: 7px; height: 7px; background: var(--blue-500); box-shadow: 0 0 0 4px rgba(0,163,224,0.22), 0 0 12px rgba(0,163,224,0.8); animation: orbit2 13s linear infinite reverse; }
 
 @keyframes orbit1 {
   from { transform: translate(-50%, -50%) rotate(0deg) translateX(240px) rotate(0deg); }
@@ -504,27 +504,38 @@ h1, h2, h3, h4 {
   pointer-events: none;
 }
 .hero-wave-full { position: absolute; left: 0; width: 220%; }
-.hero-wave-full path { fill: rgba(0,163,224,0.16); }
-.hero-wave-full.wave-a { bottom: -6%; height: 62%; animation: waveslideFull 26s linear infinite; }
-.hero-wave-full.wave-b { bottom: -12%; height: 55%; animation: waveslideFull 34s linear infinite reverse; }
-.hero-wave-full.wave-b path { fill: rgba(0,212,170,0.13); }
+.hero-wave-full path { fill: rgba(0,163,224,0.28); }
+.hero-wave-full.wave-a { bottom: -6%; height: 62%; animation: waveslideFull 8s ease-in-out infinite; }
+.hero-wave-full.wave-b { bottom: -12%; height: 55%; animation: waveslideFull 11s ease-in-out infinite reverse; }
+.hero-wave-full.wave-b path { fill: rgba(0,212,170,0.22); }
 @keyframes waveslideFull {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-25%, -10px); }
+  100% { transform: translate(-50%, 0); }
 }
 
 .hero-deco-circle {
   position: absolute;
   border-radius: 50%;
-  border: 1.5px solid rgba(0,163,224,0.22);
-  animation: decoFloat 9s ease-in-out infinite;
+  border: 1.5px solid rgba(0,163,224,0.28);
+  animation: decoSpin 14s linear infinite;
 }
-.hero-deco-circle.dc1 { width: 150px; height: 150px; top: 4%; left: 56%; animation-delay: 0s; }
-.hero-deco-circle.dc2 { width: 340px; height: 340px; top: 22%; right: 2%; border-color: rgba(0,163,224,0.16); animation-delay: 1.4s; }
-.hero-deco-circle.dc3 { width: 210px; height: 210px; bottom: 2%; right: 12%; border-color: rgba(0,212,170,0.24); animation-delay: 2.8s; }
-@keyframes decoFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+.hero-deco-circle.dc1 { width: 150px; height: 150px; top: 4%; left: 56%; animation-duration: 10s; }
+.hero-deco-circle.dc2 { width: 340px; height: 340px; top: 22%; right: 2%; border-color: rgba(0,163,224,0.2); animation-duration: 16s; }
+.hero-deco-circle.dc3 { width: 210px; height: 210px; bottom: 2%; right: 12%; border-color: rgba(0,212,170,0.3); animation-duration: 12s; animation-direction: reverse; }
+.dc-glow {
+  position: absolute;
+  top: -4px; left: 50%;
+  width: 9px; height: 9px;
+  margin-left: -4.5px;
+  border-radius: 50%;
+  background: var(--teal-500);
+  box-shadow: 0 0 12px 2px rgba(0,212,170,0.9);
+}
+.hero-deco-circle.dc2 .dc-glow { background: var(--blue-500); box-shadow: 0 0 14px 3px rgba(0,163,224,0.9); width: 11px; height: 11px; margin-left: -5.5px; }
+@keyframes decoSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 @media (max-width: 900px) {
   .hero-deco-circle.dc2 { width: 220px; height: 220px; }
@@ -577,8 +588,8 @@ h1, h2, h3, h4 {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-orbit-wrap { max-width: 320px; margin-top: 20px; }
   .glass-badge { display: none; }
-  .orbit-dot.d1 { animation: orbit1-sm 26s linear infinite; }
-  .orbit-dot.d2 { animation: orbit2-sm 20s linear infinite reverse; }
+  .orbit-dot.d1 { animation: orbit1-sm 16s linear infinite; }
+  .orbit-dot.d2 { animation: orbit2-sm 13s linear infinite reverse; }
   @keyframes orbit1-sm { from { transform: translate(-50%,-50%) rotate(0deg) translateX(158px) rotate(0deg);} to { transform: translate(-50%,-50%) rotate(360deg) translateX(158px) rotate(-360deg);} }
   @keyframes orbit2-sm { from { transform: translate(-50%,-50%) rotate(0deg) translateX(123px) rotate(0deg);} to { transform: translate(-50%,-50%) rotate(360deg) translateX(123px) rotate(-360deg);} }
 }
