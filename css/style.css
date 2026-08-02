@@ -461,36 +461,57 @@ h1, h2, h3, h4 {
   0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.92); }
   50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
 }
-.hero-meter-core img {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 24px 48px rgba(0,0,0,0.5);
-  animation: bob 5s ease-in-out infinite;
-}
 @keyframes bob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-/* Large faded wordmark watermark behind the logo lockup — confident, low-noise background element */
-.hero-watermark {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150%;
-  text-align: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.6rem, 6vw, 2.6rem);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.05);
-  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
-  white-space: nowrap;
-  z-index: 0;
-  pointer-events: none;
+/* Live wordmark lockup — icon + brand text, floating directly on the hero scene */
+.wordmark-live {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
-.hero-watermark span { color: rgba(0,163,224,0.1); -webkit-text-stroke: 1px rgba(0,163,224,0.14); }
+.wordmark-icon {
+  width: 58px; height: 58px;
+  flex-shrink: 0;
+  animation: bob 5s ease-in-out infinite;
+  filter: drop-shadow(0 10px 22px rgba(0,163,224,0.55));
+}
+.wordmark-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  color: var(--white);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+.wordmark-text span {
+  background: linear-gradient(120deg, var(--teal-500), var(--blue-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Flowing wave ribbon behind the wordmark */
+.hero-wave-anim {
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 0;
+}
+.wave-svg { position: absolute; left: 0; width: 200%; height: 55%; }
+.wave-svg path { fill: rgba(0,163,224,0.24); }
+.wave-svg.wave-1 { top: 36%; animation: waveslide 9s linear infinite; }
+.wave-svg.wave-2 { top: 46%; animation: waveslide 13s linear infinite reverse; }
+.wave-svg.wave-2 path { fill: rgba(0,212,170,0.18); }
+@keyframes waveslide {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 
 /* Floating glass spec badges */
 .glass-badge {
@@ -545,7 +566,7 @@ h1, h2, h3, h4 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero::before, .hero::after, .orbit-ring, .orbit-dot, .hero-meter-core img, .hero-meter-core::before, .glass-badge, .floating-call { animation: none !important; }
+  .hero::before, .hero::after, .orbit-ring, .orbit-dot, .wordmark-icon, .hero-meter-core::before, .glass-badge, .floating-call, .wave-svg { animation: none !important; }
 }
 
 /* ==========================================================================
