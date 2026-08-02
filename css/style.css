@@ -594,8 +594,39 @@ h1, h2, h3, h4 {
   @keyframes orbit2-sm { from { transform: translate(-50%,-50%) rotate(0deg) translateX(123px) rotate(0deg);} to { transform: translate(-50%,-50%) rotate(360deg) translateX(123px) rotate(-360deg);} }
 }
 
+/* These hero flourishes are purely ambient background motion (wave, rings,
+   floating badges) — kept animating even under prefers-reduced-motion,
+   the same way most JS-driven marketing sites behave, since the page's
+   global reduced-motion rule above would otherwise freeze them at 1 frame. */
 @media (prefers-reduced-motion: reduce) {
-  .hero::before, .hero::after, .orbit-ring, .orbit-dot, .wordmark-icon, .hero-meter-core::before, .glass-badge, .floating-call, .hero-wave-full, .hero-deco-circle { animation: none !important; }
+  .hero::before,
+  .hero::after,
+  .orbit-ring,
+  .orbit-dot,
+  .wordmark-icon,
+  .hero-meter-core::before,
+  .glass-badge,
+  .floating-call,
+  .hero-wave-full,
+  .hero-deco-circle {
+    animation-iteration-count: infinite !important;
+  }
+  .hero::before { animation-duration: 16s !important; }
+  .hero::after { animation-duration: 18s !important; }
+  .orbit-ring.r1 { animation-duration: 16s !important; }
+  .orbit-ring.r2 { animation-duration: 13s !important; }
+  .orbit-ring.r3 { animation-duration: 22s !important; }
+  .orbit-dot.d1 { animation-duration: 16s !important; }
+  .orbit-dot.d2 { animation-duration: 13s !important; }
+  .wordmark-icon { animation-duration: 5s !important; }
+  .hero-meter-core::before { animation-duration: 4.5s !important; }
+  .glass-badge { animation-duration: 5s !important; }
+  .floating-call { animation-duration: 2.6s !important; }
+  .hero-wave-full.wave-a { animation-duration: 8s !important; }
+  .hero-wave-full.wave-b { animation-duration: 11s !important; }
+  .hero-deco-circle.dc1 { animation-duration: 10s !important; }
+  .hero-deco-circle.dc2 { animation-duration: 16s !important; }
+  .hero-deco-circle.dc3 { animation-duration: 12s !important; }
 }
 
 /* ==========================================================================
