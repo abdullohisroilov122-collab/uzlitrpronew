@@ -404,6 +404,35 @@ h1, h2, h3, h4 {
   transition: transform 0.3s ease-out;
 }
 
+/* Expanding water-ripple pulses centered on the wordmark — three rings
+   growing and fading on a staggered loop so one is always mid-pulse */
+.ripple-wrap {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.ripple-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 150px; height: 150px;
+  border: 4px solid rgba(0,163,224,0.65);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 1;
+  animation: rippleLiquid 4s linear infinite;
+}
+.ripple-ring.r2 { animation-delay: 1.3s; }
+.ripple-ring.r3 { animation-delay: 2.6s; }
+@keyframes rippleLiquid {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; border-width: 4px; }
+  100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; border-width: 1px; }
+}
+@media (max-width: 900px) {
+  .ripple-ring { width: 100px; height: 100px; }
+}
+
 .orbit-ring {
   position: absolute;
   top: 50%; left: 50%;
@@ -608,7 +637,8 @@ h1, h2, h3, h4 {
   .glass-badge,
   .floating-call,
   .hero-wave-full,
-  .hero-deco-circle {
+  .hero-deco-circle,
+  .ripple-ring {
     animation-iteration-count: infinite !important;
   }
   .hero::before { animation-duration: 16s !important; }
@@ -627,6 +657,7 @@ h1, h2, h3, h4 {
   .hero-deco-circle.dc1 { animation-duration: 10s !important; }
   .hero-deco-circle.dc2 { animation-duration: 16s !important; }
   .hero-deco-circle.dc3 { animation-duration: 12s !important; }
+  .ripple-ring { animation-duration: 4s !important; }
 }
 
 /* ==========================================================================
