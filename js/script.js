@@ -38,7 +38,7 @@ const i18n = {
     prod_flow_15: "0.6 – 3.0 m³/h", prod_flow_20: "1.0 – 5.0 m³/h", prod_flow_25: "1.6 – 7.0 m³/h",
     size_view_all: "Barcha mahsulotlar", size_available: "Mavjud",
     team_eyebrow: "Bizning jamoa", team_h2: "Bizning jamoa", team_p: "Professional va tajribali mutaxassislar jamoasi",
-    team1_role: "Lavozimi tez orada qo'shiladi", team_soon: "Tez orada",
+    team1_role: "Dasturiy bo'lim boshlig'i", team_soon: "Tez orada",
 
     home_cta_h2: "To'liq spetsifikatsiyani ko'rishga tayyormisiz?",
     home_cta_p: "Har bir o'lcham bo'yicha batafsil texnik ma'lumotlarni Mahsulotlar sahifasida toping.",
@@ -131,7 +131,7 @@ const i18n = {
     prod_flow_15: "0.6 – 3.0 м³/ч", prod_flow_20: "1.0 – 5.0 м³/ч", prod_flow_25: "1.6 – 7.0 м³/ч",
     size_view_all: "Все продукты", size_available: "В наличии",
     team_eyebrow: "Наша команда", team_h2: "Наша команда", team_p: "Команда профессиональных и опытных специалистов",
-    team1_role: "Должность будет добавлена позже", team_soon: "Скоро",
+    team1_role: "Руководитель отдела программирования", team_soon: "Скоро",
 
     home_cta_h2: "Готовы увидеть полную спецификацию?",
     home_cta_p: "Подробные технические данные по каждому размеру — на странице «Продукты».",
@@ -224,7 +224,7 @@ const i18n = {
     prod_flow_15: "0.6 – 3.0 m³/h", prod_flow_20: "1.0 – 5.0 m³/h", prod_flow_25: "1.6 – 7.0 m³/h",
     size_view_all: "All products", size_available: "In stock",
     team_eyebrow: "Our team", team_h2: "Our team", team_p: "A team of professional and experienced specialists",
-    team1_role: "Title coming soon", team_soon: "Coming soon",
+    team1_role: "Head of Software Department", team_soon: "Coming soon",
 
     home_cta_h2: "Ready to see the full specification?",
     home_cta_p: "Find detailed technical data for every size on the Products page.",
