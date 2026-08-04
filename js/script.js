@@ -35,6 +35,8 @@ const i18n = {
     size_eyebrow: "O'lchamlar", size_h2: "Har bir tizimga mos o'lcham",
     size_p: "Kvartiradan tortib ko'p qavatli binolargacha — UzLitrPro uch xil diametrda mavjud.",
     sizespec1: "O'zMsT standarti", sizespec2: "Himoya darajasi", sizespec3: "Kafolat muddati", sizespec4: "Ishlab chiqaruvchi",
+    prod_flow_15: "0.6 – 3.0 m³/h", prod_flow_20: "1.0 – 5.0 m³/h", prod_flow_25: "1.6 – 7.0 m³/h",
+    size_view_all: "Barcha mahsulotlar", size_available: "Mavjud",
 
     home_cta_h2: "To'liq spetsifikatsiyani ko'rishga tayyormisiz?",
     home_cta_p: "Har bir o'lcham bo'yicha batafsil texnik ma'lumotlarni Mahsulotlar sahifasida toping.",
@@ -124,6 +126,8 @@ const i18n = {
     size_eyebrow: "Размеры", size_h2: "Подходящий размер для любой системы",
     size_p: "От квартиры до многоэтажного здания — UzLitrPro доступен в трёх диаметрах.",
     sizespec1: "Стандарт O'zMsT", sizespec2: "Уровень защиты", sizespec3: "Срок гарантии", sizespec4: "Производитель",
+    prod_flow_15: "0.6 – 3.0 м³/ч", prod_flow_20: "1.0 – 5.0 м³/ч", prod_flow_25: "1.6 – 7.0 м³/ч",
+    size_view_all: "Все продукты", size_available: "В наличии",
 
     home_cta_h2: "Готовы увидеть полную спецификацию?",
     home_cta_p: "Подробные технические данные по каждому размеру — на странице «Продукты».",
@@ -213,6 +217,8 @@ const i18n = {
     size_eyebrow: "Sizes", size_h2: "The right size for every system",
     size_p: "From apartments to multi-story buildings — UzLitrPro comes in three diameters.",
     sizespec1: "O'zMsT standard", sizespec2: "Protection rating", sizespec3: "Warranty period", sizespec4: "Manufacturer",
+    prod_flow_15: "0.6 – 3.0 m³/h", prod_flow_20: "1.0 – 5.0 m³/h", prod_flow_25: "1.6 – 7.0 m³/h",
+    size_view_all: "All products", size_available: "In stock",
 
     home_cta_h2: "Ready to see the full specification?",
     home_cta_p: "Find detailed technical data for every size on the Products page.",
