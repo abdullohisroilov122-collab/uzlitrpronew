@@ -1077,23 +1077,126 @@ h1, h2, h3, h4 {
    ========================================================================== */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 .about-grid img { border-radius: var(--radius-md); }
-.value-list { margin-top: 30px; display: grid; gap: 18px; }
-.value-item { display: flex; gap: 16px; }
-.value-num { font-family: var(--font-mono); color: var(--blue-600); font-weight: 600; flex-shrink: 0; }
-.value-item h4 { font-size: 1rem; margin-bottom: 4px; }
-.value-item p { color: var(--ink-soft); font-size: 0.92rem; }
-
-.timeline-note {
-  background: var(--steel-100);
-  border-left: 3px solid var(--blue-500);
-  padding: 20px 24px;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-  margin-top: 30px;
-}
 
 @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* Mission / Vision cards */
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mv-card {
+  border-radius: var(--radius-md);
+  padding: 36px;
+  color: var(--white);
+}
+.mv-card.c-primary { background: linear-gradient(135deg, var(--blue-500), var(--teal-600)); }
+.mv-card.c-dark { background: var(--navy-950); }
+.mv-card-icon {
+  width: 46px; height: 46px;
+  border-radius: 13px;
+  background: rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.mv-card-icon svg { width: 22px; height: 22px; color: var(--white); }
+.mv-card h2 { color: var(--white); font-size: 1.4rem; margin-bottom: 14px; }
+.mv-card p { color: rgba(255,255,255,0.82); font-size: 0.98rem; }
+
+@media (max-width: 760px) { .mv-grid { grid-template-columns: 1fr; } }
+
+/* Factory / company banner */
+.factory-banner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, var(--navy-950), var(--navy-900));
+  border-radius: 24px;
+  padding: 44px 40px;
+  color: var(--white);
+}
+.factory-banner::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 15% 20%, rgba(0,163,224,0.28), transparent 55%);
+  pointer-events: none;
+}
+.factory-banner > * { position: relative; z-index: 1; }
+.factory-banner .hero-pill { margin-bottom: 18px; }
+.factory-banner h2 { color: var(--white); font-size: clamp(1.5rem, 3vw, 2.1rem); max-width: 640px; }
+.factory-banner p { color: rgba(255,255,255,0.7); margin-top: 14px; max-width: 620px; font-size: 1.02rem; }
+
+/* Certificates */
+.certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cert-card {
+  background: var(--white);
+  border: 1px solid var(--steel-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cert-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,23,41,0.08); }
+.cert-card-media {
+  aspect-ratio: 3 / 4;
+  background: var(--steel-100);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--steel-200);
+}
+.cert-card-media svg { width: 46px; height: 46px; }
+.cert-card-label { padding: 16px; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); }
+
+@media (max-width: 860px) { .certs-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .certs-grid { grid-template-columns: 1fr; } }
+
+/* International standards band */
+.standards-band {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-950);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  color: var(--white);
+}
+.standards-band::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 85% 30%, rgba(0,212,170,0.22), transparent 55%);
+  pointer-events: none;
+}
+.standards-band > * { position: relative; z-index: 1; }
+.standards-band-copy { max-width: 560px; }
+.standards-band h2 { color: var(--white); font-size: clamp(1.3rem, 2.6vw, 1.8rem); }
+.standards-band p { color: rgba(255,255,255,0.68); margin-top: 12px; }
+.standards-stats { display: flex; gap: 16px; flex-wrap: wrap; }
+.standards-stat {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-sm);
+  padding: 18px 24px;
+  min-width: 130px;
+}
+.standards-stat strong { display: block; font-size: 1.6rem; font-family: var(--font-display); font-weight: 800; }
+.standards-stat.c-blue strong { color: var(--blue-500); }
+.standards-stat.c-teal strong { color: var(--teal-500); }
+.standards-stat span { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+
+/* Partners */
+.partners-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.partner-card {
+  background: var(--white);
+  border: 1.5px dashed var(--steel-200);
+  border-radius: var(--radius-md);
+  padding: 26px 18px;
+  text-align: center;
+  color: var(--ink-soft);
+}
+.partner-card svg { width: 30px; height: 30px; margin: 0 auto 10px; color: var(--steel-200); }
+.partner-card span { display: block; font-size: 0.85rem; font-weight: 600; }
+
+@media (max-width: 860px) { .partners-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .partners-grid { grid-template-columns: 1fr; } }
 
 /* ==========================================================================
    Products page

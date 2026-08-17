@@ -53,9 +53,22 @@ const i18n = {
     about_p: "UzLitrPro — MCHJ «LITR ENERGY GROUP» ning suv hisoblagichlari yo'nalishidagi brendi. Toshkentda joylashgan.",
     about_mission_eyebrow: "Missiyamiz", about_mission_h2: "Har bir uy va bino uchun ishonchli o'lchov",
     about_mission_p: "Suv sarfini aniq hisoblash — adolatli to'lov va tejamkorlikning boshlanishi. Shuning uchun UzLitrPro har bir hisoblagichni bardoshli, suv o'tkazmaydigan va O'zMsT ISO 4064-1:2024 standartiga to'liq mos qilib ishlab chiqaradi.",
-    value1_h: "Sifat nazorati", value1_p: "Har bir hisoblagich ishlab chiqarish jarayonida tekshiruvdan o'tadi.",
-    value2_h: "Bardoshli materiallar", value2_p: "Uzoq muddatli xizmat va korroziyaga chidamlilik uchun tanlangan qurilmalar.",
-    value3_h: "Mahalliy ishlab chiqarish", value3_p: "Toshkentda joylashgan — bu tezroq yetkazib berish va qulay xizmat degani.",
+    about_vision_h: "Viziyamiz", about_vision_p: "Biz O'zbekistonda ishlab chiqarilgan, xalqaro standartlarga to'liq javob beradigan suv hisoblagichlari bilan tanilgan ishonchli mahalliy brendga aylanishni maqsad qilganmiz.",
+    about_factory_pill: "Ishlab chiqarish", about_factory_h: "Suv hisoblagichlari ishlab chiqaruvchi brend",
+    about_factory_p: "UzLitrPro — Toshkentda joylashgan suv hisoblagichlari brendi. 2026 yildan beri suv o'tkazmaydigan, IP68 himoyali va O'zMsT ISO 4064-1:2024 standartiga mos hisoblagichlar ishlab chiqaramiz.",
+    about_values_eyebrow: "Qadriyatlarimiz", about_values_h2: "Qadriyatlarimiz",
+    about_val1_h: "Halollik", about_val1_p: "Mijozlarimiz va hamkorlarimiz oldida ochiq va halol bo'lishga intilamiz — narx, muddat va texnik xususiyatlarda aniqlik bilan.",
+    about_val2_h: "Sifat", about_val2_p: "Har bir hisoblagich ishlab chiqarish jarayonida tekshiruvdan o'tadi va O'zMsT ISO 4064-1:2024 standartiga mos ishlab chiqariladi.",
+    about_val3_h: "Ishonch", about_val3_p: "1 yillik kafolat va Toshkentdagi mahalliy ishlab chiqarish orqali mijozlarimizga ishonchli xizmat ko'rsatamiz.",
+    about_val4_h: "O'lchov aniqligi", about_val4_p: "Yuqori aniqlikdagi mexanizm har bir litr suvni xatosiz hisoblab, adolatli to'lovga asos yaratadi.",
+    about_certs_eyebrow: "Sertifikatlar", about_certs_h2: "Sertifikatlar va sifat", about_certs_p: "Mahsulotlarimiz O'zMsT ISO 4064-1:2024 standartiga muvofiqligini tasdiqlovchi hujjatlar tez orada shu yerda joylashtiriladi.",
+    about_cert_soon: "Sertifikat tez orada qo'shiladi",
+    about_standards_pill: "Xalqaro standartlar", about_standards_h2: "Mahsulotlarimiz barcha zamonaviy talablarga javob beradi",
+    about_standards_p: "Biz har bir qurilmaning sifati va aniqligiga alohida e'tibor qaratamiz. Har bir hisoblagich sinovdan o'tadi.",
+    about_stat_control: "Nazorat", about_stat_control_val: "100%",
+    about_partners_eyebrow: "Bizning hamkorlarimiz", about_partners_h2: "Ishonchga asoslangan hamkorlik",
+    about_partners_p: "Biz O'zbekistonning turli hududlaridagi tashkilotlar bilan samarali hamkorlik qilishga intilamiz.",
+    about_partner_soon: "Hamkor tez orada qo'shiladi",
     about_timeline: "MCHJ «LITR ENERGY GROUP» — Toshkent shahri, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uyda joylashgan ishlab chiqaruvchi korxona.",
     about_why_eyebrow: "Nega UzLitrPro", about_why_h2: "Har bir hisoblagich ortida turgan standart",
     about_f1_p: "Rasmiy standartga to'liq muvofiqlik.",
@@ -156,9 +169,22 @@ const i18n = {
     about_p: "UzLitrPro — бренд ООО «LITR ENERGY GROUP» в сфере счётчиков воды. Расположен в Ташкенте.",
     about_mission_eyebrow: "Наша миссия", about_mission_h2: "Надёжное измерение для каждого дома и здания",
     about_mission_p: "Точный учёт расхода воды — начало справедливой оплаты и экономии. Поэтому UzLitrPro производит каждый счётчик прочным, водонепроницаемым и полностью соответствующим стандарту O'zMsT ISO 4064-1:2024.",
-    value1_h: "Контроль качества", value1_p: "Каждый счётчик проходит проверку в процессе производства.",
-    value2_h: "Прочные материалы", value2_p: "Устройства, выбранные за долгий срок службы и устойчивость к коррозии.",
-    value3_h: "Местное производство", value3_p: "Расположены в Ташкенте — это более быстрая доставка и удобный сервис.",
+    about_vision_h: "Наше видение", about_vision_p: "Мы стремимся стать надёжным местным брендом, известным счётчиками воды, произведёнными в Узбекистане и полностью соответствующими международным стандартам.",
+    about_factory_pill: "Производство", about_factory_h: "Бренд по производству счётчиков воды",
+    about_factory_p: "UzLitrPro — бренд счётчиков воды, расположенный в Ташкенте. С 2026 года мы производим водонепроницаемые счётчики с защитой IP68, соответствующие стандарту O'zMsT ISO 4064-1:2024.",
+    about_values_eyebrow: "Наши ценности", about_values_h2: "Наши ценности",
+    about_val1_h: "Честность", about_val1_p: "Мы стремимся быть открытыми и честными перед клиентами и партнёрами — в цене, сроках и технических характеристиках.",
+    about_val2_h: "Качество", about_val2_p: "Каждый счётчик проходит проверку в процессе производства и изготавливается в соответствии со стандартом O'zMsT ISO 4064-1:2024.",
+    about_val3_h: "Доверие", about_val3_p: "Мы обеспечиваем надёжный сервис благодаря гарантии на 1 год и местному производству в Ташкенте.",
+    about_val4_h: "Точность измерения", about_val4_p: "Высокоточный механизм считает каждый литр воды без ошибок, создавая основу для справедливой оплаты.",
+    about_certs_eyebrow: "Сертификаты", about_certs_h2: "Сертификаты и качество", about_certs_p: "Документы, подтверждающие соответствие нашей продукции стандарту O'zMsT ISO 4064-1:2024, скоро появятся здесь.",
+    about_cert_soon: "Сертификат будет добавлен позже",
+    about_standards_pill: "Международные стандарты", about_standards_h2: "Наша продукция отвечает всем современным требованиям",
+    about_standards_p: "Мы уделяем особое внимание качеству и точности каждого устройства. Каждый счётчик проходит проверку.",
+    about_stat_control: "Контроль", about_stat_control_val: "100%",
+    about_partners_eyebrow: "Наши партнёры", about_partners_h2: "Сотрудничество, основанное на доверии",
+    about_partners_p: "Мы стремимся к эффективному сотрудничеству с организациями в разных регионах Узбекистана.",
+    about_partner_soon: "Партнёр будет добавлен позже",
     about_timeline: "ООО «LITR ENERGY GROUP» — производственное предприятие, расположенное по адресу: г. Ташкент, Яккасарайский район, махалля Ракатбоши, ул. Орикзор 1-тор, дом 40.",
     about_why_eyebrow: "Почему UzLitrPro", about_why_h2: "Стандарт, стоящий за каждым счётчиком",
     about_f1_p: "Полное соответствие официальному стандарту.",
@@ -259,9 +285,22 @@ const i18n = {
     about_p: "UzLitrPro is LITR ENERGY GROUP LLC's water metering brand, based in Tashkent.",
     about_mission_eyebrow: "Our mission", about_mission_h2: "Reliable measurement for every home and building",
     about_mission_p: "Accurate water measurement is where fair billing and savings begin. That's why UzLitrPro builds every meter to be durable, waterproof, and fully compliant with the O'zMsT ISO 4064-1:2024 standard.",
-    value1_h: "Quality control", value1_p: "Every meter is inspected during the manufacturing process.",
-    value2_h: "Durable materials", value2_p: "Devices chosen for long service life and corrosion resistance.",
-    value3_h: "Local manufacturing", value3_p: "Based in Tashkent — meaning faster delivery and convenient service.",
+    about_vision_h: "Our vision", about_vision_p: "We aim to become a trusted local brand known for water meters made in Uzbekistan that fully meet international standards.",
+    about_factory_pill: "Manufacturing", about_factory_h: "A water meter manufacturing brand",
+    about_factory_p: "UzLitrPro is a water meter brand based in Tashkent. Since 2026, we've been manufacturing waterproof, IP68-rated meters compliant with the O'zMsT ISO 4064-1:2024 standard.",
+    about_values_eyebrow: "Our values", about_values_h2: "Our values",
+    about_val1_h: "Honesty", about_val1_p: "We aim to be open and honest with our customers and partners — on price, timelines, and technical specifications.",
+    about_val2_h: "Quality", about_val2_p: "Every meter is inspected during manufacturing and built to comply with the O'zMsT ISO 4064-1:2024 standard.",
+    about_val3_h: "Trust", about_val3_p: "A 1-year warranty and local manufacturing in Tashkent let us offer customers dependable service.",
+    about_val4_h: "Measurement accuracy", about_val4_p: "A high-precision mechanism counts every litre without error, forming the basis for fair billing.",
+    about_certs_eyebrow: "Certificates", about_certs_h2: "Certificates and quality", about_certs_p: "Documents confirming our products' compliance with the O'zMsT ISO 4064-1:2024 standard will appear here soon.",
+    about_cert_soon: "Certificate coming soon",
+    about_standards_pill: "International standards", about_standards_h2: "Our products meet every modern requirement",
+    about_standards_p: "We pay close attention to the quality and accuracy of every device. Every meter is tested.",
+    about_stat_control: "Control", about_stat_control_val: "100%",
+    about_partners_eyebrow: "Our partners", about_partners_h2: "Partnerships built on trust",
+    about_partners_p: "We aim for effective cooperation with organizations across different regions of Uzbekistan.",
+    about_partner_soon: "Partner coming soon",
     about_timeline: "LITR ENERGY GROUP LLC — a manufacturing company located at Rakatboshi MFY, O'rikzor 1st lane, House 40, Yakkasaray district, Tashkent.",
     about_why_eyebrow: "Why UzLitrPro", about_why_h2: "The standard behind every meter",
     about_f1_p: "Full compliance with the official standard.",
@@ -479,6 +518,17 @@ document.addEventListener("DOMContentLoaded", () => {
         success.focus();
       }
       form.reset();
+    });
+  }
+
+  // Footer newsletter signup — front-end demo only, no backend
+  const newsletterForm = document.getElementById("newsletter-form");
+  const newsletterSuccess = document.getElementById("newsletter-success");
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (newsletterSuccess) newsletterSuccess.classList.add("show");
+      newsletterForm.reset();
     });
   }
 });

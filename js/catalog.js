@@ -59,15 +59,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
-  // Newsletter form — front-end demo only, no backend
-  const newsletterForm = document.getElementById("newsletter-form");
-  const newsletterSuccess = document.getElementById("newsletter-success");
-  if (newsletterForm) {
-    newsletterForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (newsletterSuccess) newsletterSuccess.classList.add("show");
-      newsletterForm.reset();
-    });
-  }
 });
