@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mahsulotlar — UzLitrPro</title>
+<title>Mahsulotlar katalogi — UzLitrPro</title>
 <meta name="description" content="UzLitrPro suv hisoblagichi — 15∅, 20∅ va 25∅ o'lchamlarda, IP68 himoya va 1 yil kafolat bilan.">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -48,6 +48,10 @@
       <li><a href="news.html" data-i18n="nav_news">Yangiliklar</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">Aloqa</a></li>
     </ul>
+    <button class="cart-toggle-btn" id="cart-toggle" aria-label="Savat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-count-badge" id="cart-count-badge">0</span>
+    </button>
     <a href="contact.html" class="nav-cta">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       <span data-i18n="nav_cta">Bog'lanish</span>
@@ -60,15 +64,90 @@
 
 <main>
 
-  <section class="page-hero blueprint-bg">
+  <!-- CATALOG HERO -->
+  <section class="page-hero blueprint-bg catalog-hero">
     <div class="container">
-      <span class="eyebrow" data-i18n="prod_eyebrow">Mahsulot</span>
-      <h1 data-i18n="prod_h1">Sovuq va issiq suv uchun hisoblagich</h1>
-      <p data-i18n="prod_p">Uch xil o'lchamda mavjud — kvartiradan tortib yuqori sarfli tizimlargacha. Quyidagi o'lchamni tanlab, texnik xususiyatlarini ko'ring.</p>
+      <span class="hero-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
+        <span data-i18n="prod_catalog_pill">Sifatli mahsulotlar</span>
+      </span>
+      <h1 data-i18n="prod_catalog_h1">Suv hisoblagichlari katalogi</h1>
+      <p data-i18n="prod_catalog_p">UzLitrPro suv hisoblagichlari katalogi: o'lchami va texnik xususiyatlarini ko'ring, kerakli variantni tanlab buyurtma bering.</p>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#f7f9fb" d="M0,32 C240,80 480,0 720,24 C960,48 1200,88 1440,40 L1440,90 L0,90 Z"></path>
+      </svg>
     </div>
   </section>
 
-  <section class="section">
+  <!-- FILTER / SEARCH BAR -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="catalog-filter-bar reveal">
+        <div class="filter-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="catalog-search" data-i18n-placeholder="prod_search_ph" placeholder="Qidirish...">
+        </div>
+        <select id="catalog-size-filter" class="filter-select">
+          <option value="all" data-i18n="prod_filter_all_sizes">Barcha o'lchamlar</option>
+          <option value="15">15∅ (DN15)</option>
+          <option value="20">20∅ (DN20)</option>
+          <option value="25">25∅ (DN25)</option>
+        </select>
+        <select id="catalog-sort" class="filter-select">
+          <option value="default" data-i18n="prod_sort_default">Standart tartib</option>
+          <option value="size-asc" data-i18n="prod_sort_size_asc">O'lcham: kichikdan kattaga</option>
+          <option value="size-desc" data-i18n="prod_sort_size_desc">O'lcham: kattadan kichikka</option>
+        </select>
+      </div>
+
+      <div class="product-cards catalog-grid" id="catalog-grid">
+        <a href="#product-detail" class="product-card reveal catalog-card-item" data-size="15" data-name="15∅ (DN15) suv hisoblagichi">
+          <span class="hit-tag amber"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.9-5 4.9 1.2 6.9L12 17.8l-6 3.2 1.2-6.9-5-4.9 6.9-.9z"/></svg><span data-i18n="prod_top_tag">TOP</span></span>
+          <div class="product-card-media"><img src="assets/product-meter.png" alt="UzLitrPro 15∅ suv hisoblagichi" loading="lazy"></div>
+          <div class="product-card-body">
+            <h3>15∅ (DN15)</h3>
+            <div class="product-card-row">
+              <span class="product-card-flow" data-i18n="prod_flow_15">0.6 – 3.0 m³/h</span>
+              <span class="product-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+            <span class="product-card-price" data-i18n="prod_price_on_request">Narx so'rov asosida</span>
+            <span class="availability-tag" data-i18n="size_available">Mavjud</span>
+          </div>
+        </a>
+        <a href="#product-detail" class="product-card reveal catalog-card-item" data-size="20" data-name="20∅ (DN20) suv hisoblagichi">
+          <span class="hit-tag amber"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.9-5 4.9 1.2 6.9L12 17.8l-6 3.2 1.2-6.9-5-4.9 6.9-.9z"/></svg><span data-i18n="prod_top_tag">TOP</span></span>
+          <div class="product-card-media"><img src="assets/product-meter.png" alt="UzLitrPro 20∅ suv hisoblagichi" loading="lazy"></div>
+          <div class="product-card-body">
+            <h3>20∅ (DN20)</h3>
+            <div class="product-card-row">
+              <span class="product-card-flow" data-i18n="prod_flow_20">1.0 – 5.0 m³/h</span>
+              <span class="product-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+            <span class="product-card-price" data-i18n="prod_price_on_request">Narx so'rov asosida</span>
+            <span class="availability-tag" data-i18n="size_available">Mavjud</span>
+          </div>
+        </a>
+        <a href="#product-detail" class="product-card reveal catalog-card-item" data-size="25" data-name="25∅ (DN25) suv hisoblagichi">
+          <span class="hit-tag amber"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.9-5 4.9 1.2 6.9L12 17.8l-6 3.2 1.2-6.9-5-4.9 6.9-.9z"/></svg><span data-i18n="prod_top_tag">TOP</span></span>
+          <div class="product-card-media"><img src="assets/product-meter.png" alt="UzLitrPro 25∅ suv hisoblagichi" loading="lazy"></div>
+          <div class="product-card-body">
+            <h3>25∅ (DN25)</h3>
+            <div class="product-card-row">
+              <span class="product-card-flow" data-i18n="prod_flow_25">1.6 – 7.0 m³/h</span>
+              <span class="product-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+            <span class="product-card-price" data-i18n="prod_price_on_request">Narx so'rov asosida</span>
+            <span class="availability-tag" data-i18n="size_available">Mavjud</span>
+          </div>
+        </a>
+      </div>
+      <p class="catalog-empty" id="catalog-empty" data-i18n="prod_no_results" style="display:none;">Hech narsa topilmadi. Boshqa so'rov bilan qidirib ko'ring.</p>
+    </div>
+  </section>
+
+  <section class="section" id="product-detail">
     <div class="container">
       <div class="product-hero-card reveal">
         <img src="assets/product-meter.png" alt="UzLitrPro suv hisoblagichi">
@@ -91,8 +170,13 @@
             <button class="size-chip" data-size="25">25∅</button>
           </div>
 
-          <div style="margin-top: 26px;">
-            <a href="contact.html" class="btn btn-primary" data-i18n="prod_order_btn">Ushbu o'lchamni buyurtma qilish</a>
+          <div class="product-actions-row">
+            <div class="qty-selector">
+              <button class="qty-btn" id="qty-minus" type="button" aria-label="Kamaytirish">−</button>
+              <input type="text" class="qty-input" id="qty-input" value="1" inputmode="numeric">
+              <button class="qty-btn" id="qty-plus" type="button" aria-label="Ko'paytirish">+</button>
+            </div>
+            <button class="btn btn-primary" id="add-to-cart-btn" type="button" data-i18n="prod_add_to_cart">Savatga qo'shish</button>
           </div>
         </div>
       </div>
@@ -129,24 +213,40 @@
       </div>
       <div class="feature-grid">
         <div class="feature-card reveal">
-          <div class="feature-icon">01</div>
+          <div class="feature-top">
+            <div class="feature-icon c-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg></div>
+            <span class="feature-num">01</span>
+          </div>
           <h3 data-i18n="feat1_h">Sovuq va issiq suv</h3>
           <p data-i18n="prod_f1_p">Ikkala tizim uchun ham bitta ishonchli yechim.</p>
+          <svg class="feature-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon">02</div>
+          <div class="feature-top">
+            <div class="feature-icon c-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/></svg></div>
+            <span class="feature-num">02</span>
+          </div>
           <h3 data-i18n="feat2_h">Aniq o'lchov</h3>
           <p data-i18n="prod_f2_p">Har bir litr aniq va xatosiz hisoblanadi.</p>
+          <svg class="feature-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/></svg>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon">03</div>
+          <div class="feature-top">
+            <div class="feature-icon c-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5z"/></svg></div>
+            <span class="feature-num">03</span>
+          </div>
           <h3 data-i18n="feat3_h">Bardoshli material</h3>
           <p data-i18n="feat3_p">Uzoq muddatli xizmat va yuqori ishonchlilik.</p>
+          <svg class="feature-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5z"/></svg>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon">04</div>
+          <div class="feature-top">
+            <div class="feature-icon c-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.5 6.5 5 10.7 5 14.2a7 7 0 0 0 14 0C19 10.7 15.5 6.5 12 2Z"/></svg></div>
+            <span class="feature-num">04</span>
+          </div>
           <h3 data-i18n="feat4_h">IP68 himoya</h3>
           <p data-i18n="feat4_p">Namlik va tashqi ta'sirlardan to'liq himoyalangan.</p>
+          <svg class="feature-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C8.5 6.5 5 10.7 5 14.2a7 7 0 0 0 14 0C19 10.7 15.5 6.5 12 2Z"/></svg>
         </div>
       </div>
     </div>
@@ -164,7 +264,7 @@
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-grid footer-grid-4">
       <div class="footer-brand">
         <a href="index.html" class="brand"><span class="brand-name">UzLitr<span>Pro</span></span></a>
         <p data-i18n="footer_desc">Sovuq va issiq suv uchun ishonchli, aniq hisoblagichlar. MCHJ «LITR ENERGY GROUP» tomonidan Toshkentda ishlab chiqariladi.</p>
@@ -187,6 +287,16 @@
           <li>+998 77 090 05 50</li>
         </ul>
       </div>
+      <div class="footer-col footer-newsletter">
+        <h4 data-i18n="footer_newsletter_h">Yangiliklardan xabardor bo'ling</h4>
+        <p data-i18n="footer_newsletter_p">Yangiliklar va maxsus takliflardan xabardor bo'ling</p>
+        <form id="newsletter-form" class="newsletter-form">
+          <input type="email" required data-i18n-placeholder="footer_newsletter_ph" placeholder="Elektron pochtangiz">
+          <button type="submit" class="btn btn-primary" data-i18n="footer_newsletter_btn">Obuna bo'lish</button>
+        </form>
+        <p class="newsletter-note" data-i18n="footer_newsletter_note">Bu forma frontend namoyishi sifatida ishlaydi.</p>
+        <p class="newsletter-success" id="newsletter-success" data-i18n="footer_newsletter_success">Rahmat! Obuna qabul qilindi (namoyish rejimi).</p>
+      </div>
     </div>
     <div class="footer-bottom">
       <span data-i18n="footer_rights">© 2026 UzLitrPro / LITR ENERGY GROUP. Barcha huquqlar himoyalangan.</span>
@@ -195,6 +305,30 @@
   </div>
 </footer>
 
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>Savat</h3>
+    <button class="cart-close-btn" id="cart-close" aria-label="Yopish">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <p class="cart-empty-msg" id="cart-empty">Savatingiz hozircha bo'sh. Mahsulotlar sahifasidan o'lcham va miqdorni tanlab qo'shishingiz mumkin.</p>
+    <div id="cart-items"></div>
+  </div>
+  <div class="cart-drawer-footer" id="cart-footer" style="display:none;">
+    <button class="btn btn-primary" id="cart-send">So'rovni yuborish</button>
+    <button class="btn btn-outline" id="cart-clear">Savatni tozalash</button>
+    <p class="cart-note">Bu — buyurtma so'rovi. To'lov shu yerda amalga oshirilmaydi, biz siz bilan bog'lanamiz.</p>
+  </div>
+</div>
+
+<a href="tel:+998770900550" class="floating-call" aria-label="+998 77 090 05 50">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
 <script src="js/script.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/catalog.js"></script>
 </body>
 </html>

@@ -98,6 +98,16 @@ const i18n = {
     news_f2_h: "Kompaniya e'lonlari", news_f2_p: "Sertifikatlar, hamkorliklar va boshqa muhim yangiliklar.",
     news_f3_h: "Foydali maslahatlar", news_f3_p: "Suv hisoblagichlarini o'rnatish va parvarish qilish bo'yicha tavsiyalar.",
     news_cta_h2: "Savolingiz bormi?", news_cta_p: "Biz bilan bog'laning — sizga yordam berishdan mamnunmiz.",
+
+    prod_catalog_pill: "Sifatli mahsulotlar", prod_catalog_h1: "Suv hisoblagichlari katalogi",
+    prod_catalog_p: "UzLitrPro suv hisoblagichlari katalogi: o'lchami va texnik xususiyatlarini ko'ring, kerakli variantni tanlab buyurtma bering.",
+    prod_search_ph: "Qidirish...", prod_filter_all_sizes: "Barcha o'lchamlar",
+    prod_sort_default: "Standart tartib", prod_sort_size_asc: "O'lcham: kichikdan kattaga", prod_sort_size_desc: "O'lcham: kattadan kichikka",
+    prod_top_tag: "TOP", prod_price_on_request: "Narx so'rov asosida", prod_no_results: "Hech narsa topilmadi. Boshqa so'rov bilan qidirib ko'ring.",
+    prod_qty_label: "Miqdori", prod_add_to_cart: "Savatga qo'shish",
+    footer_newsletter_h: "Yangiliklardan xabardor bo'ling", footer_newsletter_p: "Yangiliklar va maxsus takliflardan xabardor bo'ling",
+    footer_newsletter_ph: "Elektron pochtangiz", footer_newsletter_btn: "Obuna bo'lish",
+    footer_newsletter_note: "Bu forma frontend namoyishi sifatida ishlaydi.", footer_newsletter_success: "Rahmat! Obuna qabul qilindi (namoyish rejimi).",
   },
 
   ru: {
@@ -191,6 +201,16 @@ const i18n = {
     news_f2_h: "Объявления компании", news_f2_p: "Сертификаты, партнёрства и другие важные новости.",
     news_f3_h: "Полезные советы", news_f3_p: "Рекомендации по установке и обслуживанию счётчиков воды.",
     news_cta_h2: "Остались вопросы?", news_cta_p: "Свяжитесь с нами — мы будем рады помочь.",
+
+    prod_catalog_pill: "Качественная продукция", prod_catalog_h1: "Каталог счётчиков воды",
+    prod_catalog_p: "Каталог счётчиков воды UzLitrPro: изучите размеры и технические характеристики, выберите нужный вариант и оформите заказ.",
+    prod_search_ph: "Поиск...", prod_filter_all_sizes: "Все размеры",
+    prod_sort_default: "Стандартный порядок", prod_sort_size_asc: "Размер: по возрастанию", prod_sort_size_desc: "Размер: по убыванию",
+    prod_top_tag: "TOP", prod_price_on_request: "Цена по запросу", prod_no_results: "Ничего не найдено. Попробуйте другой запрос.",
+    prod_qty_label: "Количество", prod_add_to_cart: "Добавить в корзину",
+    footer_newsletter_h: "Будьте в курсе новостей", footer_newsletter_p: "Узнавайте первыми о новостях и спецпредложениях",
+    footer_newsletter_ph: "Ваш email", footer_newsletter_btn: "Подписаться",
+    footer_newsletter_note: "Эта форма работает как демонстрация интерфейса.", footer_newsletter_success: "Спасибо! Подписка оформлена (демо-режим).",
   },
 
   en: {
@@ -284,6 +304,16 @@ const i18n = {
     news_f2_h: "Company announcements", news_f2_p: "Certifications, partnerships, and other important news.",
     news_f3_h: "Helpful tips", news_f3_p: "Recommendations for installing and maintaining water meters.",
     news_cta_h2: "Have a question?", news_cta_p: "Get in touch with us — we're happy to help.",
+
+    prod_catalog_pill: "Quality products", prod_catalog_h1: "Water meter catalog",
+    prod_catalog_p: "UzLitrPro's water meter catalog: browse sizes and technical specs, pick the right option, and place your order.",
+    prod_search_ph: "Search...", prod_filter_all_sizes: "All sizes",
+    prod_sort_default: "Default order", prod_sort_size_asc: "Size: smallest first", prod_sort_size_desc: "Size: largest first",
+    prod_top_tag: "TOP", prod_price_on_request: "Price on request", prod_no_results: "No results found. Try a different search.",
+    prod_qty_label: "Quantity", prod_add_to_cart: "Add to cart",
+    footer_newsletter_h: "Stay updated", footer_newsletter_p: "Get notified about news and special offers",
+    footer_newsletter_ph: "Your email", footer_newsletter_btn: "Subscribe",
+    footer_newsletter_note: "This form works as a front-end demo.", footer_newsletter_success: "Thanks! Subscription received (demo mode).",
   },
 };
 
