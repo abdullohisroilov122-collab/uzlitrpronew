@@ -7,7 +7,7 @@
 <meta name="description" content="UzLitrPro bilan bog'laning — buyurtma, hamkorlik yoki savollar bo'yicha murojaat qiling.">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -48,6 +48,10 @@
       <li><a href="news.html" data-i18n="nav_news">Yangiliklar</a></li>
       <li><a href="contact.html" class="active" data-i18n="nav_contact">Aloqa</a></li>
     </ul>
+    <button class="cart-toggle-btn" id="cart-toggle" aria-label="Savat">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-count-badge" id="cart-count-badge">0</span>
+    </button>
     <a href="contact.html" class="nav-cta">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       <span data-i18n="nav_cta">Bog'lanish</span>
@@ -62,37 +66,16 @@
 
   <section class="page-hero blueprint-bg">
     <div class="container">
-      <span class="eyebrow" data-i18n="contact_eyebrow">Aloqa</span>
-      <h1 data-i18n="contact_h1">Biz bilan bog'laning</h1>
-      <p data-i18n="contact_p">Buyurtma berish, hamkorlik yoki savolingiz bormi? Quyidagi forma orqali yozing yoki to'g'ridan-to'g'ri qo'ng'iroq qiling.</p>
+      <h1 data-i18n="contact_h1">Suv hisoblagich sotib olish va aloqa</h1>
+      <p data-i18n="contact_p">UzLitrPro bilan bog'laning: suv hisoblagichlari narxi, buyurtma va texnik maslahat. Manzil: Toshkent, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy. Tel: +998 77 090 05 50.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container contact-grid">
 
-      <div class="contact-info-card reveal">
-        <h3 data-i18n="contact_info_h">Bog'lanish ma'lumotlari</h3>
-        <div class="contact-info-row">
-          <span class="icon">☎</span>
-          <span>+998 77 090 05 50</span>
-        </div>
-        <div class="contact-info-row">
-          <span class="icon">📍</span>
-          <span data-i18n="contact_address">Toshkent shahri, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy</span>
-        </div>
-        <div class="contact-info-row">
-          <span class="icon">🏢</span>
-          <span>MCHJ «LITR ENERGY GROUP»</span>
-        </div>
-        <div class="contact-info-row">
-          <span class="icon">🕐</span>
-          <span data-i18n="hours">Dushanba – Shanba, 9:00 AM – 6:00 PM</span>
-        </div>
-      </div>
-
       <div class="form-card reveal">
-        <h3 style="margin-bottom: 22px;" data-i18n="contact_form_h">Xabar yuborish</h3>
+        <h3 style="margin-bottom: 22px;" data-i18n="contact_form_h">Suv hisoblagich sotib olish va aloqa</h3>
         <form id="contact-form">
           <div class="form-row">
             <div class="form-group">
@@ -100,29 +83,83 @@
               <input type="text" id="name" name="name" required data-i18n-placeholder="form_name_ph" placeholder="Ismingizni kiriting">
             </div>
             <div class="form-group">
-              <label for="phone" data-i18n="form_phone">Telefon raqami</label>
-              <input type="tel" id="phone" name="phone" required placeholder="+998 __ ___ __ __">
+              <label for="email" data-i18n="form_email">Elektron pochtangiz</label>
+              <input type="email" id="email" name="email" required data-i18n-placeholder="form_email_ph" placeholder="email@misol.uz">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone" data-i18n="form_phone">Telefon raqamingiz</label>
+              <input type="tel" id="phone" name="phone" placeholder="+998 __ ___ __ __">
+            </div>
+            <div class="form-group">
+              <label for="size" data-i18n="form_size">Qiziqtirgan o'lcham</label>
+              <select id="size" name="size">
+                <option value="15">15∅</option>
+                <option value="20">20∅</option>
+                <option value="25">25∅</option>
+                <option value="notsure" data-i18n="form_notsure">Hali aniq emas</option>
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="size" data-i18n="form_size">Qiziqtirgan o'lcham</label>
-            <select id="size" name="size">
-              <option value="15">15∅</option>
-              <option value="20">20∅</option>
-              <option value="25">25∅</option>
-              <option value="notsure" data-i18n="form_notsure">Hali aniq emas</option>
-            </select>
-          </div>
-          <div class="form-group">
             <label for="message" data-i18n="form_message">Xabaringiz</label>
-            <textarea id="message" name="message" data-i18n-placeholder="form_message_ph" placeholder="Buyurtma miqdori, yetkazib berish manzili yoki savolingizni yozing..."></textarea>
+            <textarea id="message" name="message" required data-i18n-placeholder="form_message_ph" placeholder="Buyurtma miqdori, yetkazib berish manzili yoki savolingizni yozing..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" data-i18n="form_submit">Xabarni yuborish</button>
+          <button type="submit" class="btn btn-primary" data-i18n="form_submit">Yuborish</button>
           <p class="form-note" data-i18n="form_note">Bu forma frontend namoyishi sifatida ishlaydi. Haqiqiy xabarlarni qabul qilish uchun uni backend yoki elektron pochta xizmatiga ulash kerak bo'ladi.</p>
           <div class="form-success" id="form-success" data-i18n="form_success">Rahmat! Xabaringiz qabul qilindi (namoyish rejimi) — tez orada siz bilan bog'lanamiz.</div>
         </form>
       </div>
 
+      <div class="contact-info-list">
+        <div class="contact-info-tile reveal">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div>
+            <strong data-i18n="contact_label_address">Manzil</strong>
+            <span data-i18n="contact_address">Toshkent shahri, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy</span>
+          </div>
+        </div>
+        <div class="contact-info-tile reveal">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div>
+            <strong data-i18n="contact_label_phone">Telefon</strong>
+            <span>+998 77 090 05 50</span>
+          </div>
+        </div>
+        <div class="contact-info-tile reveal">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <div>
+            <strong data-i18n="contact_label_email">Elektron pochta</strong>
+            <span>curinaut@gmail.com</span>
+          </div>
+        </div>
+        <div class="contact-info-tile reveal">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div>
+            <strong data-i18n="contact_label_hours">Ish vaqti</strong>
+            <span data-i18n="hours">Dushanba – Shanba, 9:00 AM – 6:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="section section-alt" style="padding-top:0;">
+    <div class="container">
+      <div class="map-card reveal">
+        <iframe
+          src="https://www.google.com/maps?q=41.277691,69.268832&z=16&output=embed"
+          width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="UzLitrPro manzili xaritada"></iframe>
+      </div>
+      <a href="https://maps.google.com/maps?q=41.277691,69.268832&ll=41.277691,69.268832&z=16" target="_blank" rel="noopener" class="map-link reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="contact_map_link">Google Xaritada ko'rish</span>
+      </a>
     </div>
   </section>
 
@@ -130,7 +167,7 @@
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-grid footer-grid-4">
       <div class="footer-brand">
         <a href="index.html" class="brand"><span class="brand-name">UzLitr<span>Pro</span></span></a>
         <p data-i18n="footer_desc">Sovuq va issiq suv uchun ishonchli, aniq hisoblagichlar. MCHJ «LITR ENERGY GROUP» tomonidan Toshkentda ishlab chiqariladi.</p>
@@ -151,7 +188,18 @@
           <li>Toshkent sh., Yakkasaroy t., Rakatboshi MFY</li>
           <li>O'rikzor 1-tor ko'chasi, 40-uy</li>
           <li>+998 77 090 05 50</li>
+          <li>curinaut@gmail.com</li>
         </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4 data-i18n="footer_newsletter_h">Yangiliklardan xabardor bo'ling</h4>
+        <p data-i18n="footer_newsletter_p">Yangiliklar va maxsus takliflardan xabardor bo'ling</p>
+        <form id="newsletter-form" class="newsletter-form">
+          <input type="email" required data-i18n-placeholder="footer_newsletter_ph" placeholder="Elektron pochtangiz">
+          <button type="submit" class="btn btn-primary" data-i18n="footer_newsletter_btn">Obuna bo'lish</button>
+        </form>
+        <p class="newsletter-note" data-i18n="footer_newsletter_note">Bu forma frontend namoyishi sifatida ishlaydi.</p>
+        <p class="newsletter-success" id="newsletter-success" data-i18n="footer_newsletter_success">Rahmat! Obuna qabul qilindi (namoyish rejimi).</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -161,6 +209,29 @@
   </div>
 </footer>
 
+<!-- Cart drawer -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>Savat</h3>
+    <button class="cart-close-btn" id="cart-close" aria-label="Yopish">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <p class="cart-empty-msg" id="cart-empty">Savatingiz hozircha bo'sh. Mahsulotlar sahifasidan o'lcham va miqdorni tanlab qo'shishingiz mumkin.</p>
+    <div id="cart-items"></div>
+  </div>
+  <div class="cart-drawer-footer" id="cart-footer" style="display:none;">
+    <button class="btn btn-primary" id="cart-send">So'rovni yuborish</button>
+    <button class="btn btn-outline" id="cart-clear">Savatni tozalash</button>
+    <p class="cart-note">Bu — buyurtma so'rovi. To'lov shu yerda amalga oshirilmaydi, biz siz bilan bog'lanamiz.</p>
+  </div>
+</div>
+
+<a href="tel:+998770900550" class="floating-call" aria-label="+998 77 090 05 50">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+</a>
+
 <script src="js/script.js"></script>
+<script src="js/cart.js"></script>
 </body>
 </html>

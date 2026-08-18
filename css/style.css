@@ -1227,22 +1227,28 @@ h1, h2, h3, h4 {
 /* ==========================================================================
    Contact page
    ========================================================================== */
-.contact-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 50px; }
-.contact-info-card {
-  background: var(--navy-950);
-  color: var(--white);
+.contact-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 30px; align-items: start; }
+.contact-info-list { display: flex; flex-direction: column; gap: 16px; }
+.contact-info-tile {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--steel-200);
   border-radius: var(--radius-md);
-  padding: 36px;
+  padding: 20px;
 }
-.contact-info-card h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 22px; }
-.contact-info-row { display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start; }
-.contact-info-row .icon {
-  width: 34px; height: 34px; border-radius: var(--radius-sm);
-  background: rgba(255,255,255,0.08);
+.contact-info-tile .icon {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background: rgba(0,163,224,0.1);
+  color: var(--blue-600);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-mono); font-size: 0.8rem; flex-shrink: 0;
+  flex-shrink: 0;
 }
-.contact-info-row span { font-size: 0.92rem; color: rgba(255,255,255,0.8); }
+.contact-info-tile .icon svg { width: 19px; height: 19px; }
+.contact-info-tile strong { display: block; font-size: 0.9rem; color: var(--navy-950); margin-bottom: 3px; }
+.contact-info-tile span { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
 
 .form-card { background: var(--white); border: 1px solid var(--steel-200); border-radius: var(--radius-md); padding: 36px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -1603,3 +1609,21 @@ h1, h2, h3, h4 {
 .catalog-card-sizes strong { color: var(--navy-900); }
 
 @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+
+.map-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--steel-200);
+  line-height: 0;
+}
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--blue-600);
+}
+.map-link svg { width: 18px; height: 18px; }
+.map-link:hover { color: var(--blue-500); }
