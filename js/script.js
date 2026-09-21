@@ -14,8 +14,8 @@ const i18n = {
     hours: "Dushanba – Shanba, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Sertifikatlangan brend",
-    hero_h1_pre: "Har bir tomchi ", hero_h1_em: "hisobga", hero_h1_post: " olinadi.",
-    hero_p: "UzLitrPro — sovuq va issiq suv uchun yuqori aniqlikdagi hisoblagichlar. Bardoshli, suv o'tkazmaydigan va uzoq muddat xizmat qiladigan — Toshkentda ishlab chiqarilgan.",
+    hero_h1_pre: "Aniq o'lchov ", hero_h1_em: "ishonchli", hero_h1_post: " natija",
+    hero_p: "Eng so'nggi texnologiyalar asosida yaratilgan yangi avlod hisoblagichlari iste'molni to'liq nazorat qilish uchun eng oqilona tanlov.",
     hero_btn1: "Mahsulotlarni ko'rish", hero_btn2: "Buyurtma berish",
     stat1: "Suv o'tkazmaydigan", stat2: "Kafolat", stat2_val: "1 yil", stat3: "O'lcham diapazoni",
     badge_ip68: "IP68", badge_warranty: "1 yil kafolat", badge_iso: "ISO 4064-1", badge_hotcold: "Sovuq / Issiq",
@@ -135,8 +135,8 @@ const i18n = {
     hours: "Пн – Сб, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Сертифицированный бренд",
-    hero_h1_pre: "Каждая капля ", hero_h1_em: "на счету", hero_h1_post: ".",
-    hero_p: "UzLitrPro — высокоточные счётчики для холодной и горячей воды. Прочные, водонепроницаемые и долговечные — производятся в Ташкенте.",
+    hero_h1_pre: "Точное измерение", hero_h1_em: "надёжный", hero_h1_post: " результат",
+    hero_p: "Счётчики нового поколения, созданные на основе новейших технологий — самый разумный выбор для полного контроля потребления.",
     hero_btn1: "Смотреть продукцию", hero_btn2: "Оформить заказ",
     stat1: "Водонепроницаемость", stat2: "Гарантия", stat2_val: "1 год", stat3: "Диапазон размеров",
     badge_ip68: "IP68", badge_warranty: "Гарантия 1 год", badge_iso: "ISO 4064-1", badge_hotcold: "Холод / Тепло",
@@ -256,8 +256,8 @@ const i18n = {
     hours: "Mon – Sat, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Certified brand",
-    hero_h1_pre: "Every drop ", hero_h1_em: "counts", hero_h1_post: ".",
-    hero_p: "UzLitrPro makes high-precision meters for cold and hot water — durable, waterproof, and built to last. Manufactured in Tashkent.",
+    hero_h1_pre: "Precise measurment ", hero_h1_em: "reliable", hero_h1_post: " result",
+    hero_p: "New-generation meters built on the latest technology — the smartest choice for complete consumption control.",
     hero_btn1: "View products", hero_btn2: "Request an order",
     stat1: "Waterproof", stat2: "Warranty", stat2_val: "1 year", stat3: "Size range",
     badge_ip68: "IP68", badge_warranty: "1-year warranty", badge_iso: "ISO 4064-1", badge_hotcold: "Cold / Hot",
