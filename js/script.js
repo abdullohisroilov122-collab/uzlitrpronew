@@ -11,7 +11,7 @@ const i18n = {
     label: "O'zbek",
     nav_home: "Bosh sahifa", nav_products: "Mahsulotlar", nav_about: "Biz haqimizda",
     nav_news: "Yangiliklar", nav_contact: "Aloqa", nav_cta: "Bog'lanish",
-    hours: "Dushanba – shanba, 9:00 AM – 6:00 PM",
+    hours: "Dushanba – Shanba, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Sertifikatlangan brend",
     hero_h1_pre: "Aniq o'lchov ", hero_h1_em: "ishonchli", hero_h1_post: " natija",
@@ -32,7 +32,8 @@ const i18n = {
     feat3_h: "Bardoshli material", feat3_p: "Korroziyaga chidamli qurilma uzoq yillar davomida xizmat qiladi.",
     feat4_h: "IP68 himoya", feat4_p: "Namlik va changdan to'liq himoyalangan — har qanday sharoitga mos.",
 
-    size_eyebrow: "O'lchamlar", size_h2: "Har bir tizimga mos o'lcham",
+    size_eyebrow: "O'lchamlar", 
+    size_h2: "Har bir tizimga mos o'lcham",
     size_p: "Kvartiradan tortib ko'p qavatli binolargacha — UzLitrPro uch xil diametrda mavjud.",
     sizespec1: "O'zMsT standarti", sizespec2: "Himoya darajasi", sizespec3: "Kafolat muddati", sizespec4: "Ishlab chiqaruvchi",
     prod_flow_15: "0.6 – 3.0 m³/h", prod_flow_20: "1.0 – 5.0 m³/h", prod_flow_25: "1.6 – 7.0 m³/h",
