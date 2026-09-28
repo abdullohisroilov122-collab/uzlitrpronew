@@ -11,7 +11,7 @@ const i18n = {
     label: "O'zbek",
     nav_home: "Bosh sahifa", nav_products: "Mahsulotlar", nav_about: "Biz haqimizda",
     nav_news: "Yangiliklar", nav_contact: "Aloqa", nav_cta: "Bog'lanish",
-    hours: "Dushanba – Shanba, 9:00 AM – 6:00 PM",
+    hours: "Dushanba – shanba, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Sertifikatlangan brend",
     hero_h1_pre: "Aniq o'lchov ", hero_h1_em: "ishonchli", hero_h1_post: " natija",
