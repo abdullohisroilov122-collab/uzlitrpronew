@@ -1708,7 +1708,7 @@ h1, h2, h3, h4 {
 
 /* Hover */
 .map-region:hover {
-  fill: #f08b2d;
+  fill: #22a06b;
 
   transform: translateY(-5px);
 
@@ -1737,7 +1737,7 @@ h1, h2, h3, h4 {
 
 /* Keyboard accessibility */
 .map-region:focus-visible {
-  fill: #f08b2d;
+  fill: #22a06b;
 
   filter:
     drop-shadow(
