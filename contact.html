@@ -504,5 +504,51 @@
 
 <script src="js/script.js"></script>
 <script src="js/cart.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const regions = document.querySelectorAll(".map-region");
+    const selectedRegionName =
+      document.getElementById("selected-region-name");
+
+    if (!regions.length || !selectedRegionName) return;
+
+    function selectRegion(region) {
+
+      regions.forEach(function (item) {
+        item.classList.remove("is-selected");
+      });
+
+      region.classList.add("is-selected");
+
+      const regionName =
+        region.getAttribute("data-region");
+
+      selectedRegionName.textContent = regionName;
+    }
+
+    regions.forEach(function (region) {
+
+      region.addEventListener("click", function () {
+        selectRegion(region);
+      });
+
+      region.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter" || event.key === " ") {
+
+          event.preventDefault();
+
+          selectRegion(region);
+        }
+
+      });
+
+    });
+
+  });
+</script>
+
 </body>
 </html>
