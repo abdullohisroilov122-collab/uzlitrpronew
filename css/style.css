@@ -1610,6 +1610,233 @@ h1, h2, h3, h4 {
 
 @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
 
+/* =========================================================
+   UZLITRPRO — INTERACTIVE UZBEKISTAN REGIONS MAP
+   ========================================================= */
+
+.regions-map-section {
+  background: var(--paper);
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.regions-map-heading {
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.regions-map-heading h2 {
+  margin-top: 10px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--navy-950);
+}
+
+.regions-map-heading p {
+  margin-top: 12px;
+  color: var(--ink-soft);
+  max-width: 620px;
+}
+
+.regions-map-card {
+  background: var(--white);
+  border: 1px solid var(--steel-200);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 18px 50px rgba(12, 20, 32, 0.08);
+  overflow: hidden;
+}
+
+.regions-map-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.uzbekistan-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* -------------------------
+   Neighboring countries
+   ------------------------- */
+
+.map-neighbors path {
+  fill: #e3e9ef;
+  stroke: var(--white);
+  stroke-width: 6;
+  stroke-linejoin: round;
+}
+
+.map-neighbors text {
+  fill: #718096;
+  font-size: 17px;
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* -------------------------
+   Uzbekistan regions
+   ------------------------- */
+
+.map-region {
+  fill: #0d4f86;
+  stroke: var(--white);
+  stroke-width: 5;
+  stroke-linejoin: round;
+
+  cursor: pointer;
+
+  transform-box: fill-box;
+  transform-origin: center;
+
+  transition:
+    fill 0.2s ease,
+    transform 0.2s ease,
+    filter 0.2s ease;
+
+  filter:
+    drop-shadow(
+      0 4px 3px rgba(8, 35, 60, 0.12)
+    );
+
+  outline: none;
+}
+
+/* Hover */
+.map-region:hover {
+  fill: #f08b2d;
+
+  transform: translateY(-5px);
+
+  filter:
+    drop-shadow(
+      0 12px 8px rgba(8, 35, 60, 0.24)
+    );
+}
+
+/* Selected */
+.map-region.is-selected {
+  fill: #d94b3f;
+
+  transform: translateY(-7px);
+
+  filter:
+    drop-shadow(
+      0 15px 9px rgba(8, 35, 60, 0.32)
+    );
+}
+
+/* Selected + hover */
+.map-region.is-selected:hover {
+  fill: #c63d33;
+}
+
+/* Keyboard accessibility */
+.map-region:focus-visible {
+  fill: #f08b2d;
+
+  filter:
+    drop-shadow(
+      0 12px 8px rgba(8, 35, 60, 0.24)
+    );
+}
+
+/* Region names */
+.map-region-label {
+  fill: var(--white);
+
+  font-size: 15px;
+  font-weight: 700;
+
+  text-anchor: middle;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* -------------------------
+   Selected region information
+   ------------------------- */
+
+.region-selection-info {
+  margin-top: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 18px;
+
+  background: #f5f8fb;
+  border: 1px solid var(--steel-200);
+  border-radius: 14px;
+}
+
+.region-selection-dot {
+  width: 10px;
+  height: 10px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #d94b3f;
+
+  box-shadow:
+    0 0 0 5px rgba(217, 75, 63, 0.10);
+}
+
+.region-selection-info > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.region-selection-label {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.region-selection-info strong {
+  color: var(--navy-950);
+  font-size: 1rem;
+}
+
+/* -------------------------
+   Mobile
+   ------------------------- */
+
+@media (max-width: 700px) {
+
+  .regions-map-section {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  .regions-map-card {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .map-neighbors text {
+    font-size: 14px;
+  }
+
+  .map-region-label {
+    font-size: 13px;
+  }
+
+  .region-selection-info {
+    padding: 12px 14px;
+  }
+}
 .map-card {
   border-radius: var(--radius-md);
   overflow: hidden;
