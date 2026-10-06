@@ -9,6 +9,92 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* ================================
+     UZLITPRO REAL MAP
+     ================================ */
+
+  #branches-map {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #branches-map svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  /* Normal state — blue */
+  #branches-map .map-region {
+    fill: #1976d2;
+    stroke: #ffffff;
+    stroke-width: 1.2;
+    cursor: pointer;
+    outline: none;
+    transition:
+      fill 0.25s ease,
+      filter 0.25s ease,
+      stroke-width 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  /* Mouse hover — green */
+  #branches-map .map-region:hover {
+    fill: #22c55e;
+    stroke: #ffffff;
+    stroke-width: 1.8;
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.65));
+  }
+
+  /* Selected region */
+  #branches-map .map-region.selected {
+    fill: #16a34a;
+    stroke: #ffffff;
+    stroke-width: 2.5;
+    filter:
+      drop-shadow(0 0 6px rgba(34, 197, 94, 0.8))
+      drop-shadow(0 0 16px rgba(34, 197, 94, 0.55));
+  }
+
+  /* Keyboard accessibility */
+  #branches-map .map-region:focus-visible {
+    fill: #22c55e;
+    stroke: #ffffff;
+    stroke-width: 3;
+    filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.8));
+  }
+
+  /* Information text below map */
+  .branches-map-info {
+    text-align: center;
+    margin: 20px auto 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    #branches-map {
+      width: 100%;
+    }
+
+    #branches-map .map-region {
+      stroke-width: 1.5;
+    }
+
+    #branches-map .map-region.selected {
+      stroke-width: 2.5;
+    }
+
+    .branches-map-info {
+      font-size: 15px;
+    }
+  }
+</style>
 </head>
 <body>
 
