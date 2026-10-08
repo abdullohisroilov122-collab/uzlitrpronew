@@ -219,13 +219,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// mavjud branches-map.js kodingiz
-...
-...
-...
-});   // ← mavjud kodning oxiri
-
-
 // =================================
 // NEIGHBORING COUNTRIES
 // =================================
