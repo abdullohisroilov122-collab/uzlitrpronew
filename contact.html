@@ -97,11 +97,13 @@
     /* =================================
    NEIGHBORING COUNTRIES
    ================================= */
-
-.map-neighbors {
+.branches-map-wrap {
   position: relative;
-  width: 100%;
-  min-height: 0;
+}
+.map-neighbors {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
   pointer-events: none;
 }
 
@@ -423,6 +425,8 @@
               Xaritadan hududni tanlang.
             </p>
             </div>
+
+          
           <div class="map-neighbors" aria-label="Qo‘shni davlatlar">
             <button
               type="button"
