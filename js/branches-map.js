@@ -218,3 +218,99 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
   }
 });
+
+// mavjud branches-map.js kodingiz
+...
+...
+...
+});   // ← mavjud kodning oxiri
+
+
+// =================================
+// NEIGHBORING COUNTRIES
+// =================================
+
+const NEIGHBORS = {
+  kazakhstan: {
+    uz: "Qozog‘iston",
+    ru: "Казахстан",
+    en: "Kazakhstan"
+  },
+  kyrgyzstan: {
+    uz: "Qirg‘iziston",
+    ru: "Кыргызстан",
+    en: "Kyrgyzstan"
+  },
+  tajikistan: {
+    uz: "Tojikiston",
+    ru: "Таджикистан",
+    en: "Tajikistan"
+  },
+  afghanistan: {
+    uz: "Afg‘oniston",
+    ru: "Афганистан",
+    en: "Afghanistan"
+  },
+  turkmenistan: {
+    uz: "Turkmaniston",
+    ru: "Туркменистан",
+    en: "Туркменистан"
+  }
+};
+
+function getCurrentMapLanguage() {
+  const savedLang = localStorage.getItem("litrpro_lang");
+
+  if (savedLang === "ru" || savedLang === "en") {
+    return savedLang;
+  }
+
+  return "uz";
+}
+
+function initNeighborButtons() {
+  const buttons = document.querySelectorAll(".map-neighbor");
+
+  if (!buttons.length) return;
+
+  const updateNeighborLabels = () => {
+    const lang = getCurrentMapLanguage();
+
+    buttons.forEach((button) => {
+      const country = button.dataset.neighbor;
+
+      if (NEIGHBORS[country]) {
+        button.textContent = NEIGHBORS[country][lang];
+      }
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((item) => {
+        item.classList.remove("selected");
+      });
+
+      button.classList.add("selected");
+    });
+  });
+
+  updateNeighborLabels();
+
+  const languageDropdown = document.querySelector("#lang-dropdown");
+
+  if (languageDropdown) {
+    languageDropdown.addEventListener("change", updateNeighborLabels);
+  }
+
+  window.addEventListener("storage", updateNeighborLabels);
+}
+
+document.addEventListener("DOMContentLoaded", initNeighborButtons);
+
+
+
+
+
+
+
