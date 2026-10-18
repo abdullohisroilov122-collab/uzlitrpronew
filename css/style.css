@@ -1709,19 +1709,19 @@ h1, h2, h3, h4 {
     drop-shadow(0 8px 10px rgba(12, 20, 32, 0.25));
 }
 
-/* Selected: orange, stronger glow, popped out */
+/* Selected: green, stronger glow, popped out */
 .uzbekistan-map .map-region-lift.selected {
   opacity: 1;
-  fill: #f28c28;
+  fill: var(--green-600);
   stroke-width: 2.5;
   transform: translateY(-7px) scale(1.04);
   filter:
-    drop-shadow(0 0 10px rgba(242, 140, 40, 0.6))
+    drop-shadow(0 0 10px rgba(24, 155, 99, 0.6))
     drop-shadow(0 14px 14px rgba(12, 20, 32, 0.3));
 }
 
 .uzbekistan-map .map-region-lift.selected.hovered {
-  fill: #f59e42;
+  fill: var(--green-500);
 }
 
 /* Labels lift together with their region */
@@ -1805,7 +1805,7 @@ h1, h2, h3, h4 {
 }
 
 .uzbekistan-map .map-city-pin.selected circle {
-  fill: #f28c28;
+  fill: var(--green-600);
 }
 
 /* Neighboring countries */
@@ -1843,8 +1843,8 @@ h1, h2, h3, h4 {
   height: 10px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #f28c28;
-  box-shadow: 0 0 0 5px rgba(242, 140, 40, 0.15);
+  background: var(--green-600);
+  box-shadow: 0 0 0 5px rgba(24, 155, 99, 0.15);
 }
 
 .region-selection-info > div {
