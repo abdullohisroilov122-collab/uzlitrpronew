@@ -1,106 +1,204 @@
+// =================================
+// UZBEKISTAN REGIONS MAP
+// Labels sit on the map itself, inside each region.
+// =================================
+
 document.addEventListener("DOMContentLoaded", async () => {
   const mapContainer = document.getElementById("branches-map");
   const infoBox = document.getElementById("branches-map-info");
+  const infoLabel = document.getElementById("region-selection-label");
 
   if (!mapContainer) return;
 
+  const SVG_NS = "http://www.w3.org/2000/svg";
+
   const REGION_NAMES = {
-    UZ: {
-      UZAN: "Andijon",
+    uz: {
+      UZQR: "Qoraqalpog‘iston",
+      UZXO: "Xorazm",
       UZBU: "Buxoro",
-      UZFA: "Farg‘ona",
-      UZJI: "Jizzax",
-      UZNG: "Namangan",
       UZNW: "Navoiy",
-      UZQA: "Qashqadaryo",
       UZSA: "Samarqand",
+      UZJI: "Jizzax",
       UZSI: "Sirdaryo",
-      UZSU: "Surxondaryo",
-      UZTK: "Toshkent",
-      UZXO: "Xorazm"
-    },
-
-    RU: {
-      UZAN: "Андижан",
-      UZBU: "Бухара",
-      UZFA: "Фергана",
-      UZJI: "Джизак",
-      UZNG: "Наманган",
-      UZNW: "Навои",
-      UZQA: "Кашкадарья",
-      UZSA: "Самарканд",
-      UZSI: "Сырдарья",
-      UZSU: "Сурхандарья",
-      UZTK: "Ташкент",
-      UZXO: "Хорезм"
-    },
-
-    EN: {
-      UZAN: "Andijan",
-      UZBU: "Bukhara",
-      UZFA: "Fergana",
-      UZJI: "Jizzakh",
+      UZTO: "Toshkent viloyati",
+      UZTK: "Toshkent shahri",
       UZNG: "Namangan",
+      UZAN: "Andijon",
+      UZFA: "Farg‘ona",
+      UZQA: "Qashqadaryo",
+      UZSU: "Surxondaryo"
+    },
+    ru: {
+      UZQR: "Каракалпакстан",
+      UZXO: "Хорезм",
+      UZBU: "Бухара",
+      UZNW: "Навои",
+      UZSA: "Самарканд",
+      UZJI: "Джизак",
+      UZSI: "Сырдарья",
+      UZTO: "Ташкентская обл.",
+      UZTK: "г. Ташкент",
+      UZNG: "Наманган",
+      UZAN: "Андижан",
+      UZFA: "Фергана",
+      UZQA: "Кашкадарья",
+      UZSU: "Сурхандарья"
+    },
+    en: {
+      UZQR: "Karakalpakstan",
+      UZXO: "Khorezm",
+      UZBU: "Bukhara",
       UZNW: "Navoi",
-      UZQA: "Kashkadarya",
       UZSA: "Samarkand",
+      UZJI: "Jizzakh",
       UZSI: "Syrdarya",
-      UZSU: "Surkhandarya",
-      UZTK: "Tashkent",
-      UZXO: "Khorezm"
+      UZTO: "Tashkent region",
+      UZTK: "Tashkent city",
+      UZNG: "Namangan",
+      UZAN: "Andijan",
+      UZFA: "Fergana",
+      UZQA: "Kashkadarya",
+      UZSU: "Surkhandarya"
     }
   };
 
-  const MESSAGES = {
-    UZ: "Xaritadan hududni tanlang.",
-    RU: "Выберите регион на карте.",
-    EN: "Select a region on the map."
+  // Short names shown on the map; the full name appears in the info card.
+  const SHORT_NAMES = {
+    uz: { UZTO: "Toshkent vil.", UZTK: "Toshkent sh." },
+    ru: { UZTO: "Ташкент. обл.", UZTK: "г. Ташкент" },
+    en: { UZTO: "Tashkent reg.", UZTK: "Tashkent city" }
+  };
+
+  // Label anchor in SVG coordinates (viewBox 0 0 1000 652), placed at the
+  // widest interior point of each region. "small" is for narrow regions.
+  const LABELS = {
+    UZQR: { x: 217, y: 201 },
+    UZXO: { x: 294, y: 336, small: true },
+    UZNW: { x: 476, y: 302 },
+    UZBU: { x: 451, y: 399 },
+    UZSA: { x: 592, y: 442 },
+    UZJI: { x: 671, y: 423 },
+    UZSI: { x: 714, y: 405, small: true },
+    UZTO: { x: 772, y: 360, small: true },
+    UZQA: { x: 574, y: 501 },
+    UZSU: { x: 654, y: 566, small: true },
+    UZNG: { x: 860, y: 367, small: true },
+    UZAN: { x: 914, y: 376, small: true },
+    UZFA: { x: 863, y: 396, small: true }
+  };
+
+  // Tashkent city is too small for text, so it gets a pin with a callout
+  // leading out of the map.
+  const CITY_PIN = { id: "UZTK", x: 748, y: 340, labelX: 700, labelY: 312 };
+
+  const NEIGHBORS = [
+    { x: 660, y: 120, uz: "QOZOG‘ISTON", ru: "КАЗАХСТАН", en: "KAZAKHSTAN" },
+    { x: 940, y: 300, uz: "QIRG‘IZISTON", ru: "КЫРГЫЗСТАН", en: "KYRGYZSTAN" },
+    { x: 840, y: 520, uz: "TOJIKISTON", ru: "ТАДЖИКИСТАН", en: "TAJIKISTAN" },
+    { x: 500, y: 612, uz: "AFG‘ONISTON", ru: "АФГАНИСТАН", en: "AFGHANISTAN" },
+    { x: 330, y: 520, uz: "TURKMANISTON", ru: "ТУРКМЕНИСТАН", en: "TURKMENISTAN" }
+  ];
+
+  const TEXT = {
+    uz: {
+      hint: "Xaritadan hududni tanlang.",
+      selected: "Tanlangan hudud",
+      eyebrow: "HUDUDIY QAMROV",
+      h: "O‘zbekiston bo‘ylab UzLitrPro",
+      p: "Hududni tanlang — xaritada viloyatni ustiga olib boring yoki bosing.",
+      aria: "O‘zbekiston hududlari xaritasi"
+    },
+    ru: {
+      hint: "Выберите регион на карте.",
+      selected: "Выбранный регион",
+      eyebrow: "РЕГИОНАЛЬНЫЙ ОХВАТ",
+      h: "UzLitrPro по всему Узбекистану",
+      p: "Выберите регион — наведите курсор на область на карте или нажмите на неё.",
+      aria: "Карта регионов Узбекистана"
+    },
+    en: {
+      hint: "Select a region on the map.",
+      selected: "Selected region",
+      eyebrow: "REGIONAL COVERAGE",
+      h: "UzLitrPro across Uzbekistan",
+      p: "Choose a region — hover over it on the map or click to select.",
+      aria: "Map of Uzbekistan's regions"
+    }
   };
 
   function getLanguage() {
-    const savedLanguage = localStorage.getItem("litrpro_lang");
-
-    if (savedLanguage === "ru") return "RU";
-    if (savedLanguage === "en") return "EN";
-
-    return "UZ";
+    let saved = null;
+    try { saved = localStorage.getItem("litrpro_lang"); } catch (e) { /* storage unavailable */ }
+    return saved === "ru" || saved === "en" ? saved : "uz";
   }
 
-  function updateInfo(regionId) {
+  function regionName(id, lang) {
+    return REGION_NAMES[lang][id] || REGION_NAMES.uz[id];
+  }
+
+  function shortName(id, lang) {
+    return (SHORT_NAMES[lang] && SHORT_NAMES[lang][id]) || regionName(id, lang);
+  }
+
+  function createSvg(tag, attrs) {
+    const el = document.createElementNS(SVG_NS, tag);
+    Object.entries(attrs).forEach(([key, value]) => el.setAttribute(key, value));
+    return el;
+  }
+
+  let svg;
+  let hoveredId = null;
+  let selectedId = null;
+
+  function updateInfo() {
     if (!infoBox) return;
-
     const lang = getLanguage();
-
-    if (!regionId) {
-      infoBox.textContent = MESSAGES[lang];
-      return;
-    }
-
-    const regionName =
-      REGION_NAMES[lang]?.[regionId] ||
-      REGION_NAMES.UZ?.[regionId];
-
-    if (regionName) {
-      infoBox.textContent = regionName;
-    }
+    const id = hoveredId || selectedId;
+    infoBox.textContent = id ? regionName(id, lang) : TEXT[lang].hint;
   }
 
-  function clearSelected() {
-    const selected = mapContainer.querySelectorAll(".map-region.selected");
-
-    selected.forEach((element) => {
-      element.classList.remove("selected");
+  function setActive(id, className, on) {
+    svg.querySelectorAll(`[data-region="${id}"]`).forEach((el) => {
+      el.classList.toggle(className, on);
     });
   }
 
-  function selectRegion(element) {
-    if (!element) return;
+  function selectRegion(id) {
+    if (selectedId) setActive(selectedId, "selected", false);
+    selectedId = id;
+    setActive(id, "selected", true);
+    updateInfo();
+  }
 
-    clearSelected();
+  function applyLanguage() {
+    const lang = getLanguage();
 
-    element.classList.add("selected");
+    document.querySelectorAll("[data-map-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-map-i18n");
+      if (TEXT[lang][key]) el.textContent = TEXT[lang][key];
+    });
 
-    updateInfo(element.id);
+    if (infoLabel) infoLabel.textContent = TEXT[lang].selected;
+    mapContainer.setAttribute("aria-label", TEXT[lang].aria);
+
+    if (svg) {
+      svg.setAttribute("aria-label", TEXT[lang].aria);
+
+      svg.querySelectorAll(".map-region").forEach((region) => {
+        region.setAttribute("aria-label", regionName(region.id, lang));
+      });
+
+      svg.querySelectorAll(".map-label").forEach((label) => {
+        label.textContent = shortName(label.dataset.region, lang);
+      });
+
+      svg.querySelectorAll(".map-neighbor-label").forEach((label, i) => {
+        label.textContent = NEIGHBORS[i][lang];
+      });
+    }
+
+    updateInfo();
   }
 
   try {
@@ -110,200 +208,99 @@ document.addEventListener("DOMContentLoaded", async () => {
       throw new Error("Could not load Uzbekistan map.");
     }
 
-    const svgText = await response.text();
-
-    mapContainer.innerHTML = svgText;
-
-    const svg = mapContainer.querySelector("svg");
+    mapContainer.innerHTML = await response.text();
+    svg = mapContainer.querySelector("svg");
 
     if (!svg) {
       throw new Error("SVG map was not found.");
     }
 
-    svg.setAttribute("role", "img");
-    svg.setAttribute(
-      "aria-label",
-      "Uzbekistan administrative regions map"
-    );
+    // Let the SVG scale with its container.
+    svg.removeAttribute("width");
+    svg.removeAttribute("height");
+    svg.setAttribute("viewBox", "0 0 1000 652");
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+    svg.setAttribute("role", "group");
 
-    /*
-     * Real geographic region paths
-     */
-    Object.keys(REGION_NAMES.UZ).forEach((regionId) => {
-      const region = svg.querySelector(`#${regionId}`);
+    // The source file ships helper dots we don't want to show.
+    svg.querySelectorAll("#points, #label_points").forEach((el) => el.remove());
 
+    const neighborLayer = createSvg("g", { class: "map-neighbors", "aria-hidden": "true" });
+    NEIGHBORS.forEach((n) => {
+      neighborLayer.appendChild(
+        createSvg("text", { class: "map-neighbor-label", x: n.x, y: n.y })
+      );
+    });
+    svg.insertBefore(neighborLayer, svg.firstChild);
+
+    Object.keys(REGION_NAMES.uz).forEach((id) => {
+      const region = svg.querySelector(`#${id}`);
       if (!region) return;
 
       region.classList.add("map-region");
-
-      const name =
-        REGION_NAMES[getLanguage()]?.[regionId] ||
-        REGION_NAMES.UZ[regionId];
-
+      region.dataset.region = id;
       region.setAttribute("tabindex", "0");
       region.setAttribute("role", "button");
-      region.setAttribute("aria-label", name);
 
       region.addEventListener("mouseenter", () => {
-        updateInfo(regionId);
+        hoveredId = id;
+        setActive(id, "hovered", true);
+        updateInfo();
       });
 
       region.addEventListener("mouseleave", () => {
-        const selected = svg.querySelector(".map-region.selected");
-
-        if (selected) {
-          updateInfo(selected.id);
-        } else {
-          updateInfo(null);
-        }
+        hoveredId = null;
+        setActive(id, "hovered", false);
+        updateInfo();
       });
 
-      region.addEventListener("click", () => {
-        selectRegion(region);
-      });
+      region.addEventListener("click", () => selectRegion(id));
 
       region.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          selectRegion(region);
+          selectRegion(id);
         }
       });
     });
 
-    /*
-     * Update labels when the site's language changes.
-     */
-    function refreshLanguage() {
-      Object.keys(REGION_NAMES.UZ).forEach((regionId) => {
-        const region = svg.querySelector(`#${regionId}`);
+    // Tashkent city sits inside Tashkent region, so draw it last.
+    const city = svg.querySelector(`#${CITY_PIN.id}`);
+    if (city) city.parentNode.appendChild(city);
 
-        if (!region) return;
+    const labelLayer = createSvg("g", { class: "map-labels", "aria-hidden": "true" });
 
-        const name =
-          REGION_NAMES[getLanguage()]?.[regionId] ||
-          REGION_NAMES.UZ[regionId];
-
-        region.setAttribute("aria-label", name);
+    Object.entries(LABELS).forEach(([id, pos]) => {
+      const label = createSvg("text", {
+        class: pos.small ? "map-label map-label-small" : "map-label",
+        x: pos.x,
+        y: pos.y
       });
+      label.dataset.region = id;
+      labelLayer.appendChild(label);
+    });
 
-      const selected = svg.querySelector(".map-region.selected");
+    const pin = createSvg("g", { class: "map-city-pin" });
+    pin.dataset.region = CITY_PIN.id;
+    pin.appendChild(createSvg("line", {
+      x1: CITY_PIN.x, y1: CITY_PIN.y, x2: CITY_PIN.labelX + 4, y2: CITY_PIN.labelY + 4
+    }));
+    pin.appendChild(createSvg("circle", { cx: CITY_PIN.x, cy: CITY_PIN.y, r: 5 }));
+    const cityLabel = createSvg("text", {
+      class: "map-label map-label-city",
+      x: CITY_PIN.labelX,
+      y: CITY_PIN.labelY
+    });
+    cityLabel.dataset.region = CITY_PIN.id;
+    pin.appendChild(cityLabel);
+    labelLayer.appendChild(pin);
 
-      if (selected) {
-        updateInfo(selected.id);
-      } else {
-        updateInfo(null);
-      }
-    }
+    svg.appendChild(labelLayer);
 
-    /*
-     * Existing UZLITPRO language dropdown
-     */
-    const languageDropdown = document.getElementById("lang-dropdown");
-
-    if (languageDropdown) {
-      languageDropdown.addEventListener("click", () => {
-        setTimeout(refreshLanguage, 100);
-      });
-    }
-
-    updateInfo(null);
-
+    applyLanguage();
+    document.addEventListener("litrpro:langchange", applyLanguage);
   } catch (error) {
     console.error("Uzbekistan map error:", error);
-
-    mapContainer.innerHTML = `
-      <p style="text-align:center;">
-        Map could not be loaded.
-      </p>
-    `;
+    mapContainer.innerHTML = `<p class="map-error">Map could not be loaded.</p>`;
   }
 });
-
-// =================================
-// NEIGHBORING COUNTRIES
-// =================================
-
-const NEIGHBORS = {
-  kazakhstan: {
-    uz: "Qozog‘iston",
-    ru: "Казахстан",
-    en: "Kazakhstan"
-  },
-  kyrgyzstan: {
-    uz: "Qirg‘iziston",
-    ru: "Кыргызстан",
-    en: "Kyrgyzstan"
-  },
-  tajikistan: {
-    uz: "Tojikiston",
-    ru: "Таджикистан",
-    en: "Tajikistan"
-  },
-  afghanistan: {
-    uz: "Afg‘oniston",
-    ru: "Афганистан",
-    en: "Afghanistan"
-  },
-  turkmenistan: {
-    uz: "Turkmaniston",
-    ru: "Туркменистан",
-    en: "Туркменистан"
-  }
-};
-
-function getCurrentMapLanguage() {
-  const savedLang = localStorage.getItem("litrpro_lang");
-
-  if (savedLang === "ru" || savedLang === "en") {
-    return savedLang;
-  }
-
-  return "uz";
-}
-
-function initNeighborButtons() {
-  const buttons = document.querySelectorAll(".map-neighbor");
-
-  if (!buttons.length) return;
-
-  const updateNeighborLabels = () => {
-    const lang = getCurrentMapLanguage();
-
-    buttons.forEach((button) => {
-      const country = button.dataset.neighbor;
-
-      if (NEIGHBORS[country]) {
-        button.textContent = NEIGHBORS[country][lang];
-      }
-    });
-  };
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      buttons.forEach((item) => {
-        item.classList.remove("selected");
-      });
-
-      button.classList.add("selected");
-    });
-  });
-
-  updateNeighborLabels();
-
-  const languageDropdown = document.querySelector("#lang-dropdown");
-
-  if (languageDropdown) {
-    languageDropdown.addEventListener("change", updateNeighborLabels);
-  }
-
-  window.addEventListener("storage", updateNeighborLabels);
-}
-
-document.addEventListener("DOMContentLoaded", initNeighborButtons);
-
-
-
-
-
-
-

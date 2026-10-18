@@ -441,6 +441,7 @@ function applyLanguage(lang) {
 
   document.documentElement.setAttribute("lang", lang);
   try { localStorage.setItem("litrpro_lang", lang); } catch (e) { /* storage unavailable */ }
+  document.dispatchEvent(new CustomEvent("litrpro:langchange", { detail: { lang } }));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
