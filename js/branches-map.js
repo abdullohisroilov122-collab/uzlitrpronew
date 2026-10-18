@@ -164,10 +164,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  // The raised look is drawn by a copy of the region in a separate layer
+  // that ignores the mouse. The original stays put, so the hover area
+  // doesn't move when the region lifts (no flicker at the edges).
+  // SVG has no z-index, so the last-drawn copy is on top.
+  function bringToFront(id) {
+    const lift = svg.querySelector(`.map-region-lift[data-region="${id}"]`);
+    if (lift) lift.parentNode.appendChild(lift);
+  }
+
+  function hoverRegion(id) {
+    if (hoveredId) setActive(hoveredId, "hovered", false);
+    hoveredId = id;
+    if (id) {
+      setActive(id, "hovered", true);
+      bringToFront(id);
+    }
+    // The selected region always stays on top.
+    if (selectedId) bringToFront(selectedId);
+    updateInfo();
+  }
+
+  // Clicking the selected region again deselects it.
   function selectRegion(id) {
     if (selectedId) setActive(selectedId, "selected", false);
-    selectedId = id;
-    setActive(id, "selected", true);
+    selectedId = selectedId === id ? null : id;
+    if (selectedId) {
+      setActive(selectedId, "selected", true);
+      bringToFront(selectedId);
+    }
     updateInfo();
   }
 
@@ -242,17 +267,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       region.setAttribute("tabindex", "0");
       region.setAttribute("role", "button");
 
-      region.addEventListener("mouseenter", () => {
-        hoveredId = id;
-        setActive(id, "hovered", true);
-        updateInfo();
+      // Hover only for a real mouse; on touch screens a tap selects.
+      region.addEventListener("pointerenter", (event) => {
+        if (event.pointerType === "mouse") hoverRegion(id);
       });
 
-      region.addEventListener("mouseleave", () => {
-        hoveredId = null;
-        setActive(id, "hovered", false);
-        updateInfo();
+      region.addEventListener("pointerleave", (event) => {
+        if (event.pointerType === "mouse" && hoveredId === id) hoverRegion(null);
       });
+
 
       region.addEventListener("click", () => selectRegion(id));
 
@@ -267,6 +290,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Tashkent city sits inside Tashkent region, so draw it last.
     const city = svg.querySelector(`#${CITY_PIN.id}`);
     if (city) city.parentNode.appendChild(city);
+
+    const liftLayer = createSvg("g", { class: "map-lifts", "aria-hidden": "true" });
+    svg.querySelectorAll(".map-region").forEach((region) => {
+      const lift = region.cloneNode(false);
+      ["id", "tabindex", "role", "aria-label", "name"].forEach((attr) => lift.removeAttribute(attr));
+      lift.setAttribute("class", "map-region-lift");
+      liftLayer.appendChild(lift);
+    });
+    svg.appendChild(liftLayer);
 
     const labelLayer = createSvg("g", { class: "map-labels", "aria-hidden": "true" });
 
@@ -296,6 +328,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     labelLayer.appendChild(pin);
 
     svg.appendChild(labelLayer);
+
+    // Click anywhere outside a region, or press Escape, to deselect.
+    document.addEventListener("click", (event) => {
+      if (selectedId && !event.target.closest(".map-region")) selectRegion(selectedId);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && selectedId) selectRegion(selectedId);
+    });
 
     applyLanguage();
     document.addEventListener("litrpro:langchange", applyLanguage);
