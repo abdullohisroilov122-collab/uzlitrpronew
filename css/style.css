@@ -1911,3 +1911,295 @@ h1, h2, h3, h4 {
 }
 .map-link svg { width: 18px; height: 18px; }
 .map-link:hover { color: var(--blue-500); }
+
+/* ==========================================================================
+   Operator widget (replaces the floating call button)
+   ========================================================================== */
+.op-widget {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 150;
+  font-family: var(--font-body);
+}
+
+.op-fab {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--green-600);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  margin-left: auto;
+  box-shadow: 0 10px 26px rgba(24, 155, 99, 0.45);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.op-fab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--green-500);
+  animation: opPulse 2.4s ease-out infinite;
+}
+
+.op-widget.is-offline .op-fab { background: var(--blue-600); box-shadow: 0 10px 26px rgba(0, 130, 179, 0.4); }
+.op-widget.is-offline .op-fab::before,
+.op-widget.is-open .op-fab::before { display: none; }
+
+.op-fab:hover { transform: scale(1.06); }
+.op-fab:focus-visible { outline: 3px solid rgba(34, 184, 118, 0.45); outline-offset: 3px; }
+.op-fab svg { width: 26px; height: 26px; }
+.op-fab-close { display: none; }
+.op-widget.is-open .op-fab-open { display: none; }
+.op-widget.is-open .op-fab-close { display: grid; }
+
+@keyframes opPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+.op-panel {
+  position: absolute;
+  right: 0;
+  bottom: 76px;
+  width: 320px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  background: var(--white);
+  border: 1px solid var(--steel-200);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 24px 60px rgba(12, 20, 32, 0.22);
+  animation: opIn 0.22s ease-out;
+}
+
+.op-panel[hidden],
+.op-view[hidden] { display: none; }
+
+@keyframes opIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.op-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.op-head strong { display: block; color: var(--navy-950); font-size: 0.98rem; }
+
+.op-avatar {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--blue-500), var(--green-500));
+}
+
+.op-avatar svg { width: 22px; height: 22px; }
+
+.op-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--green-600);
+  background: rgba(24, 155, 99, 0.1);
+}
+
+.op-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(34, 184, 118, 0.25);
+}
+
+.op-status.is-offline { color: var(--ink-soft); background: var(--steel-100); }
+.op-status.is-offline::before { background: #9aa7b8; box-shadow: none; }
+
+.op-channel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--steel-100);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.op-channel:hover { background: var(--white); border-color: var(--steel-200); transform: translateX(2px); }
+.op-channel:focus-visible { outline: 3px solid rgba(0, 163, 224, 0.35); outline-offset: 2px; }
+.op-channel b { display: block; font-size: 0.9rem; }
+.op-channel small { color: var(--ink-soft); font-size: 0.78rem; }
+
+.op-channel-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+}
+
+.op-channel-icon svg { width: 18px; height: 18px; }
+.op-ic-call { background: var(--green-600); }
+.op-ic-tg { background: #27a7e7; }
+.op-ic-cb { background: var(--blue-600); }
+
+.op-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--steel-200);
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.op-socials { display: flex; gap: 6px; }
+
+.op-social {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  transition: transform 0.2s ease;
+}
+
+.op-social:hover { transform: translateY(-2px); }
+.op-social svg { width: 15px; height: 15px; }
+
+.op-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px 4px 2px;
+  margin-bottom: 8px;
+  border: 0;
+  background: none;
+  color: var(--blue-600);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.op-back svg { width: 18px; height: 18px; }
+.op-form-title { display: block; font-size: 1.05rem; color: var(--navy-950); }
+.op-form-note { margin: 4px 0 12px; color: var(--ink-soft); font-size: 0.82rem; line-height: 1.45; }
+
+.op-form label { display: block; margin-bottom: 10px; font-size: 0.78rem; font-weight: 600; color: var(--ink-soft); }
+
+.op-form input,
+.op-form select {
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--steel-200);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.op-form input:focus,
+.op-form select:focus { outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(0, 163, 224, 0.15); }
+
+.op-hp { position: absolute; left: -9999px; }
+.op-submit { width: 100%; margin-top: 4px; justify-content: center; }
+.op-submit:disabled { opacity: 0.7; cursor: wait; }
+
+.op-result { margin-top: 10px; font-size: 0.84rem; line-height: 1.45; }
+.op-result:empty { display: none; }
+.op-result.is-done { color: var(--green-600); }
+.op-result.is-fail { color: var(--red-600); }
+.op-result a { font-weight: 700; color: inherit; text-decoration: underline; }
+
+/* Brand colors, shared by the widget and the contact page block */
+.op-social-telegram, .social-link-telegram { background: #27a7e7; }
+.op-social-instagram, .social-link-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+.op-social-facebook, .social-link-facebook { background: #1877f2; }
+.op-social-youtube, .social-link-youtube { background: #e62117; }
+.op-social-linkedin, .social-link-linkedin { background: #0a66c2; }
+
+@media (max-width: 600px) {
+  .op-widget { right: 16px; bottom: 16px; }
+  .op-fab { width: 54px; height: 54px; }
+  .op-panel { width: calc(100vw - 32px); bottom: 68px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .op-fab::before { animation: none; }
+  .op-panel { animation: none; }
+}
+
+/* ==========================================================================
+   "Follow us" block (contact page)
+   ========================================================================== */
+.social-section { padding-top: 0; }
+
+.social-block {
+  max-width: 760px;
+  padding: 32px;
+  border: 1px solid var(--steel-200);
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: 0 18px 50px rgba(12, 20, 32, 0.06);
+}
+
+.social-block[hidden] { display: none; }
+.social-block h3 { color: var(--navy-950); font-size: 1.5rem; margin-bottom: 10px; }
+.social-block p { color: var(--ink-soft); line-height: 1.6; }
+
+.social-links { display: flex; flex-wrap: wrap; gap: 14px; margin: 20px 0; }
+
+.social-link {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  box-shadow: 0 8px 18px rgba(12, 20, 32, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-link:hover { transform: translateY(-4px); box-shadow: 0 14px 24px rgba(12, 20, 32, 0.2); }
+.social-link:focus-visible { outline: 3px solid rgba(0, 163, 224, 0.4); outline-offset: 3px; }
+.social-link svg { width: 24px; height: 24px; }
+
+@media (max-width: 600px) {
+  .social-block { padding: 22px; border-radius: 18px; }
+}
