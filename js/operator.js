@@ -9,7 +9,7 @@
 const UZLITRPRO_CONTACT = {
   phone: "+998770900550",
   phoneLabel: "+998 77 090 05 50",
-  telegram: "",   // e.g. "https://t.me/your_support_account"
+  telegram: "https://t.me/curinaut",
   social: {
     telegram: "",  // e.g. "https://t.me/your_channel"
     instagram: "",
@@ -199,9 +199,8 @@ const UZLITRPRO_CONTACT = {
           <button type="button" class="op-back" data-op-goto="menu">${icon("back")}<span data-op="back"></span></button>
           <strong class="op-form-title" data-op="formTitle"></strong>
           <p class="op-form-note" data-op="formNote"></p>
-          <form class="op-form" name="callback" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="callback">
-            <p class="op-hp"><label>Leave empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <form class="op-form">
+            <p class="op-hp" aria-hidden="true"><label>Leave empty <input name="website" tabindex="-1" autocomplete="off"></label></p>
             <label><span data-op="name"></span>
               <input type="text" name="name" required autocomplete="name">
             </label>
@@ -306,7 +305,7 @@ const UZLITRPRO_CONTACT = {
       }
     });
 
-    // Callback requests go to Netlify Forms (Netlify dashboard → Forms → callback).
+    // Callback requests go to /api/callback (api/callback.js), which forwards them to Telegram.
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const t = TEXT[getLanguage()];
@@ -317,10 +316,10 @@ const UZLITRPRO_CONTACT = {
       result.textContent = "";
 
       try {
-        const response = await fetch("/", {
+        const response = await fetch("/api/callback", {
           method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(new FormData(form)).toString()
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
         });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         form.reset();
