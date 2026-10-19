@@ -157,7 +157,7 @@ const i18n = {
     n1_l: "Hamkorlarimiz",
     n2_v: "14",
     n2_l: "Hududiy qamrov",
-    n3_v: "7/24",
+    n3_v: "24/7",
     n3_l: "Texnik qo'llab-quvvatlash",
     n4_v: "99,9%",
     n4_l: "O'lchash aniqligi",
