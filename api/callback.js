@@ -1,5 +1,5 @@
 // Vercel serverless function: POST /api/callback
-// Forwards callback requests (operator widget) and newsletter signups (footer) to Telegram.
+// Forwards callback requests (operator widget), contact form messages and newsletter signups to Telegram.
 //
 // Needs two environment variables in Vercel (Project → Settings → Environment Variables):
 //   TELEGRAM_BOT_TOKEN  — token from @BotFather
@@ -39,6 +39,25 @@ module.exports = async (req, res) => {
       "",
       `✉️ Email: ${email}`,
       `🌐 Sahifa: ${clean(body.page) || "—"}`,
+      `🕒 Vaqt: ${new Date().toLocaleString("ru-RU", { timeZone: "Asia/Tashkent" })}`
+    ].join("\n"));
+  }
+
+  if (body.type === "contact") {
+    const name = clean(body.name);
+    const email = clean(body.email);
+    const message = String(body.message || "").trim().slice(0, 1500);
+    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !message) {
+      return res.status(400).json({ ok: false, error: "Name, a valid email and a message are required" });
+    }
+    return sendToTelegram(res, token, chatId, [
+      "✉️ Aloqa sahifasidan yangi xabar",
+      "",
+      `👤 Ism: ${name}`,
+      `📧 Email: ${email}`,
+      `📱 Telefon: ${clean(body.phone) || "—"}`,
+      `📏 O'lcham: ${clean(body.size) || "—"}`,
+      `💬 Xabar: ${message}`,
       `🕒 Vaqt: ${new Date().toLocaleString("ru-RU", { timeZone: "Asia/Tashkent" })}`
     ].join("\n"));
   }

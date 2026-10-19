@@ -90,8 +90,8 @@ const i18n = {
     prod_f2_p: "Har bir litr aniq va xatosiz hisoblanadi.",
     prod_cta_h2: "Buyurtma berishga tayyormisiz?", prod_cta_p: "Kerakli o'lchamni tanlang va buyurtmangizni rasmiylashtirish uchun biz bilan bog'laning.",
 
-    contact_eyebrow: "Aloqa", contact_h1: "Suv hisoblagich sotib olish va aloqa",
-    contact_p: "UzLitrPro bilan bog'laning: suv hisoblagichlari narxi, buyurtma va texnik maslahat. Manzil: Toshkent, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy. Tel: +998 77 090 05 50.",
+    contact_eyebrow: "Aloqa", contact_h1: "Suv hisoblagichlariga buyurtma berish va bog'lanish",
+    contact_p: "UzLitrPro suv hisoblagichlari, mahsulot narxlari, xarid shartlari va texnik yechimlar bo'yicha batafsil ma'lumot oling. Manzil: Toshkent, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy. Tel: +998 77 090 05 50.",
     contact_info_h: "Bog'lanish ma'lumotlari",
     contact_address: "Toshkent shahri, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy",
     contact_label_address: "Manzil", contact_label_phone: "Telefon", contact_label_email: "Elektron pochta", contact_label_hours: "Ish vaqti",
@@ -104,10 +104,10 @@ const i18n = {
     form_message: "Xabaringiz", form_message_ph: "Buyurtma miqdori, yetkazib berish manzili yoki savolingizni yozing...",
     form_submit: "Yuborish",
     form_note: "Bu forma frontend namoyishi sifatida ishlaydi. Haqiqiy xabarlarni qabul qilish uchun uni backend yoki elektron pochta xizmatiga ulash kerak bo'ladi.",
-    form_success: "Rahmat! Xabaringiz qabul qilindi (namoyish rejimi) — tez orada siz bilan bog'lanamiz.",
+    form_success: "Rahmat! Xabaringiz qabul qilindi — tez orada siz bilan bog'lanamiz.",
 
-    news_eyebrow: "Yangiliklar", news_h1: "Suv hisoblagichlar yangiliklari va maqolalari",
-    news_p: "UzLitrPro kompaniyasi yangiliklari, suv hisoblagichlari bo'yicha foydali maqolalar, soha yangiliklari va texnik maslahatlar bilan muntazam tanishing.",
+    news_eyebrow: "Yangiliklar", news_h1: "Sohaviy matbuot yangiliklari",
+    news_p: "UzLitrPro kompaniyasining eng so'nggi yangiliklari, suv hisoblagichlariga oid foydali maqolalar, sohadagi yangiliklar va professional texnik tavsiyalar bilan muntazam tanishib boring.",
     news_filter_all: "Barcha", news_filter_company: "Kompaniya", news_filter_products: "Mahsulotlar", news_filter_events: "Tadbirlar",
     news_date_soon: "Tez orada", news_no_results: "Bu toifada hozircha maqola yo'q.",
     news_soon_eyebrow: "Tez orada", news_soon_h2: "Bu bo'lim hozircha tayyorlanmoqda",
@@ -205,6 +205,9 @@ const i18n = {
     prod_certs_eyebrow: "Sertifikatlar",
     prod_certs_h2: "Muvofiqlik sertifikatlari",
     prod_certs_p: "Mahsulotlarimiz barcha xalqaro va milliy standartlar talablariga to'liq javob beradi.",
+    // News and contact pages (from the content documents)
+    contact_map_h2: "Bizning manzilimiz",
+    form_fail: "Yuborib bo'lmadi. Iltimos, bizga qo'ng'iroq qiling: +998 77 090 05 50",
   },
 
   ru: {
@@ -290,8 +293,8 @@ const i18n = {
     prod_f2_p: "Каждый литр считается точно и без ошибок.",
     prod_cta_h2: "Готовы сделать заказ?", prod_cta_p: "Выберите нужный размер и свяжитесь с нами, чтобы оформить заказ.",
 
-    contact_eyebrow: "Контакты", contact_h1: "Купить счётчик воды и связаться с нами",
-    contact_p: "Свяжитесь с UzLitrPro: цены на счётчики воды, заказ и техническая консультация. Адрес: г. Ташкент, Яккасарайский район, махалля Ракатбоши, ул. Орикзор 1-тор, дом 40. Тел: +998 77 090 05 50.",
+    contact_eyebrow: "Контакты", contact_h1: "Заказ счётчиков воды и контакты",
+    contact_p: "Получите подробную информацию о счётчиках воды UzLitrPro, ценах на продукцию, условиях покупки и технических решениях. Адрес: Ташкент, Яккасарайский район, МСГ Ракатбоши, ул. Урикзор 1-й тупик, д. 40. Тел.: +998 77 090 05 50.",
     contact_info_h: "Контактная информация",
     contact_address: "г. Ташкент, Яккасарайский район, махалля Ракатбоши, ул. Орикзор 1-тор, дом 40",
     contact_label_address: "Адрес", contact_label_phone: "Телефон", contact_label_email: "Электронная почта", contact_label_hours: "Часы работы",
@@ -304,10 +307,10 @@ const i18n = {
     form_message: "Ваше сообщение", form_message_ph: "Напишите объём заказа, адрес доставки или ваш вопрос...",
     form_submit: "Отправить",
     form_note: "Эта форма работает как демонстрация интерфейса. Для приёма реальных сообщений её нужно подключить к backend или почтовому сервису.",
-    form_success: "Спасибо! Ваше сообщение получено (демо-режим) — мы свяжемся с вами в ближайшее время.",
+    form_success: "Спасибо! Ваше сообщение получено — мы скоро с вами свяжемся.",
 
-    news_eyebrow: "Новости", news_h1: "Новости и статьи о счётчиках воды",
-    news_p: "Следите за новостями компании UzLitrPro, полезными статьями о счётчиках воды, новостями отрасли и техническими советами.",
+    news_eyebrow: "Новости", news_h1: "Новости отраслевой прессы",
+    news_p: "Регулярно знакомьтесь с последними новостями компании UzLitrPro, полезными статьями о счётчиках воды, новостями отрасли и профессиональными техническими рекомендациями.",
     news_filter_all: "Все", news_filter_company: "Компания", news_filter_products: "Продукты", news_filter_events: "Мероприятия",
     news_date_soon: "Скоро", news_no_results: "В этой категории пока нет статей.",
     news_soon_eyebrow: "Скоро", news_soon_h2: "Этот раздел пока готовится",
@@ -405,6 +408,9 @@ const i18n = {
     prod_certs_eyebrow: "Сертификаты",
     prod_certs_h2: "Сертификаты соответствия",
     prod_certs_p: "Наша продукция полностью соответствует требованиям всех международных и национальных стандартов.",
+    // News and contact pages (from the content documents)
+    contact_map_h2: "Наш адрес",
+    form_fail: "Не удалось отправить. Пожалуйста, позвоните нам: +998 77 090 05 50",
   },
 
   en: {
@@ -490,8 +496,8 @@ const i18n = {
     prod_f2_p: "Every litre is counted accurately, without error.",
     prod_cta_h2: "Ready to place an order?", prod_cta_p: "Choose the size you need and contact us to place your order.",
 
-    contact_eyebrow: "Contact", contact_h1: "Buy a water meter and get in touch",
-    contact_p: "Get in touch with UzLitrPro: water meter pricing, orders, and technical advice. Address: Rakatboshi MFY, O'rikzor 1st lane, House 40, Yakkasaray district, Tashkent. Tel: +998 77 090 05 50.",
+    contact_eyebrow: "Contact", contact_h1: "Order water meters and contact us",
+    contact_p: "Get detailed information about UzLitrPro water meters, product prices, purchase terms and technical solutions. Address: 40 O'rikzor 1st lane, Rakatboshi MFY, Yakkasaroy district, Tashkent. Phone: +998 77 090 05 50.",
     contact_info_h: "Contact information",
     contact_address: "Rakatboshi MFY, O'rikzor 1st lane, House 40, Yakkasaray district, Tashkent",
     contact_label_address: "Address", contact_label_phone: "Phone", contact_label_email: "Email", contact_label_hours: "Working hours",
@@ -504,10 +510,10 @@ const i18n = {
     form_message: "Your message", form_message_ph: "Write the order quantity, delivery address, or your question...",
     form_submit: "Send",
     form_note: "This form works as a front-end demo. To receive real messages, it needs to be connected to a backend or email service.",
-    form_success: "Thank you! Your message has been received (demo mode) — we'll get back to you soon.",
+    form_success: "Thank you! Your message was received — we'll be in touch soon.",
 
-    news_eyebrow: "News", news_h1: "Water meter news and articles",
-    news_p: "Follow UzLitrPro's company news, helpful articles about water meters, industry updates, and technical tips.",
+    news_eyebrow: "News", news_h1: "Industry press news",
+    news_p: "Keep up with the latest UzLitrPro news, useful articles about water meters, industry news and professional technical advice.",
     news_filter_all: "All", news_filter_company: "Company", news_filter_products: "Products", news_filter_events: "Events",
     news_date_soon: "Coming soon", news_no_results: "No articles in this category yet.",
     news_soon_eyebrow: "Coming soon", news_soon_h2: "This section is being prepared",
@@ -605,6 +611,9 @@ const i18n = {
     prod_certs_eyebrow: "Certificates",
     prod_certs_h2: "Certificates of conformity",
     prod_certs_p: "Our products fully meet the requirements of all international and national standards.",
+    // News and contact pages (from the content documents)
+    contact_map_h2: "Our address",
+    form_fail: "Couldn't send. Please call us: +998 77 090 05 50",
   },
 };
 
@@ -760,17 +769,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Contact form — sent to Telegram through api/callback.js
   const form = document.getElementById("contact-form");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const dict = i18n[currentLang] || i18n.uz;
       const success = document.getElementById("form-success");
+      const button = form.querySelector("button[type=submit]");
+      if (button) button.disabled = true;
+      let ok = false;
+      try {
+        const data = Object.fromEntries(new FormData(form));
+        const response = await fetch("/api/callback", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...data, type: "contact", page: document.title })
+        });
+        ok = response.ok;
+      } catch (err) { /* network error: reported below */ }
+      if (button) button.disabled = false;
       if (success) {
+        success.textContent = ok ? dict.form_success : dict.form_fail;
+        success.classList.toggle("is-fail", !ok);
         success.classList.add("show");
         success.setAttribute("tabindex", "-1");
         success.focus();
       }
-      form.reset();
+      if (ok) form.reset();
     });
   }
 
