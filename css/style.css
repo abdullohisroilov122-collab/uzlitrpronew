@@ -2395,3 +2395,25 @@ h1, h2, h3, h4 {
   font-weight: 500;
   line-height: 1.65;
 }
+
+/* Products page: size selector (was unstyled) */
+.size-chips { display: flex; gap: 10px; margin-top: 10px; }
+.size-chip {
+  min-width: 64px;
+  padding: 10px 18px;
+  border: 1.5px solid var(--steel-200);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--navy-900);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.size-chip:hover { border-color: var(--blue-500); }
+.size-chip.active { border-color: var(--blue-600); background: var(--blue-600); color: var(--white); }
+.size-chip:focus-visible { outline: 3px solid rgba(0, 163, 224, 0.35); outline-offset: 2px; }
+
+#catalog-grid { margin-bottom: 0; }
+#catalog-grid + * { margin-top: 0; }
+.catalog-grid-section { padding-bottom: 24px; }

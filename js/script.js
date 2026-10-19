@@ -88,7 +88,7 @@ const i18n = {
     prod_why_eyebrow: "Nima uchun UzLitrPro", prod_why_h2: "Har bir detalda o'ylab ishlab chiqilgan",
     prod_f1_p: "Ikkala tizim uchun ham bitta ishonchli yechim.",
     prod_f2_p: "Har bir litr aniq va xatosiz hisoblanadi.",
-    prod_cta_h2: "Buyurtma berishga tayyormisiz?", prod_cta_p: "Kerakli o'lchamni tanlang va biz bilan bog'laning — jarayon oddiy va tez.",
+    prod_cta_h2: "Buyurtma berishga tayyormisiz?", prod_cta_p: "Kerakli o'lchamni tanlang va buyurtmangizni rasmiylashtirish uchun biz bilan bog'laning.",
 
     contact_eyebrow: "Aloqa", contact_h1: "Suv hisoblagich sotib olish va aloqa",
     contact_p: "UzLitrPro bilan bog'laning: suv hisoblagichlari narxi, buyurtma va texnik maslahat. Manzil: Toshkent, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy. Tel: +998 77 090 05 50.",
@@ -117,8 +117,8 @@ const i18n = {
     news_f3_h: "Foydali maslahatlar", news_f3_p: "Suv hisoblagichlarini o'rnatish va parvarish qilish bo'yicha tavsiyalar.",
     news_cta_h2: "Savolingiz bormi?", news_cta_p: "Biz bilan bog'laning — sizga yordam berishdan mamnunmiz.",
 
-    prod_catalog_pill: "Sifatli mahsulotlar", prod_catalog_h1: "Suv hisoblagichlari katalogi",
-    prod_catalog_p: "UzLitrPro suv hisoblagichlari katalogi: o'lchami va texnik xususiyatlarini ko'ring, kerakli variantni tanlab buyurtma bering.",
+    prod_catalog_pill: "Premium mahsulotlar", prod_catalog_h1: "Suv hisoblagichlar katalogi va narxlari",
+    prod_catalog_p: "UzLitrPro suv hisoblagichlari katalogi: mexanik va impulsli modellar. Narxlar va texnik xususiyatlar bilan tanishing, o'zingizga mos modelni tanlang va buyurtmangizni rasmiylashtiring.",
     prod_search_ph: "Qidirish...", prod_filter_all_sizes: "Barcha o'lchamlar",
     prod_sort_default: "Standart tartib", prod_sort_size_asc: "O'lcham: kichikdan kattaga", prod_sort_size_desc: "O'lcham: kattadan kichikka",
     prod_top_tag: "TOP", prod_price_on_request: "Narx so'rov asosida", prod_no_results: "Hech narsa topilmadi. Boshqa so'rov bilan qidirib ko'ring.",
@@ -201,6 +201,10 @@ const i18n = {
     about_s2: "UzLitrPro asosiy maqsadi — yuqori sifat, ishonchlilik va maqbul narx uyg'unligini ta'minlab, har bir mijozga ishonch bilan tanlaydigan mahsulotlarni taklif etishdir.",
     about_s3: "Biz mijozlarimiz bilan uzoq muddatli hamkorlikni yo'lga qo'yish, mahsulotlarimizni muntazam takomillashtirish va O'zbekiston bozorida mustahkam o'rin egallashga intilamiz.",
     about_s4: "Bugungi kunda UzLitrPro oldiga yanada katta maqsadlarni qo'ymoqda. Ishlab chiqarishni rivojlantirish, eksport salohiyatini oshirish, yangi hamkorlik aloqalarini yo'lga qo'yish va xalqaro bozorlarga chiqish kompaniyamizning ustuvor vazifalaridandir.",
+    // Products page (from the content documents)
+    prod_certs_eyebrow: "Sertifikatlar",
+    prod_certs_h2: "Muvofiqlik sertifikatlari",
+    prod_certs_p: "Mahsulotlarimiz barcha xalqaro va milliy standartlar talablariga to'liq javob beradi.",
   },
 
   ru: {
@@ -284,7 +288,7 @@ const i18n = {
     prod_why_eyebrow: "Почему UzLitrPro", prod_why_h2: "Продумано в каждой детали",
     prod_f1_p: "Одно надёжное решение для обеих систем.",
     prod_f2_p: "Каждый литр считается точно и без ошибок.",
-    prod_cta_h2: "Готовы сделать заказ?", prod_cta_p: "Выберите нужный размер и свяжитесь с нами — процесс простой и быстрый.",
+    prod_cta_h2: "Готовы сделать заказ?", prod_cta_p: "Выберите нужный размер и свяжитесь с нами, чтобы оформить заказ.",
 
     contact_eyebrow: "Контакты", contact_h1: "Купить счётчик воды и связаться с нами",
     contact_p: "Свяжитесь с UzLitrPro: цены на счётчики воды, заказ и техническая консультация. Адрес: г. Ташкент, Яккасарайский район, махалля Ракатбоши, ул. Орикзор 1-тор, дом 40. Тел: +998 77 090 05 50.",
@@ -313,8 +317,8 @@ const i18n = {
     news_f3_h: "Полезные советы", news_f3_p: "Рекомендации по установке и обслуживанию счётчиков воды.",
     news_cta_h2: "Остались вопросы?", news_cta_p: "Свяжитесь с нами — мы будем рады помочь.",
 
-    prod_catalog_pill: "Качественная продукция", prod_catalog_h1: "Каталог счётчиков воды",
-    prod_catalog_p: "Каталог счётчиков воды UzLitrPro: изучите размеры и технические характеристики, выберите нужный вариант и оформите заказ.",
+    prod_catalog_pill: "Премиальная продукция", prod_catalog_h1: "Каталог и цены счётчиков воды",
+    prod_catalog_p: "Каталог счётчиков воды UzLitrPro: механические и импульсные модели. Ознакомьтесь с ценами и техническими характеристиками, выберите подходящую модель и оформите заказ.",
     prod_search_ph: "Поиск...", prod_filter_all_sizes: "Все размеры",
     prod_sort_default: "Стандартный порядок", prod_sort_size_asc: "Размер: по возрастанию", prod_sort_size_desc: "Размер: по убыванию",
     prod_top_tag: "TOP", prod_price_on_request: "Цена по запросу", prod_no_results: "Ничего не найдено. Попробуйте другой запрос.",
@@ -397,6 +401,10 @@ const i18n = {
     about_s2: "Главная цель UzLitrPro — сочетать высокое качество, надёжность и разумную цену, предлагая каждому клиенту продукцию, которую выбирают с уверенностью.",
     about_s3: "Мы стремимся выстраивать долгосрочное сотрудничество с клиентами, постоянно совершенствовать продукцию и занять прочное место на рынке Узбекистана.",
     about_s4: "Сегодня UzLitrPro ставит перед собой ещё более масштабные цели. Развитие производства, наращивание экспортного потенциала, налаживание новых партнёрских связей и выход на международные рынки — среди приоритетных задач компании.",
+    // Products page (from the content documents)
+    prod_certs_eyebrow: "Сертификаты",
+    prod_certs_h2: "Сертификаты соответствия",
+    prod_certs_p: "Наша продукция полностью соответствует требованиям всех международных и национальных стандартов.",
   },
 
   en: {
@@ -480,7 +488,7 @@ const i18n = {
     prod_why_eyebrow: "Why UzLitrPro", prod_why_h2: "Thoughtfully engineered in every detail",
     prod_f1_p: "One reliable solution for both systems.",
     prod_f2_p: "Every litre is counted accurately, without error.",
-    prod_cta_h2: "Ready to place an order?", prod_cta_p: "Choose the size you need and get in touch — the process is simple and fast.",
+    prod_cta_h2: "Ready to place an order?", prod_cta_p: "Choose the size you need and contact us to place your order.",
 
     contact_eyebrow: "Contact", contact_h1: "Buy a water meter and get in touch",
     contact_p: "Get in touch with UzLitrPro: water meter pricing, orders, and technical advice. Address: Rakatboshi MFY, O'rikzor 1st lane, House 40, Yakkasaray district, Tashkent. Tel: +998 77 090 05 50.",
@@ -509,8 +517,8 @@ const i18n = {
     news_f3_h: "Helpful tips", news_f3_p: "Recommendations for installing and maintaining water meters.",
     news_cta_h2: "Have a question?", news_cta_p: "Get in touch with us — we're happy to help.",
 
-    prod_catalog_pill: "Quality products", prod_catalog_h1: "Water meter catalog",
-    prod_catalog_p: "UzLitrPro's water meter catalog: browse sizes and technical specs, pick the right option, and place your order.",
+    prod_catalog_pill: "Premium products", prod_catalog_h1: "Water meter catalog and prices",
+    prod_catalog_p: "The UzLitrPro water meter catalog: mechanical and pulse-output models. Compare prices and technical specifications, choose the right model and place your order.",
     prod_search_ph: "Search...", prod_filter_all_sizes: "All sizes",
     prod_sort_default: "Default order", prod_sort_size_asc: "Size: smallest first", prod_sort_size_desc: "Size: largest first",
     prod_top_tag: "TOP", prod_price_on_request: "Price on request", prod_no_results: "No results found. Try a different search.",
@@ -593,6 +601,10 @@ const i18n = {
     about_s2: "UzLitrPro's main goal is to combine high quality, reliability and a fair price, offering every customer products they can choose with confidence.",
     about_s3: "We strive to build long-term partnerships with our customers, continually improve our products and secure a strong position in the Uzbekistan market.",
     about_s4: "Today UzLitrPro is setting even bigger goals. Developing production, growing export potential, building new partnerships and entering international markets are among our company's top priorities.",
+    // Products page (from the content documents)
+    prod_certs_eyebrow: "Certificates",
+    prod_certs_h2: "Certificates of conformity",
+    prod_certs_p: "Our products fully meet the requirements of all international and national standards.",
   },
 };
 
