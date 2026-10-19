@@ -16,11 +16,7 @@ const UZLITRPRO_CONTACT = {
     facebook: "",
     youtube: "",
     linkedin: ""
-  },
-  // Working hours in Tashkent time: Monday (1) to Saturday (6), 9:00–18:00
-  workDays: [1, 2, 3, 4, 5, 6],
-  openHour: 9,
-  closeHour: 18
+  }
 };
 
 (function () {
@@ -31,8 +27,9 @@ const UZLITRPRO_CONTACT = {
       open: "Operator bilan bog'lanish",
       close: "Yopish",
       title: "UzLitrPro operatori",
-      online: "Onlayn · 9:00–18:00",
-      offline: "Hozir yopiq · Du–Sha 9:00–18:00",
+      online: "Onlayn · 24/7",
+      phoneHours: "Du–Sha 9:00–18:00",
+      telegramHours: "24/7 yordam",
       call: "Hozir qo'ng'iroq qilish",
       telegram: "Telegram orqali yozish",
       callback: "Qayta qo'ng'iroq so'rash",
@@ -53,8 +50,9 @@ const UZLITRPRO_CONTACT = {
       open: "Связаться с оператором",
       close: "Закрыть",
       title: "Оператор UzLitrPro",
-      online: "Онлайн · 9:00–18:00",
-      offline: "Сейчас закрыто · Пн–Сб 9:00–18:00",
+      online: "Онлайн · 24/7",
+      phoneHours: "Пн–Сб 9:00–18:00",
+      telegramHours: "Поддержка 24/7",
       call: "Позвонить сейчас",
       telegram: "Написать в Telegram",
       callback: "Заказать обратный звонок",
@@ -75,8 +73,9 @@ const UZLITRPRO_CONTACT = {
       open: "Contact an operator",
       close: "Close",
       title: "UzLitrPro operator",
-      online: "Online · 9:00–18:00",
-      offline: "Closed now · Mon–Sat 9:00–18:00",
+      online: "Online · 24/7",
+      phoneHours: "Mon–Sat 9:00–18:00",
+      telegramHours: "24/7 support",
       call: "Call now",
       telegram: "Message us on Telegram",
       callback: "Request a callback",
@@ -142,17 +141,6 @@ const UZLITRPRO_CONTACT = {
     return saved === "ru" || saved === "en" ? saved : "uz";
   }
 
-  // Working hours are checked in Tashkent time, whatever the visitor's clock says.
-  function isOpenNow() {
-    const parts = new Intl.DateTimeFormat("en-US", {
-      timeZone: "Asia/Tashkent", weekday: "short", hour: "numeric", hourCycle: "h23"
-    }).formatToParts(new Date());
-    const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-      .indexOf(parts.find((p) => p.type === "weekday").value);
-    const hour = parseInt(parts.find((p) => p.type === "hour").value, 10);
-    return C.workDays.includes(day) && hour >= C.openHour && hour < C.closeHour;
-  }
-
   function socialLinks(className) {
     return Object.entries(C.social)
       .filter(([, url]) => url)
@@ -172,17 +160,17 @@ const UZLITRPRO_CONTACT = {
             <span class="op-avatar">${icon("headset")}</span>
             <div>
               <strong id="op-title" data-op="title"></strong>
-              <span class="op-status" data-op-status></span>
+              <span class="op-status" data-op="online"></span>
             </div>
           </div>
           <a class="op-channel" href="tel:${C.phone}">
             <span class="op-channel-icon op-ic-call">${icon("phone")}</span>
-            <span><b data-op="call"></b><small>${C.phoneLabel}</small></span>
+            <span><b data-op="call"></b><small>${C.phoneLabel}</small><small data-op="phoneHours"></small></span>
           </a>
           ${C.telegram ? `
           <a class="op-channel" href="${C.telegram}" target="_blank" rel="noopener">
             <span class="op-channel-icon op-ic-tg">${icon("telegram")}</span>
-            <span><b data-op="telegram"></b></span>
+            <span><b data-op="telegram"></b><small data-op="telegramHours"></small></span>
           </a>` : ""}
           <button type="button" class="op-channel" data-op-goto="form">
             <span class="op-channel-icon op-ic-cb">${icon("callback")}</span>
@@ -245,10 +233,7 @@ const UZLITRPRO_CONTACT = {
       widget.classList.toggle("is-open", open);
       fab.setAttribute("aria-expanded", String(open));
       fab.setAttribute("aria-label", TEXT[getLanguage()][open ? "close" : "open"]);
-      if (open) {
-        showView("menu");
-        updateStatus();
-      }
+      if (open) showView("menu");
     }
 
     function showView(name) {
@@ -256,16 +241,6 @@ const UZLITRPRO_CONTACT = {
       formView.hidden = name !== "form";
       const first = (name === "form" ? formView.querySelector("input[name=name]") : menuView.querySelector(".op-channel"));
       if (first && !panel.hidden) first.focus({ preventScroll: true });
-    }
-
-    function updateStatus() {
-      const t = TEXT[getLanguage()];
-      const open = isOpenNow();
-      widget.querySelectorAll("[data-op-status]").forEach((el) => {
-        el.textContent = open ? t.online : t.offline;
-        el.classList.toggle("is-offline", !open);
-      });
-      widget.classList.toggle("is-offline", !open);
     }
 
     function applyLanguage() {
@@ -280,7 +255,6 @@ const UZLITRPRO_CONTACT = {
       select.innerHTML = t.topics.map((topic) => `<option>${topic}</option>`).join("");
       select.selectedIndex = Math.max(0, current);
       fab.setAttribute("aria-label", t[panel.hidden ? "open" : "close"]);
-      updateStatus();
       renderSocialBlock(lang);
     }
 
@@ -337,7 +311,6 @@ const UZLITRPRO_CONTACT = {
 
     applyLanguage();
     document.addEventListener("litrpro:langchange", applyLanguage);
-    setInterval(updateStatus, 60000);
   }
 
   // "Follow us" block on the contact page

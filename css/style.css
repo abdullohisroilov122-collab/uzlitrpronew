@@ -1948,8 +1948,6 @@ h1, h2, h3, h4 {
   animation: opPulse 2.4s ease-out infinite;
 }
 
-.op-widget.is-offline .op-fab { background: var(--blue-600); box-shadow: 0 10px 26px rgba(0, 130, 179, 0.4); }
-.op-widget.is-offline .op-fab::before,
 .op-widget.is-open .op-fab::before { display: none; }
 
 .op-fab:hover { transform: scale(1.06); }
@@ -2032,8 +2030,6 @@ h1, h2, h3, h4 {
   box-shadow: 0 0 0 3px rgba(34, 184, 118, 0.25);
 }
 
-.op-status.is-offline { color: var(--ink-soft); background: var(--steel-100); }
-.op-status.is-offline::before { background: #9aa7b8; box-shadow: none; }
 
 .op-channel {
   width: 100%;
@@ -2055,7 +2051,7 @@ h1, h2, h3, h4 {
 .op-channel:hover { background: var(--white); border-color: var(--steel-200); transform: translateX(2px); }
 .op-channel:focus-visible { outline: 3px solid rgba(0, 163, 224, 0.35); outline-offset: 2px; }
 .op-channel b { display: block; font-size: 0.9rem; }
-.op-channel small { color: var(--ink-soft); font-size: 0.78rem; }
+.op-channel small { display: block; color: var(--ink-soft); font-size: 0.78rem; }
 
 .op-channel-icon {
   width: 34px;
