@@ -49,11 +49,11 @@ const i18n = {
 
     cta_contact_btn: "Biz bilan bog'laning",
 
-    about_eyebrow: "Biz haqimizda", about_h1: "Aniqlik — bizning ishimizning asosi",
-    about_p: "UzLitrPro — MCHJ «LITR ENERGY GROUP» ning suv hisoblagichlari yo'nalishidagi brendi. Toshkentda joylashgan.",
+    about_eyebrow: "Biz haqimizda", about_h1: "UzLitrPro — sifat, aniqlik va ishonch sari!",
+    about_p: "UzLitrPro kompaniyasi 2025-yilda O'zbekiston bozoriga sifatli, ishonchli va hamyonbop suv hisoblagichlarini taqdim etish maqsadida o'z faoliyatini boshladi.",
     about_mission_eyebrow: "Missiyamiz", about_mission_h2: "Har bir uy va bino uchun ishonchli o'lchov",
-    about_mission_p: "Suv sarfini aniq hisoblash — adolatli to'lov va tejamkorlikning boshlanishi. Shuning uchun UzLitrPro har bir hisoblagichni bardoshli, suv o'tkazmaydigan va O'zMsT ISO 4064-1:2024 standartiga to'liq mos qilib ishlab chiqaradi.",
-    about_vision_h: "Viziyamiz", about_vision_p: "Biz O'zbekistonda ishlab chiqarilgan, xalqaro standartlarga to'liq javob beradigan suv hisoblagichlari bilan tanilgan ishonchli mahalliy brendga aylanishni maqsad qilganmiz.",
+    about_mission_p: "UzLitrPro missiyasi — sifatli va ishonchli suv hisoblagichlarini ishlab chiqarish orqali suv resurslaridan samarali foydalanishga hissa qo'shish. Zamonaviy texnologiyalar va mijozlarga yo'naltirilgan yondashuv orqali aniqlik, qulaylik va ishonchlilikni ta'minlash.",
+    about_vision_h: "Viziyamiz", about_vision_p: "O'zbekiston va Markaziy Osiyoda suv hisoblagichlari ishlab chiqarish sohasida yetakchi kompaniyalardan biriga aylanish va xalqaro bozorda raqobatbardosh brend sifatida tanilish. Zamonaviy texnologiyalar va raqamli yechimlar orqali soha rivojiga hissa qo'shish.",
     about_factory_pill: "Ishlab chiqarish", about_factory_h: "Suv hisoblagichlari ishlab chiqaruvchi brend",
     about_factory_p: "UzLitrPro — Toshkentda joylashgan suv hisoblagichlari brendi. 2026 yildan beri suv o'tkazmaydigan, IP68 himoyali va O'zMsT ISO 4064-1:2024 standartiga mos hisoblagichlar ishlab chiqaramiz.",
     about_values_eyebrow: "Qadriyatlarimiz", about_values_h2: "Qadriyatlarimiz",
@@ -196,6 +196,11 @@ const i18n = {
     home_dealers_cta: "O'z hududingizni tanlang va biz bilan bog'laning!",
     footer_address: "O'zbekiston, Toshkent shahri, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy",
     footer_newsletter_fail: "Yuborib bo'lmadi. Iltimos, keyinroq urinib ko'ring.",
+    // About page (from the content documents)
+    about_s1: "Biz uchun suv hisoblagichi shunchaki o'lchash vositasi emas. Suv resurslaridan oqilona foydalanish, aniq hisob-kitob va tejamkorlikni ta'minlovchi muhim vositadir. Shu sababli faoliyatimizning ilk kunlaridanoq mahsulot sifati, zamonaviy texnologiyalar va mijozlar ehtiyojini ustuvor yo'nalish sifatida belgiladik.",
+    about_s2: "UzLitrPro asosiy maqsadi — yuqori sifat, ishonchlilik va maqbul narx uyg'unligini ta'minlab, har bir mijozga ishonch bilan tanlaydigan mahsulotlarni taklif etishdir.",
+    about_s3: "Biz mijozlarimiz bilan uzoq muddatli hamkorlikni yo'lga qo'yish, mahsulotlarimizni muntazam takomillashtirish va O'zbekiston bozorida mustahkam o'rin egallashga intilamiz.",
+    about_s4: "Bugungi kunda UzLitrPro oldiga yanada katta maqsadlarni qo'ymoqda. Ishlab chiqarishni rivojlantirish, eksport salohiyatini oshirish, yangi hamkorlik aloqalarini yo'lga qo'yish va xalqaro bozorlarga chiqish kompaniyamizning ustuvor vazifalaridandir.",
   },
 
   ru: {
@@ -240,11 +245,11 @@ const i18n = {
 
     cta_contact_btn: "Связаться с нами",
 
-    about_eyebrow: "О нас", about_h1: "Точность — основа нашей работы",
-    about_p: "UzLitrPro — бренд ООО «LITR ENERGY GROUP» в сфере счётчиков воды. Расположен в Ташкенте.",
+    about_eyebrow: "О нас", about_h1: "UzLitrPro — к качеству, точности и доверию!",
+    about_p: "Компания UzLitrPro начала работу в 2025 году, чтобы предложить рынку Узбекистана качественные, надёжные и доступные счётчики воды.",
     about_mission_eyebrow: "Наша миссия", about_mission_h2: "Надёжное измерение для каждого дома и здания",
-    about_mission_p: "Точный учёт расхода воды — начало справедливой оплаты и экономии. Поэтому UzLitrPro производит каждый счётчик прочным, водонепроницаемым и полностью соответствующим стандарту O'zMsT ISO 4064-1:2024.",
-    about_vision_h: "Наше видение", about_vision_p: "Мы стремимся стать надёжным местным брендом, известным счётчиками воды, произведёнными в Узбекистане и полностью соответствующими международным стандартам.",
+    about_mission_p: "Миссия UzLitrPro — вносить вклад в эффективное использование водных ресурсов, производя качественные и надёжные счётчики воды, и обеспечивать точность, удобство и надёжность благодаря современным технологиям и клиентоориентированному подходу.",
+    about_vision_h: "Наше видение", about_vision_p: "Стать одной из ведущих компаний по производству счётчиков воды в Узбекистане и Центральной Азии и получить признание как конкурентоспособный бренд на международном рынке, внося вклад в развитие отрасли с помощью современных технологий и цифровых решений.",
     about_factory_pill: "Производство", about_factory_h: "Бренд по производству счётчиков воды",
     about_factory_p: "UzLitrPro — бренд счётчиков воды, расположенный в Ташкенте. С 2026 года мы производим водонепроницаемые счётчики с защитой IP68, соответствующие стандарту O'zMsT ISO 4064-1:2024.",
     about_values_eyebrow: "Наши ценности", about_values_h2: "Наши ценности",
@@ -387,6 +392,11 @@ const i18n = {
     home_dealers_cta: "Выберите свой регион и свяжитесь с нами!",
     footer_address: "Узбекистан, г. Ташкент, Яккасарайский район, МСГ Ракатбоши, ул. Урикзор 1-й тупик, д. 40",
     footer_newsletter_fail: "Не удалось отправить. Попробуйте позже.",
+    // About page (from the content documents)
+    about_s1: "Для нас счётчик воды — не просто измерительный прибор. Это важный инструмент для рационального использования водных ресурсов, точного учёта и экономии. Поэтому с первых дней работы мы сделали приоритетом качество продукции, современные технологии и потребности клиентов.",
+    about_s2: "Главная цель UzLitrPro — сочетать высокое качество, надёжность и разумную цену, предлагая каждому клиенту продукцию, которую выбирают с уверенностью.",
+    about_s3: "Мы стремимся выстраивать долгосрочное сотрудничество с клиентами, постоянно совершенствовать продукцию и занять прочное место на рынке Узбекистана.",
+    about_s4: "Сегодня UzLitrPro ставит перед собой ещё более масштабные цели. Развитие производства, наращивание экспортного потенциала, налаживание новых партнёрских связей и выход на международные рынки — среди приоритетных задач компании.",
   },
 
   en: {
@@ -431,11 +441,11 @@ const i18n = {
 
     cta_contact_btn: "Get in touch",
 
-    about_eyebrow: "About Us", about_h1: "Precision is the foundation of our work",
-    about_p: "UzLitrPro is LITR ENERGY GROUP LLC's water metering brand, based in Tashkent.",
+    about_eyebrow: "About Us", about_h1: "UzLitrPro — towards quality, precision and trust!",
+    about_p: "UzLitrPro started operating in 2025 to bring high-quality, reliable and affordable water meters to the Uzbekistan market.",
     about_mission_eyebrow: "Our mission", about_mission_h2: "Reliable measurement for every home and building",
-    about_mission_p: "Accurate water measurement is where fair billing and savings begin. That's why UzLitrPro builds every meter to be durable, waterproof, and fully compliant with the O'zMsT ISO 4064-1:2024 standard.",
-    about_vision_h: "Our vision", about_vision_p: "We aim to become a trusted local brand known for water meters made in Uzbekistan that fully meet international standards.",
+    about_mission_p: "UzLitrPro's mission is to contribute to the efficient use of water resources by producing high-quality, reliable water meters, delivering accuracy, convenience and reliability through modern technology and a customer-focused approach.",
+    about_vision_h: "Our vision", about_vision_p: "To become one of the leading water meter manufacturers in Uzbekistan and Central Asia and be recognised as a competitive brand internationally, contributing to the industry's growth through modern technology and digital solutions.",
     about_factory_pill: "Manufacturing", about_factory_h: "A water meter manufacturing brand",
     about_factory_p: "UzLitrPro is a water meter brand based in Tashkent. Since 2026, we've been manufacturing waterproof, IP68-rated meters compliant with the O'zMsT ISO 4064-1:2024 standard.",
     about_values_eyebrow: "Our values", about_values_h2: "Our values",
@@ -578,6 +588,11 @@ const i18n = {
     home_dealers_cta: "Select your region and get in touch!",
     footer_address: "40 O'rikzor 1st lane, Rakatboshi MFY, Yakkasaroy district, Tashkent, Uzbekistan",
     footer_newsletter_fail: "Couldn't send. Please try again later.",
+    // About page (from the content documents)
+    about_s1: "For us, a water meter is more than a measuring device. It is an important tool for using water wisely, accurate billing and saving money. That is why, from our very first days, we made product quality, modern technology and our customers' needs our priorities.",
+    about_s2: "UzLitrPro's main goal is to combine high quality, reliability and a fair price, offering every customer products they can choose with confidence.",
+    about_s3: "We strive to build long-term partnerships with our customers, continually improve our products and secure a strong position in the Uzbekistan market.",
+    about_s4: "Today UzLitrPro is setting even bigger goals. Developing production, growing export potential, building new partnerships and entering international markets are among our company's top priorities.",
   },
 };
 
