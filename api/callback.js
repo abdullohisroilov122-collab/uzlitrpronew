@@ -1,5 +1,5 @@
 // Vercel serverless function: POST /api/callback
-// Forwards a callback request from the operator widget to Telegram.
+// Forwards callback requests (operator widget) and newsletter signups (footer) to Telegram.
 //
 // Needs two environment variables in Vercel (Project → Settings → Environment Variables):
 //   TELEGRAM_BOT_TOKEN  — token from @BotFather
@@ -29,6 +29,20 @@ module.exports = async (req, res) => {
   // Bots fill in the hidden field; people don't see it. Pretend it worked.
   if (body.website) return res.status(200).json({ ok: true });
 
+  if (body.type === "newsletter") {
+    const email = clean(body.email);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return res.status(400).json({ ok: false, error: "A valid email is required" });
+    }
+    return sendToTelegram(res, token, chatId, [
+      "📧 Yangiliklarga yangi obuna",
+      "",
+      `✉️ Email: ${email}`,
+      `🌐 Sahifa: ${clean(body.page) || "—"}`,
+      `🕒 Vaqt: ${new Date().toLocaleString("ru-RU", { timeZone: "Asia/Tashkent" })}`
+    ].join("\n"));
+  }
+
   const name = clean(body.name);
   const phone = clean(body.phone);
   const topic = clean(body.topic);
@@ -39,7 +53,7 @@ module.exports = async (req, res) => {
   }
 
   const time = new Date().toLocaleString("ru-RU", { timeZone: "Asia/Tashkent" });
-  const text = [
+  return sendToTelegram(res, token, chatId, [
     "📞 Yangi qayta qo'ng'iroq so'rovi",
     "",
     `👤 Ism: ${name}`,
@@ -47,8 +61,10 @@ module.exports = async (req, res) => {
     `📋 Mavzu: ${topic || "—"}`,
     `🌐 Sahifa: ${page || "—"}`,
     `🕒 Vaqt: ${time}`
-  ].join("\n");
+  ].join("\n"));
+};
 
+async function sendToTelegram(res, token, chatId, text) {
   try {
     const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
@@ -64,4 +80,4 @@ module.exports = async (req, res) => {
     console.error("Telegram request failed:", error);
     return res.status(502).json({ ok: false, error: "Telegram request failed" });
   }
-};
+}

@@ -85,26 +85,17 @@
           <a href="products.html" class="btn btn-primary" data-i18n="hero_btn1">Mahsulotlarni ko'rish</a>
           <a href="contact.html" class="btn btn-outline-light" data-i18n="hero_btn2">Buyurtma berish</a>
         </div>
-        <div class="hero-checklist">
-          <div class="check-item">
-            <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.5 6.5 5 10.7 5 14.2a7 7 0 0 0 14 0C19 10.7 15.5 6.5 12 2Z"/></svg></span>
-            <span data-i18n="badge_ip68_long">IP68 himoya</span>
-          </div>
-          <div class="check-item">
-            <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5z"/></svg></span>
-            <span data-i18n="badge_warranty">1 yil kafolat</span>
-          </div>
-          <div class="check-item">
-            <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 13.5 7 22l5-3 5 3-2-8.5"/></svg></span>
-            <span data-i18n="badge_iso">ISO 4064-1</span>
-          </div>
-          <div class="check-item">
-            <span class="check-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg></span>
-            <span data-i18n="badge_hotcold">Sovuq / Issiq</span>
-          </div>
+        <div class="tech-chips" aria-label="Texnologiyalar va standartlar">
+          <span class="tech-chip">RS485</span>
+          <span class="tech-chip">IP68</span>
+          <span class="tech-chip">NB-IoT</span>
+          <span class="tech-chip">LoRa/LoRaWAN</span>
+          <span class="tech-chip">wM-Bus</span>
+          <span class="tech-chip">Smart Cloud</span>
+          <span class="tech-chip">ISO 4064</span>
+          <span class="tech-chip tech-chip-accent" data-i18n="badge_warranty">1 yil kafolat</span>
         </div>
       </div>
-
       <div class="hero-orbit-wrap" id="hero-orbit">
         <div class="ripple-wrap" aria-hidden="true">
           <span class="ripple-ring"></span>
@@ -141,121 +132,67 @@
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
-  <div class="trust-strip">
-    <div class="container">
-      <ul>
-        <li>MCHJ «LITR ENERGY GROUP»</li>
-        <li data-i18n="trust2">Toshkent shahrida ishlab chiqarilgan</li>
-        <li data-i18n="trust3">O'zMsT ISO 4064-1:2024 standartiga muvofiq</li>
-        <li data-i18n="trust4">Premium Quality</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- STATS -->
-  <div class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <div class="stat-icon c-blue">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 3v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V5z"/></svg>
-          </div>
-          <div><span class="stat-value">IP68</span><span class="stat-label" data-i18n="stat1">Suv o'tkazmaydigan</span></div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-icon c-teal">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M9 13.5 7 22l5-3 5 3-2-8.5"/></svg>
-          </div>
-          <div><span class="stat-value" data-i18n="stat2_val">1 yil</span><span class="stat-label" data-i18n="stat2">Kafolat</span></div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-icon c-violet">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 3 3 21M8 3H3v5M21 16v5h-5"/></svg>
-          </div>
-          <div><span class="stat-value">15–25∅</span><span class="stat-label" data-i18n="stat3">O'lcham diapazoni</span></div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-icon c-amber">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="6"/><path d="m9 14.5-2 7 5-3 5 3-2-7"/></svg>
-          </div>
-          <div><span class="stat-value">ISO 4064-1</span><span class="stat-label" data-i18n="sizespec1">O'zMsT standarti</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- POPULAR PRODUCTS -->
+  <!-- TOP PRODUCTS -->
   <section class="section section-alt">
     <div class="container">
       <div class="product-showcase-head reveal">
         <div>
-          <span class="eyebrow" data-i18n="size_eyebrow">O'lchamlar</span>
-          <h2 data-i18n="size_h2">
-            Har bir tizimga mos o'lcham
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg>
-          </h2>
+          <span class="eyebrow" data-i18n="home_prod_eyebrow">Mahsulotlarimiz</span>
+          <h2 data-i18n="home_prod_h2">Top mahsulotlar</h2>
         </div>
         <a href="products.html" class="btn btn-outline" data-i18n="size_view_all">Barcha mahsulotlar</a>
       </div>
-      <p class="product-showcase-sub reveal" data-i18n="size_p">Kvartiradan tortib ko'p qavatli binolargacha — UzLitrPro uch xil diametrda mavjud.</p>
-
-      <div class="product-cards">
+      <div class="product-cards product-cards-5">
         <a href="products.html" class="product-card reveal">
-          <span class="hit-tag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-14h-8z"/></svg>HIT</span>
-          <div class="product-card-media"><img src="assets/product-meter.png" alt="UzLitrPro 15∅ suv hisoblagichi" loading="lazy"></div>
+          <div class="product-card-media"><img src="assets/product-meter.png" alt="DN15" loading="lazy"></div>
           <div class="product-card-body">
-            <h3>15∅ (DN15)</h3>
+            <span class="product-card-cat" data-i18n="cat_mech">Mexanik suv hisoblagichlari</span>
             <div class="product-card-row">
-              <span class="product-card-flow" data-i18n="prod_flow_15">0.6 – 3.0 m³/h</span>
+              <h3 data-i18n="p_mech15">DN15 mexanik suv hisoblagichi</h3>
               <span class="product-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-            <span class="availability-tag" data-i18n="size_available">Mavjud</span>
           </div>
         </a>
         <a href="products.html" class="product-card reveal">
-          <span class="hit-tag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-14h-8z"/></svg>HIT</span>
-          <div class="product-card-media"><img src="assets/product-meter.png" alt="UzLitrPro 20∅ suv hisoblagichi" loading="lazy"></div>
+          <div class="product-card-media"><img src="assets/product-meter.png" alt="DN20" loading="lazy"></div>
           <div class="product-card-body">
-            <h3>20∅ (DN20)</h3>
+            <span class="product-card-cat" data-i18n="cat_mech">Mexanik suv hisoblagichlari</span>
             <div class="product-card-row">
-              <span class="product-card-flow" data-i18n="prod_flow_20">1.0 – 5.0 m³/h</span>
+              <h3 data-i18n="p_mech20">DN20 mexanik suv hisoblagichi</h3>
               <span class="product-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-            <span class="availability-tag" data-i18n="size_available">Mavjud</span>
           </div>
         </a>
         <a href="products.html" class="product-card reveal">
-          <span class="hit-tag"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-14h-8z"/></svg>HIT</span>
-          <div class="product-card-media"><img src="assets/product-meter.png" alt="UzLitrPro 25∅ suv hisoblagichi" loading="lazy"></div>
+          <div class="product-card-media"><img src="assets/product-meter.png" alt="DN15" loading="lazy"></div>
           <div class="product-card-body">
-            <h3>25∅ (DN25)</h3>
+            <span class="product-card-cat" data-i18n="cat_pulse">Impulsli suv hisoblagichlari</span>
             <div class="product-card-row">
-              <span class="product-card-flow" data-i18n="prod_flow_25">1.6 – 7.0 m³/h</span>
+              <h3 data-i18n="p_pulse15">DN15 impulsli suv hisoblagichi</h3>
               <span class="product-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
             </div>
-            <span class="availability-tag" data-i18n="size_available">Mavjud</span>
           </div>
         </a>
-      </div>
-      <table class="spec-table reveal">
-        <tbody>
-          <tr><td data-i18n="sizespec1">O'zMsT standarti</td><td>ISO 4064-1:2024</td></tr>
-          <tr><td data-i18n="sizespec2">Himoya darajasi</td><td>IP68</td></tr>
-          <tr><td data-i18n="sizespec3">Kafolat muddati</td><td data-i18n="stat2_val">1 yil</td></tr>
-          <tr><td data-i18n="sizespec4">Ishlab chiqaruvchi</td><td>LITR ENERGY GROUP</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow" data-i18n="feat_eyebrow">Xususiyatlar</span>
-        <h2 data-i18n="feat_h2">Har bir detalda mo'ljallangan aniqlik</h2>
-        <p data-i18n="feat_p">UzLitrPro hisoblagichlari uzoq muddat ishonchli ishlashi uchun sinovdan o'tkazilgan — uy egalaridan tortib santexnik ustalargacha.</p>
+        <a href="products.html" class="product-card reveal">
+          <div class="product-card-media"><img src="assets/product-meter.png" alt="DN20" loading="lazy"></div>
+          <div class="product-card-body">
+            <span class="product-card-cat" data-i18n="cat_pulse">Impulsli suv hisoblagichlari</span>
+            <div class="product-card-row">
+              <h3 data-i18n="p_pulse20">DN20 impulsli suv hisoblagichi</h3>
+              <span class="product-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a href="products.html" class="product-card reveal">
+          <div class="product-card-media"><svg class="product-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="14" height="12" rx="2"/><path d="M9 7V5M15 7V5M9 11h6M9 15h3"/><path d="M2.5 9.5a8 8 0 0 1 0 5M21.5 9.5a8 8 0 0 0 0 5"/></svg></div>
+          <div class="product-card-body">
+            <span class="product-card-cat" data-i18n="cat_module">Ma'lumotlar uzatish moduli</span>
+            <div class="product-card-row">
+              <h3 data-i18n="p_module">Aloqa moduli</h3>
+              <span class="product-card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </div>
+        </a>
       </div>
       <div class="feature-grid">
         <div class="feature-card reveal">
@@ -263,8 +200,8 @@
             <div class="feature-icon c-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg></div>
             <span class="feature-num">01</span>
           </div>
-          <h3 data-i18n="feat1_h">Sovuq va issiq suv</h3>
-          <p data-i18n="feat1_p">Bitta hisoblagich ikkala tizim uchun ham mos — qo'shimcha uskunasiz.</p>
+          <h3 data-i18n="home_f1_h">Issiq va sovuq suv</h3>
+          <p data-i18n="home_f1_p">Ushbu hisoblagich ikkala tizim uchun ham to'liq mos keladi.</p>
           <svg class="feature-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
         </div>
         <div class="feature-card reveal">
@@ -272,8 +209,8 @@
             <div class="feature-icon c-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/></svg></div>
             <span class="feature-num">02</span>
           </div>
-          <h3 data-i18n="feat2_h">Aniq o'lchov</h3>
-          <p data-i18n="feat2_p">Yuqori sifatli mexanizm har bir litr suvni xatosiz hisoblaydi.</p>
+          <h3 data-i18n="home_f2_h">Har bir litrda aniqlik</h3>
+          <p data-i18n="home_f2_p">Yuqori sifatli mexanizm suv sarfini ishonchli va aniq hisoblaydi.</p>
           <svg class="feature-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/></svg>
         </div>
         <div class="feature-card reveal">
@@ -281,8 +218,8 @@
             <div class="feature-icon c-violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5z"/></svg></div>
             <span class="feature-num">03</span>
           </div>
-          <h3 data-i18n="feat3_h">Bardoshli material</h3>
-          <p data-i18n="feat3_p">Korroziyaga chidamli qurilma uzoq yillar davomida xizmat qiladi.</p>
+          <h3 data-i18n="home_f3_h">Bardoshli material</h3>
+          <p data-i18n="home_f3_p">Korroziyaga chidamli material — uzoq yillik xizmat garovi.</p>
           <svg class="feature-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V5z"/></svg>
         </div>
         <div class="feature-card reveal">
@@ -290,10 +227,41 @@
             <div class="feature-icon c-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.5 6.5 5 10.7 5 14.2a7 7 0 0 0 14 0C19 10.7 15.5 6.5 12 2Z"/></svg></div>
             <span class="feature-num">04</span>
           </div>
-          <h3 data-i18n="feat4_h">IP68 himoya</h3>
-          <p data-i18n="feat4_p">Namlik va changdan to'liq himoyalangan — har qanday sharoitga mos.</p>
+          <h3 data-i18n="home_f4_h">IP68 himoya</h3>
+          <p data-i18n="home_f4_p">Namlik va changdan to'liq himoyalangan.</p>
           <svg class="feature-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2C8.5 6.5 5 10.7 5 14.2a7 7 0 0 0 14 0C19 10.7 15.5 6.5 12 2Z"/></svg>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container">
+      <div class="home-about">
+        <div class="home-about-copy reveal">
+          <span class="eyebrow" data-i18n="home_about_eyebrow">Biz haqimizda</span>
+          <h2 data-i18n="home_about_h2">Aniqlik, sifat va ishonch — UzLitrPro qadriyatlari.</h2>
+          <p class="home-about-lead" data-i18n="home_about_p1">UzLitrPro — O'zbekiston bozoriga zamonaviy, yuqori sifatli va ishonchli suv hisoblagichlarini yetkazib berishga ixtisoslashgan kompaniya.</p>
+          <p data-i18n="home_about_p2">2025-yildan buyon faoliyat yuritib kelayotgan kompaniyamiz suv sarfini aniq o'lchash, resurslardan oqilona foydalanish va hisob-kitob jarayonlarini takomillashtirishga xizmat qiluvchi zamonaviy mahsulotlarni mijozlarga taqdim etib kelmoqda.</p>
+          <p data-i18n="home_about_p3">Faoliyatimizning asosini mahsulot sifati, ishonchlilik, mijozlar ehtiyojiga individual yondashuv va professional xizmat ko'rsatish tamoyillari tashkil etadi.</p>
+          <p data-i18n="home_about_p4">Biz zamonaviy texnologiyalar, yuqori sifat va xalqaro standartlarga asoslanib, har bir mijoz uchun samarali yechimlarni taklif etish, uzoq muddatli hamkorlikni rivojlantirish hamda mijozlar ishonchini mustahkamlashga intilamiz.</p>
+          <a href="about.html" class="btn btn-outline" data-i18n="home_about_more">Batafsil</a>
+        </div>
+        <div class="num-grid">
+          <div class="num-tile reveal"><span class="num-value" data-i18n="n1_v">100+</span><span class="num-label" data-i18n="n1_l">Hamkorlarimiz</span></div>
+          <div class="num-tile reveal"><span class="num-value" data-i18n="n2_v">14</span><span class="num-label" data-i18n="n2_l">Hududiy qamrov</span></div>
+          <div class="num-tile reveal"><span class="num-value" data-i18n="n3_v">7/24</span><span class="num-label" data-i18n="n3_l">Texnik qo'llab-quvvatlash</span></div>
+          <div class="num-tile reveal"><span class="num-value" data-i18n="n4_v">99,9%</span><span class="num-label" data-i18n="n4_l">O'lchash aniqligi</span></div>
+          <div class="num-tile reveal"><span class="num-value" data-i18n="n5_v">1 yil</span><span class="num-label" data-i18n="n5_l">Kafolat muddati</span></div>
+          <div class="num-tile reveal"><span class="num-value" data-i18n="n6_v">ISO 4064</span><span class="num-label" data-i18n="n6_l">Xalqaro standartlarga muvofiqlik</span></div>
+        </div>
+      </div>
+      <div class="highlight-row">
+        <div class="highlight-item reveal"><strong data-i18n="n7_v">Sertifikatlangan</strong><span data-i18n="n7_l">Mahsulot sifati va muvofiqligi</span></div>
+        <div class="highlight-item reveal"><strong data-i18n="n8_v">Keng assortiment</strong><span data-i18n="n8_l">Turli xil mahsulotlar</span></div>
+        <div class="highlight-item reveal"><strong data-i18n="n9_v">Malakali mutaxassislar</strong><span data-i18n="n9_l">Ko'p yillik tajriba</span></div>
+        <div class="highlight-item reveal"><strong data-i18n="n10_v">Tezkor yetkazib berish</strong><span data-i18n="n10_l">O'zbekiston bo'ylab</span></div>
       </div>
     </div>
   </section>
@@ -301,33 +269,96 @@
   <!-- TEAM -->
   <section class="section section-alt">
     <div class="container">
-      <div class="section-head reveal" style="text-align:center; margin-left:auto; margin-right:auto;">
-        <span class="eyebrow" style="justify-content:center;" data-i18n="team_eyebrow">Bizning jamoa</span>
-        <h2 data-i18n="team_h2">Bizning jamoa</h2>
+      <div class="section-head section-head-center reveal">
+        <span class="eyebrow" data-i18n="team_eyebrow">Bizning jamoamiz</span>
+        <h2 data-i18n="team_h2">Bizning jamoamiz</h2>
         <p data-i18n="team_p">Professional va tajribali mutaxassislar jamoasi</p>
       </div>
-      <div class="team-grid">
+      <div class="team-grid team-grid-7">
         <div class="team-card reveal">
-          <div class="team-avatar"><img src="assets/team/abdulloh-isroilov.jpg" alt="Abdulloh Isroilov Abdufattoh o'g'li" loading="lazy"></div>
-          <div class="team-name">Abdulloh Isroilov Abdufattoh o'g'li</div>
-          <div class="team-role" data-i18n="team1_role">Dasturiy bo'lim boshlig'i</div>
+          <div class="team-avatar initials"><span aria-hidden="true">YA</span></div>
+          <div class="team-name">Yusupov Abdugʻani</div>
+          <div class="team-role" data-i18n="role_director">Direktor</div>
         </div>
-        <div class="team-card placeholder reveal">
-          <div class="team-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
-          <div class="team-name" data-i18n="team_soon">Tez orada</div>
+        <div class="team-card reveal">
+          <div class="team-avatar initials"><span aria-hidden="true">JD</span></div>
+          <div class="team-name">Jalilov Dilshod</div>
+          <div class="team-role" data-i18n="role_sales">Sotuv bo'limi boshlig'i</div>
         </div>
-        <div class="team-card placeholder reveal">
-          <div class="team-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
-          <div class="team-name" data-i18n="team_soon">Tez orada</div>
+        <div class="team-card reveal">
+          <div class="team-avatar"><img src="assets/team/abdulloh-isroilov.jpg" alt="Isroilov Abdulloh" loading="lazy"></div>
+          <div class="team-name">Isroilov Abdulloh</div>
+          <div class="team-role" data-i18n="role_dev">Dasturlash bo'limi boshlig'i</div>
         </div>
-        <div class="team-card placeholder reveal">
-          <div class="team-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
-          <div class="team-name" data-i18n="team_soon">Tez orada</div>
+        <div class="team-card reveal">
+          <div class="team-avatar initials"><span aria-hidden="true">SA</span></div>
+          <div class="team-name">Saksonov Azimjon</div>
+          <div class="team-role" data-i18n="role_finance">Moliya bo'limi boshlig'i</div>
         </div>
-        <div class="team-card placeholder reveal">
-          <div class="team-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
-          <div class="team-name" data-i18n="team_soon">Tez orada</div>
+        <div class="team-card reveal">
+          <div class="team-avatar initials"><span aria-hidden="true">ZB</span></div>
+          <div class="team-name">Zuparov Behzod</div>
+          <div class="team-role" data-i18n="role_metrology">Metrologiya bo'limi boshlig'i</div>
         </div>
+        <div class="team-card reveal">
+          <div class="team-avatar initials"><span aria-hidden="true">RD</span></div>
+          <div class="team-name">Risqulov Doston</div>
+          <div class="team-role" data-i18n="role_marketing">OAV marketologi</div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar initials"><span aria-hidden="true">MD</span></div>
+          <div class="team-name">Mominova Dilnoza</div>
+          <div class="team-role" data-i18n="role_lawyer">Yurist</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="section">
+    <div class="container home-partners">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="home_partners_eyebrow">Hamkorlarimiz</span>
+        <h2 data-i18n="home_partners_h2">O'zaro ishonch va manfaatli hamkorlik</h2>
+        <p data-i18n="home_partners_p">Biz O'zbekistonning barcha hududlaridagi davlat va xususiy tashkilotlar bilan samarali hamkorlik qilib kelmoqdamiz. Hamkorlarimiz bilan o'zaro ishonch, manfaatli aloqalar va uzoq muddatli hamkorlik tamoyillari asosida faoliyat yuritamiz.</p>
+      </div>
+      <div class="num-grid num-grid-3">
+        <div class="num-tile reveal"><span class="num-value" data-i18n="n1_v">100+</span><span class="num-label" data-i18n="pt1_l">Korporativ mijozlar</span></div>
+        <div class="num-tile reveal"><span class="num-value" data-i18n="n2_v">14</span><span class="num-label" data-i18n="pt2_l">Hudud qamrovi</span></div>
+        <div class="num-tile reveal"><span class="num-value" data-i18n="n3_v">7/24</span><span class="num-label" data-i18n="pt3_l">Qo'llab-quvvatlash</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEALERS + REGIONS MAP -->
+  <section class="section section-alt regions-map-section">
+    <div class="container">
+      <div class="dealers-head">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="home_dealers_eyebrow">Dilerlar tarmog'imiz</span>
+          <h2 data-i18n="home_dealers_h2">Butun O'zbekiston bo'ylab rasmiy dilerlar tarmog'i</h2>
+          <p data-i18n="home_dealers_p">Mijozlarimizga yanada yaqin bo'lish va yuqori sifatli xizmat ko'rsatish maqsadida O'zbekiston bo'ylab rasmiy dilerlarimiz faoliyat yuritadi. Quyidagi xarita orqali o'z hududingizni tanlang va sizga eng yaqin dilerimiz haqida ma'lumot oling.</p>
+        </div>
+        <div class="num-grid num-grid-2">
+          <div class="num-tile reveal"><span class="num-value" data-i18n="dl1_v">12 ta</span><span class="num-label" data-i18n="dl1_l">Jami rasmiy dilerlar</span></div>
+          <div class="num-tile reveal"><span class="num-value" data-i18n="dl2_v">14 ta</span><span class="num-label" data-i18n="dl2_l">Qamrab olingan hududlar</span></div>
+        </div>
+      </div>
+
+      <div class="regions-map-card reveal">
+        <div id="branches-map" class="uzbekistan-map" aria-label="O‘zbekiston hududlari xaritasi"></div>
+        <div class="region-selection-info" aria-live="polite">
+          <span class="region-selection-dot"></span>
+          <div>
+            <span class="region-selection-label" id="region-selection-label">Tanlangan hudud</span>
+            <strong id="branches-map-info">Xaritadan hududni tanlang.</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="dealers-cta reveal">
+        <strong data-i18n="home_dealers_cta">O'z hududingizni tanlang va biz bilan bog'laning!</strong>
+        <a href="contact.html" class="btn btn-primary" data-i18n="cta_contact_btn">Biz bilan bog'laning</a>
       </div>
     </div>
   </section>
@@ -336,22 +367,21 @@
   <section class="cta-band">
     <div class="container">
       <h2 class="reveal" data-i18n="home_cta_h2">To'liq spetsifikatsiyani ko'rishga tayyormisiz?</h2>
-      <p class="reveal" data-i18n="home_cta_p">Har bir o'lcham bo'yicha batafsil texnik ma'lumotlarni Mahsulotlar sahifasida toping.</p>
+      <p class="reveal" data-i18n="home_cta_p">Har bir o'lcham bo'yicha to'liq texnik xususiyatlar va batafsil ma'lumotlarni mahsulotlar sahifasida ko'rishingiz mumkin.</p>
       <a href="products.html" class="btn btn-primary reveal" data-i18n="hero_btn1">Mahsulotlarni ko'rish</a>
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid">
+    <div class="footer-grid footer-grid-4">
       <div class="footer-brand">
-       <a href="index.html" class="brand"><span class="brand-name">UzLitr<span>Pro</span></span></a>
-        <p data-i18n="footer_desc">Sovuq va issiq suv uchun ishonchli, aniq hisoblagichlar. MCHJ «LITR ENERGY GROUP» tomonidan Toshkentda ishlab chiqariladi.</p>
+        <a href="index.html" class="brand"><span class="brand-name">UzLitr<span>Pro</span></span></a>
+        <p data-i18n="footer_desc">O'zbekiston bozoriga zamonaviy va ishonchli suv hisoblagichlarini yetkazib beruvchi kompaniya</p>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer_nav_h">Navigatsiya</h4>
+        <h4 data-i18n="footer_nav_h">Asosiy bo'limlar</h4>
         <ul>
           <li><a href="index.html" data-i18n="nav_home">Bosh sahifa</a></li>
           <li><a href="products.html" data-i18n="nav_products">Mahsulotlar</a></li>
@@ -361,13 +391,21 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer_contact_h">Aloqa</h4>
+        <h4 data-i18n="footer_contact_h">Aloqa ma'lumotlari</h4>
         <ul>
-          <li>Toshkent sh., Yakkasaroy t., Rakatboshi MFY</li>
-          <li>O'rikzor 1-tor ko'chasi, 40-uy</li>
-          <li>+998 77 090 05 50</li>
-          <li>uzlitrpro@gmail.com</li>
+          <li data-i18n="footer_address">O'zbekiston, Toshkent shahri, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy</li>
+          <li><a href="tel:+998770900550">+998 77 090 05 50</a></li>
+          <li><a href="mailto:uzlitrpro@gmail.com">uzlitrpro@gmail.com</a></li>
         </ul>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4 data-i18n="footer_newsletter_h">So'nggi yangiliklar</h4>
+        <p data-i18n="footer_newsletter_p">Yangiliklardan birinchi bo'lib xabardor bo'ling</p>
+        <form id="newsletter-form" class="newsletter-form">
+          <input type="email" name="email" required autocomplete="email" data-i18n-placeholder="footer_newsletter_ph" placeholder="Elektron pochtangiz">
+          <button type="submit" class="btn btn-primary" data-i18n="footer_newsletter_btn">Obuna bo'lish</button>
+        </form>
+        <p class="newsletter-success" id="newsletter-success" role="status"></p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -401,6 +439,7 @@
 
 <script src="js/script.js"></script>
 <script src="js/operator.js"></script>
+<script src="js/branches-map.js"></script>
 <script src="js/cart.js"></script>
 </body>
 </html>
