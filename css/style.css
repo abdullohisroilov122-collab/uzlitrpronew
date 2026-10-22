@@ -2746,3 +2746,40 @@ h1, h2, h3, h4 {
   .cert-card::after, .news-card::after, .catalog-card::after,
   .contact-info-tile::after, .mv-card::after, .product-hero-card::after { transition-duration: 0.7s !important; }
 }
+
+/* ==========================================================================
+   Top bar: phone and working hours glow sky-blue like the buttons
+   ========================================================================== */
+.top-bar .phone-link,
+.top-bar .top-bar-item.hours {
+  padding: 4px 10px;
+  margin: -4px -10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background-image: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.35) 50%, transparent 62%);
+  background-repeat: no-repeat;
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  transition: color 0.2s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-position 0.7s ease, background-color 0.25s ease;
+}
+.top-bar .phone-link:hover,
+.top-bar .top-bar-item.hours:hover {
+  color: #fff;
+  border-color: rgba(56, 189, 248, 0.6);
+  background-color: rgba(56, 189, 248, 0.14);
+  background-position: -50% 0;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+.top-bar .phone-link:active { transform: scale(0.97); box-shadow: 0 0 22px rgba(56, 189, 248, 0.7); }
+.top-bar .phone-link svg { color: #38bdf8; animation: phoneRing 4s ease-in-out infinite; }
+@keyframes phoneRing {
+  0%, 80%, 100% { transform: rotate(0); filter: none; }
+  84% { transform: rotate(-14deg); filter: drop-shadow(0 0 4px #38bdf8); }
+  88% { transform: rotate(12deg); filter: drop-shadow(0 0 4px #38bdf8); }
+  92% { transform: rotate(-8deg); }
+  96% { transform: rotate(4deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .top-bar .phone-link svg { animation: none !important; }
+  .top-bar .phone-link, .top-bar .top-bar-item.hours { transition-duration: 0.25s, 0.25s, 0.25s, 0.7s, 0.25s !important; }
+}
