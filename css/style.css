@@ -2640,3 +2640,109 @@ h1, h2, h3, h4 {
   background-position: -50% 0;
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16), 0 6px 18px rgba(47, 107, 255, 0.14);
 }
+
+/* ==========================================================================
+   Hero wordmark: "Pro" in the logo's red
+   ========================================================================== */
+.wordmark-text span {
+  background: linear-gradient(120deg, #ff4d4d, #ff0000 55%, #c40000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 14px rgba(255, 30, 30, 0.45));
+}
+
+/* ==========================================================================
+   Header logo: glows in its own colours and a light runs across the letters
+   ========================================================================== */
+.site-header .brand { position: relative; }
+.site-header .brand-logo { animation: logoGlow 3.6s ease-in-out infinite; }
+.site-header .brand::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.95) 50%, transparent 62%) no-repeat;
+  background-size: 250% 100%;
+  -webkit-mask: url("../assets/uzlitrpro-wordmark.png") center / contain no-repeat;
+  mask: url("../assets/uzlitrpro-wordmark.png") center / contain no-repeat;
+  animation: logoShine 3.6s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%, 100% { filter: drop-shadow(0 2px 6px rgba(35, 70, 176, 0.18)); }
+  30%      { filter: drop-shadow(0 0 10px rgba(35, 90, 230, 0.55)); }
+  60%      { filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.5)); }
+}
+@keyframes logoShine {
+  0%, 20%   { background-position: 150% 0; }
+  55%, 100% { background-position: -50% 0; }
+}
+
+/* ==========================================================================
+   Cards: sky-blue glow and a sweeping light on hover / press
+   ========================================================================== */
+.num-tile, .stat-card, .feature-card, .product-card, .cert-card, .news-card,
+.catalog-card, .contact-info-tile, .mv-card, .product-hero-card {
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.6s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.num-tile::after, .stat-card::after, .feature-card::after, .product-card::after,
+.cert-card::after, .news-card::after, .catalog-card::after,
+.contact-info-tile::after, .mv-card::after, .product-hero-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 45%;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.7s ease, opacity 0.2s ease;
+}
+.num-tile:hover, .stat-card:hover, .feature-card:hover, .product-card:hover,
+.cert-card:hover, .news-card:hover, .catalog-card:hover,
+.contact-info-tile:hover, .mv-card:hover, .product-hero-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35), 0 0 26px rgba(56, 189, 248, 0.35), 0 16px 36px rgba(15, 23, 41, 0.1);
+}
+.num-tile:hover::after, .stat-card:hover::after, .feature-card:hover::after,
+.product-card:hover::after, .cert-card:hover::after, .news-card:hover::after,
+.catalog-card:hover::after, .contact-info-tile:hover::after, .mv-card:hover::after,
+.product-hero-card:hover::after {
+  left: 130%;
+  opacity: 1;
+}
+.num-tile:active, .stat-card:active, .feature-card:active, .product-card:active,
+.cert-card:active, .news-card:active, .catalog-card:active,
+.contact-info-tile:active, .mv-card:active, .product-hero-card:active {
+  transform: translateY(-1px) scale(0.99);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6), 0 0 34px rgba(56, 189, 248, 0.55);
+}
+.num-tile:hover .num-value { text-shadow: 0 0 18px rgba(56, 189, 248, 0.45); }
+
+/* Team: the photo ring glows */
+.team-card .team-avatar { transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
+.team-card:hover .team-avatar {
+  transform: translateY(-3px);
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25), 0 0 26px rgba(56, 189, 248, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .brand-logo, .site-header .brand::after { animation: none !important; }
+  .num-tile, .stat-card, .feature-card, .product-card, .cert-card, .news-card,
+  .catalog-card, .contact-info-tile, .mv-card, .product-hero-card,
+  .num-tile::after, .stat-card::after, .feature-card::after, .product-card::after,
+  .cert-card::after, .news-card::after, .catalog-card::after,
+  .contact-info-tile::after, .mv-card::after, .product-hero-card::after,
+  .team-card .team-avatar { transition-duration: 0.25s !important; }
+  .num-tile::after, .stat-card::after, .feature-card::after, .product-card::after,
+  .cert-card::after, .news-card::after, .catalog-card::after,
+  .contact-info-tile::after, .mv-card::after, .product-hero-card::after { transition-duration: 0.7s !important; }
+}
