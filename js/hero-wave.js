@@ -34,13 +34,13 @@
     cols = small ? 70 : 150;
     rows = small ? 22 : 34;
 
-    const count = small ? 16 : 34;
+    const count = small ? 22 : 48;
     strands = Array.from({ length: count }, (_, i) => ({
       offset: (i / count) * Math.PI * 2,
       spread: 0.35 + Math.random() * 0.65,
       speed: 0.25 + Math.random() * 0.35,
       hue: Math.random() < 0.7 ? 185 + Math.random() * 20 : 265 + Math.random() * 30,
-      width: 0.6 + Math.random() * 0.9
+      width: 0.8 + Math.random() * 1.2
     }));
   }
 
@@ -54,8 +54,8 @@
       const z = r / (rows - 1);              // 0 = back, 1 = front
       const persp = 0.35 + z * 0.65;
       const yBase = horizon + Math.pow(z, 1.6) * depth;
-      const alpha = 0.12 + z * 0.75;
-      const size = 0.6 + z * 1.9;
+      const alpha = 0.2 + z * 0.9;
+      const size = 0.8 + z * 2.4;
 
       for (let c = 0; c < cols; c++) {
         const u = c / (cols - 1) - 0.5;
@@ -71,7 +71,7 @@
         // Brighter crests read as light catching the water.
         const crest = Math.max(0, Math.sin(u * 9 + t * 0.9 + z * 3));
         const a = Math.min(1, alpha * (0.55 + crest * 0.7));
-        ctx.fillStyle = `hsla(${186 + crest * 14}, 95%, ${55 + crest * 20}%, ${a})`;
+        ctx.fillStyle = `hsla(${186 + crest * 14}, 100%, ${60 + crest * 25}%, ${a})`;
         ctx.fillRect(x, y, size, size);
       }
     }
@@ -84,7 +84,7 @@
     for (const s of strands) {
       const grad = ctx.createLinearGradient(0, 0, width * 0.75, 0);
       grad.addColorStop(0, `hsla(${s.hue}, 90%, 60%, 0)`);
-      grad.addColorStop(0.35, `hsla(${s.hue}, 90%, 62%, 0.22)`);
+      grad.addColorStop(0.35, `hsla(${s.hue}, 95%, 65%, 0.38)`);
       grad.addColorStop(1, `hsla(${s.hue}, 90%, 62%, 0)`);
       ctx.strokeStyle = grad;
       ctx.lineWidth = s.width;
@@ -111,7 +111,7 @@
       if (px) {
         ctx.fillStyle = `hsla(${s.hue}, 100%, 75%, 0.9)`;
         ctx.beginPath();
-        ctx.arc(px, py, 1.6, 0, Math.PI * 2);
+        ctx.arc(px, py, 2.2, 0, Math.PI * 2);
         ctx.fill();
       }
     }
