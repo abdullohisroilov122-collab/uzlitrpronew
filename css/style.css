@@ -2420,3 +2420,223 @@ h1, h2, h3, h4 {
 #catalog-grid + * { margin-top: 0; }
 .catalog-grid-section { padding-bottom: 24px; }
 .form-success.is-fail { color: var(--red-600); background: rgba(212, 46, 60, 0.08); border-color: rgba(212, 46, 60, 0.25); }
+
+/* ==========================================================================
+   Brand logo (header + footer)
+   ========================================================================== */
+.brand-logo {
+  display: block;
+  height: 36px;
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(35, 70, 176, 0.18));
+}
+
+/* On the dark footer the logo sits on a white plate */
+.brand-on-dark {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  .brand-logo { height: 26px; }
+}
+
+/* ==========================================================================
+   Footer social icons — brand colours with a soft pulsing glow
+   ========================================================================== */
+.footer-social { display: flex; gap: 10px; margin-top: 18px; }
+
+.social-icon {
+  --glow: rgba(255, 255, 255, 0.35);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 var(--glow);
+  animation: socialGlow 2.8s ease-in-out infinite;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.social-icon svg { width: 20px; height: 20px; }
+.social-icon:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 0 18px 2px var(--glow); }
+.social-icon:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+.social-facebook { background: #1877f2; --glow: rgba(24, 119, 242, 0.65); }
+.social-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  --glow: rgba(214, 36, 159, 0.6);
+  animation-delay: 0.7s;
+}
+.social-telegram { background: #26a5e4; --glow: rgba(38, 165, 228, 0.65); animation-delay: 1.4s; }
+.social-youtube { background: #ff0000; --glow: rgba(255, 0, 0, 0.55); animation-delay: 2.1s; }
+
+@keyframes socialGlow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--glow); }
+  50% { box-shadow: 0 0 16px 3px var(--glow); }
+}
+
+/* ==========================================================================
+   Sound on/off toggle (added to the header by js/sound.js)
+   ========================================================================== */
+.sound-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: var(--steel-100);
+  border: 1px solid var(--steel-200);
+  color: var(--navy-900);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sound-toggle svg { width: 19px; height: 19px; }
+.sound-toggle[aria-pressed="false"] { color: var(--ink-soft); }
+
+@media (max-width: 600px) {
+  .sound-toggle { width: 38px; height: 38px; }
+}
+
+/* ==========================================================================
+   Buttons — sky-blue glow and a sweeping glass highlight
+   ========================================================================== */
+:root { --sky: #38bdf8; --sky-glow: rgba(56, 189, 248, 0.35); }
+
+.btn, .nav-cta, .cart-toggle-btn, .sound-toggle, .lang-current,
+.lang-dropdown button, .size-chip, .qty-btn, .op-channel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.15s ease, box-shadow 0.25s ease, border-color 0.2s ease, background 0.25s ease, color 0.2s ease;
+}
+
+/* Light streak that crosses the button on hover */
+.btn::after, .nav-cta::after, .cart-toggle-btn::after, .sound-toggle::after,
+.lang-current::after, .lang-dropdown button::after, .size-chip::after, .qty-btn::after, .op-channel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 45%;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+  transform: skewX(-18deg) translateX(-140%);
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.btn:hover::after, .nav-cta:hover::after, .cart-toggle-btn:hover::after, .sound-toggle:hover::after,
+.lang-current:hover::after, .lang-dropdown button:hover::after, .size-chip:hover::after, .qty-btn:hover::after, .op-channel:hover::after {
+  transform: skewX(-18deg) translateX(420%);
+}
+
+.btn:hover, .cart-toggle-btn:hover, .sound-toggle:hover, .lang-current:hover,
+.size-chip:hover, .qty-btn:hover, .op-channel:hover {
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16), 0 8px 22px rgba(47, 107, 255, 0.18);
+}
+
+.btn:active, .nav-cta:active, .cart-toggle-btn:active, .sound-toggle:active, .lang-current:active,
+.size-chip:active, .qty-btn:active, .op-channel:active, .lang-dropdown button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 0 0 4px var(--sky-glow), 0 0 24px rgba(56, 189, 248, 0.55);
+}
+
+/* Primary (filled) buttons: glossy top half and a deeper glow */
+.btn-primary, .nav-cta {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -2px 6px rgba(10, 30, 90, 0.25), 0 8px 20px rgba(14, 116, 144, 0.32);
+}
+
+.btn-primary::before, .nav-cta::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  height: 48%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.06));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn-primary:hover, .nav-cta:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 0 0 3px rgba(56, 189, 248, 0.25), 0 10px 30px rgba(56, 189, 248, 0.45);
+}
+
+/* The round operator button keeps its pulse ring, so it only gets the glow */
+.op-fab:hover { box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25), 0 10px 30px rgba(56, 189, 248, 0.45); }
+.op-fab:active { transform: scale(0.96); box-shadow: 0 0 0 4px var(--sky-glow), 0 0 24px rgba(56, 189, 248, 0.55); }
+
+/* Reduced motion: keep the hover light, stop only looping animations */
+@media (prefers-reduced-motion: reduce) {
+  .btn::after, .nav-cta::after, .cart-toggle-btn::after, .sound-toggle::after,
+  .lang-current::after, .lang-dropdown button::after, .size-chip::after, .qty-btn::after, .op-channel::after {
+    transition-duration: 0.7s !important;
+  }
+  .btn, .nav-cta, .cart-toggle-btn, .sound-toggle, .lang-current,
+  .lang-dropdown button, .size-chip, .qty-btn, .op-channel, .op-fab {
+    transition-duration: 0.2s !important;
+  }
+  .nav-links a { transition-duration: 0.7s, 0.2s, 0.2s, 0.2s !important; }
+  .social-icon { animation: none !important; }
+}
+
+/* The cart's count badge sits outside the button, so no clipping there */
+.cart-toggle-btn { overflow: visible; }
+.cart-toggle-btn::after { display: none; }
+
+/* ==========================================================================
+   Hero technology badges — each glows in its own colour
+   ========================================================================== */
+.tech-chip {
+  --c: 56, 189, 248;
+  border-color: rgba(var(--c), 0.55);
+  background: rgba(var(--c), 0.12);
+  color: rgb(var(--c));
+  text-shadow: 0 0 10px rgba(var(--c), 0.45);
+  animation: chipGlow 3.2s ease-in-out infinite;
+}
+.tech-chip:nth-child(1) { --c: 56, 189, 248; animation-delay: 0s; }    /* RS485 — sky */
+.tech-chip:nth-child(2) { --c: 45, 212, 191; animation-delay: 0.4s; }  /* IP68 — teal */
+.tech-chip:nth-child(3) { --c: 129, 140, 248; animation-delay: 0.8s; } /* NB-IoT — indigo */
+.tech-chip:nth-child(4) { --c: 192, 132, 252; animation-delay: 1.2s; } /* LoRa — violet */
+.tech-chip:nth-child(5) { --c: 52, 211, 153; animation-delay: 1.6s; }  /* wM-Bus — emerald */
+.tech-chip:nth-child(6) { --c: 96, 165, 250; animation-delay: 2.0s; }  /* Smart Cloud — blue */
+.tech-chip:nth-child(7) { --c: 251, 191, 36; animation-delay: 2.4s; }  /* ISO 4064 — amber */
+.tech-chip:nth-child(8) { --c: 0, 212, 170; animation-delay: 2.8s; }   /* 1 yil kafolat — brand teal */
+
+@keyframes chipGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--c), 0); }
+  50% { box-shadow: 0 0 14px 1px rgba(var(--c), 0.5), inset 0 0 10px rgba(var(--c), 0.18); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-chip { animation: none !important; box-shadow: 0 0 10px rgba(var(--c), 0.35); }
+}
+
+/* Menu links: the same light streak, drawn as a moving background so small
+   text is not re-rendered inside an extra layer (which washes it out). */
+.nav-links a {
+  background-image: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  background-repeat: no-repeat;
+  transition: background-position 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.25s ease;
+}
+.nav-links a:hover,
+.nav-links a.active:hover {
+  background-image: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
+  background-size: 250% 100%;
+  background-repeat: no-repeat;
+  background-position: -50% 0;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16), 0 6px 18px rgba(47, 107, 255, 0.14);
+}

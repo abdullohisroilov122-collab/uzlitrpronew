@@ -310,6 +310,16 @@ const UZLITRPRO_CONTACT = {
     });
 
     applyLanguage();
+
+    // Footer social icons are always shown; they become links once a URL is set above.
+    document.querySelectorAll(".footer-social [data-social]").forEach((icon) => {
+      const url = C.social[icon.dataset.social];
+      if (url) {
+        icon.href = url;
+        icon.target = "_blank";
+        icon.rel = "noopener";
+      }
+    });
     document.addEventListener("litrpro:langchange", applyLanguage);
   }
 
