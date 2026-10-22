@@ -533,6 +533,8 @@ h1, h2, h3, h4 {
   z-index: 0;
   pointer-events: none;
 }
+/* Particle water surface + light strands, drawn by js/hero-wave.js */
+.hero-particle-wave { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .hero-wave-full { position: absolute; left: 0; width: 220%; }
 .hero-wave-full path { fill: rgba(0,163,224,0.28); }
 .hero-wave-full.wave-a { bottom: -6%; height: 62%; animation: waveslideFull 8s ease-in-out infinite; }
