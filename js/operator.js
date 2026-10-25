@@ -12,7 +12,7 @@ const UZLITRPRO_CONTACT = {
   telegram: "https://t.me/curinaut",
   social: {
     telegram: "",  // e.g. "https://t.me/your_channel"
-    instagram: "",
+    instagram: "https://www.instagram.com/uzlitrpro",
     facebook: "",
     youtube: "",
     linkedin: ""
