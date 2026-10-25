@@ -1224,7 +1224,7 @@ h1, h2, h3, h4 {
   color: var(--navy-900);
   border: 1px solid var(--steel-200);
 }
-@media (max-width: 860px) { .product-hero-card { grid-template-columns: 1fr; padding: 30px; } }
+@media (max-width: 860px) { .product-hero-card { grid-template-columns: minmax(0, 1fr); padding: 22px; } .product-hero-card img { max-width: 100%; } }
 
 /* ==========================================================================
    Contact page
@@ -2783,3 +2783,15 @@ h1, h2, h3, h4 {
   .top-bar .phone-link svg { animation: none !important; }
   .top-bar .phone-link, .top-bar .top-bar-item.hours { transition-duration: 0.25s, 0.25s, 0.25s, 0.7s, 0.25s !important; }
 }
+
+/* Product card: full specification inside the card, under the image and details */
+.product-spec {
+  grid-column: 1 / -1;
+  padding-top: 32px;
+  border-top: 1px solid var(--steel-200);
+}
+.product-spec h3 { margin-top: 8px; font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
+.product-spec p { color: var(--ink-soft); margin: 6px 0 18px; }
+.product-spec .spec-table { max-width: none; }
+/* The card holds buttons and a table now, so it glows but doesn't move */
+.product-hero-card:hover, .product-hero-card:active { transform: none; }
