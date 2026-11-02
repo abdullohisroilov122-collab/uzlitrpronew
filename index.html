@@ -63,7 +63,7 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero blueprint-bg" data-hero="drop">
+  <section class="hero blueprint-bg" data-hero="dropholo" data-bg="royal">
     <div class="hero-scene" aria-hidden="true">
       <canvas class="hero-particle-wave"></canvas>
       <span class="hero-deco-circle dc1"><span class="dc-glow"></span></span>
@@ -180,20 +180,20 @@
             <defs>
               <radialGradient id="dropFill" cx="0.38" cy="0.55" r="0.75">
                 <stop offset="0" stop-color="rgba(190,240,255,0.10)"/>
-                <stop offset="0.65" stop-color="rgba(40,180,230,0.16)"/>
-                <stop offset="1" stop-color="rgba(60,200,255,0.42)"/>
+                <stop offset="0.65" style="stop-color: rgba(var(--art), 0.16)"/>
+                <stop offset="1" style="stop-color: rgba(var(--art), 0.42)"/>
               </radialGradient>
               <linearGradient id="dropRim" x1="0" y1="0" x2="1" y2="1">
                 <stop offset="0" stop-color="rgba(220,250,255,0.95)"/>
-                <stop offset="0.5" stop-color="rgba(90,210,255,0.35)"/>
-                <stop offset="1" stop-color="rgba(160,235,255,0.85)"/>
+                <stop offset="0.5" style="stop-color: rgba(var(--art), 0.35)"/>
+                <stop offset="1" style="stop-color: rgba(var(--art-light), 0.85)"/>
               </linearGradient>
               <radialGradient id="dropCaustic" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0" stop-color="rgba(120,230,255,0.55)"/>
-                <stop offset="1" stop-color="rgba(120,230,255,0)"/>
+                <stop offset="0" style="stop-color: rgba(var(--art), 0.55)"/>
+                <stop offset="1" style="stop-color: rgba(var(--art), 0)"/>
               </radialGradient>
             </defs>
-            <ellipse cx="210" cy="505" rx="120" ry="12" fill="rgba(0,180,230,0.25)"/>
+            <ellipse cx="210" cy="505" rx="120" ry="12" style="fill: rgba(var(--art), 0.25)"/>
             <path class="drop-shape" d="M210 8 C232 58 372 232 372 338 A162 162 0 0 1 48 338 C48 232 188 58 210 8 Z" fill="url(#dropFill)" stroke="url(#dropRim)" stroke-width="2.5"/>
             <use href="#uz-meter" x="60" y="268" width="300" height="220"/>
             <path d="M210 8 C232 58 372 232 372 338 A162 162 0 0 1 48 338 C48 232 188 58 210 8 Z" fill="rgba(160,230,255,0.07)"/>

@@ -2818,7 +2818,7 @@ h1, h2, h3, h4 {
   width: 76%;
   transform: translate(-50%, -54%);
   overflow: visible;
-  filter: drop-shadow(0 0 30px rgba(60, 200, 255, 0.35));
+  filter: drop-shadow(0 0 30px rgba(var(--art), 0.35));
   animation: dropFloat 6s ease-in-out infinite;
 }
 .art-drop .drop-shape { animation: dropGlow 4s ease-in-out infinite; }
@@ -2843,8 +2843,8 @@ h1, h2, h3, h4 {
   border-radius: 50%;
   background:
     radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 22%),
-    radial-gradient(circle at 50% 60%, rgba(60, 190, 240, 0.12), rgba(40, 160, 220, 0.32) 70%, rgba(120, 220, 255, 0.55) 100%);
-  box-shadow: inset 0 0 40px rgba(140, 230, 255, 0.35), 0 0 50px rgba(60, 200, 255, 0.35);
+    radial-gradient(circle at 50% 60%, rgba(60, 190, 240, 0.12), rgba(40, 160, 220, 0.32) 70%, rgba(var(--art), 0.55) 100%);
+  box-shadow: inset 0 0 40px rgba(var(--art), 0.35), 0 0 50px rgba(var(--art), 0.35);
   animation: dropFloat2 6s ease-in-out infinite;
 }
 .art-sphere svg { position: absolute; left: 12%; top: 34%; width: 76%; }
@@ -2860,11 +2860,11 @@ h1, h2, h3, h4 {
 @keyframes dropFloat3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 .holo-beam {
   position: absolute; left: 22%; right: 22%; top: 46%; bottom: 14%;
-  background: linear-gradient(to top, rgba(60, 210, 255, 0.35), transparent);
+  background: linear-gradient(to top, rgba(var(--art), 0.35), transparent);
   clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
   opacity: 0.6;
 }
-.holo-ring { position: absolute; left: 50%; bottom: 12%; border-radius: 50%; border: 2px solid rgba(90, 220, 255, 0.7); transform: translateX(-50%); box-shadow: 0 0 18px rgba(60, 210, 255, 0.6); }
+.holo-ring { position: absolute; left: 50%; bottom: 12%; border-radius: 50%; border: 2px solid rgba(var(--art), 0.7); transform: translateX(-50%); box-shadow: 0 0 18px rgba(var(--art), 0.6); }
 .holo-ring.hr1 { width: 60%; height: 12%; animation: holoPulse 3s ease-in-out infinite; }
 .holo-ring.hr2 { width: 44%; height: 8%; bottom: 14%; opacity: 0.7; animation: holoPulse 3s ease-in-out infinite 0.5s; }
 .holo-ring.hr3 { width: 76%; height: 16%; bottom: 10%; opacity: 0.35; border-style: dashed; animation: spinFlat 18s linear infinite; }
@@ -2873,9 +2873,9 @@ h1, h2, h3, h4 {
 .holo-reading {
   position: absolute; left: -4%; top: 60%;
   padding: 8px 14px; border-radius: 12px;
-  font-family: ui-monospace, Menlo, monospace; font-size: 0.95rem; color: #dff7ff; letter-spacing: 0.08em;
-  background: rgba(10, 40, 60, 0.55); border: 1px solid rgba(90, 220, 255, 0.45);
-  box-shadow: 0 0 20px rgba(60, 210, 255, 0.35); backdrop-filter: blur(10px);
+  font-family: ui-monospace, Menlo, monospace; font-size: 0.95rem; color: #fff; letter-spacing: 0.08em;
+  background: rgba(10, 40, 60, 0.55); border: 1px solid rgba(var(--art), 0.45);
+  box-shadow: 0 0 20px rgba(var(--art), 0.35); backdrop-filter: blur(10px);
 }
 .holo-reading b { color: #ff6b6b; }
 .hero[data-hero="holo"] .hero-meter-core { top: 22%; }
@@ -2886,32 +2886,32 @@ h1, h2, h3, h4 {
   pointer-events: none; z-index: 0;
 }
 .hero-circuit path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.trace-base path { stroke: rgba(80, 200, 240, 0.22); stroke-width: 1.4; }
+.trace-base path { stroke: rgba(var(--art), 0.22); stroke-width: 1.4; }
 .trace-pulse path {
-  stroke: rgba(140, 235, 255, 0.95); stroke-width: 2;
+  stroke: rgba(var(--art), 0.95); stroke-width: 2;
   stroke-dasharray: 40 900; stroke-dashoffset: 940;
-  filter: drop-shadow(0 0 4px rgba(80, 220, 255, 0.9));
+  filter: drop-shadow(0 0 4px rgba(var(--art), 0.9));
   animation: tracePulse 4.2s linear infinite;
 }
 @keyframes tracePulse { to { stroke-dashoffset: 0; } }
-.trace-dot circle { fill: #7fe4ff; filter: drop-shadow(0 0 5px #3fd3ff); }
+.trace-dot circle { fill: rgb(var(--art-light)); filter: drop-shadow(0 0 5px rgb(var(--art))); }
 
 .circuit-node {
   position: absolute; z-index: 1; width: 52px; height: 52px; border-radius: 14px;
   display: grid; place-items: center;
-  background: linear-gradient(145deg, rgba(120, 220, 255, 0.22), rgba(20, 60, 90, 0.35));
-  border: 1px solid rgba(140, 230, 255, 0.5);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 22px rgba(60, 200, 255, 0.35);
+  background: linear-gradient(145deg, rgba(var(--art), 0.22), rgba(20, 60, 90, 0.35));
+  border: 1px solid rgba(var(--art), 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 22px rgba(var(--art), 0.35);
   backdrop-filter: blur(8px);
   animation: floaty 6s ease-in-out infinite;
 }
-.circuit-node svg { width: 24px; height: 24px; fill: none; stroke: #9be9ff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.circuit-node svg { width: 24px; height: 24px; fill: none; stroke: rgb(var(--art-light)); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .circuit-node.cn1 { right: 3%; top: 18%; }
 .circuit-node.cn2 { right: 2%; top: 46%; animation-delay: 1.5s; }
 .circuit-node.cn3 { right: 24%; top: 9%; animation-delay: 3s; }
 
 /* --- Floating glass circuit boards --- */
-.float-pcb { position: absolute; z-index: 0; width: 110px; filter: drop-shadow(0 0 14px rgba(60, 200, 255, 0.35)); animation: pcbFloat 7s ease-in-out infinite; }
+.float-pcb { position: absolute; z-index: 0; width: 110px; filter: drop-shadow(0 0 14px rgba(var(--art), 0.35)); animation: pcbFloat 7s ease-in-out infinite; }
 .float-pcb.fp1 { left: 34%; top: 7%; width: 120px; }
 .float-pcb.fp2 { left: 1.5%; top: 16%; width: 80px; opacity: 0.75; animation-delay: 2s; }
 .float-pcb.fp3 { left: 46%; top: 52%; width: 70px; opacity: 0.6; animation-delay: 4s; }
@@ -2925,7 +2925,7 @@ h1, h2, h3, h4 {
   padding: 14px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(140, 220, 255, 0.18);
+  border: 1px solid rgba(var(--art), 0.18);
   backdrop-filter: blur(10px);
 }
 .tech-chip { display: inline-flex; align-items: center; gap: 8px; }
@@ -2942,3 +2942,54 @@ h1, h2, h3, h4 {
 @media (max-width: 700px) {
   .site-header .nav { padding-left: 16px; padding-right: 16px; }
 }
+
+/* ==========================================================================
+   Hero colour themes (preview with ?bg=indigo / royal / violet / ocean)
+   ========================================================================== */
+.hero {
+  --art: 90, 210, 245; --art-light: 155, 233, 255;
+  --wave-h: 196; --wave-rgb: 110, 210, 235;
+  --hero-bg: #0e1620; --glow-a: rgba(70, 104, 230, 0.3); --glow-b: rgba(124, 140, 245, 0.2);
+}
+.hero[data-bg="indigo"] {
+  --art: 120, 140, 255; --art-light: 190, 200, 255;
+  --wave-h: 228; --wave-rgb: 150, 165, 255;
+  --hero-bg: radial-gradient(1200px 700px at 80% 30%, #1d2470 0%, #0d1240 45%, #070a24 100%);
+  --glow-a: rgba(90, 110, 255, 0.35); --glow-b: rgba(150, 120, 255, 0.25);
+}
+.hero[data-bg="royal"] {
+  --art: 110, 150, 255; --art-light: 200, 215, 255;
+  --wave-h: 222; --wave-rgb: 160, 180, 255;
+  --hero-bg: radial-gradient(1100px 700px at 85% 25%, #1a3a9e 0%, #0c1d5c 45%, #050b26 100%);
+  --glow-a: rgba(227, 6, 19, 0.28); --glow-b: rgba(60, 110, 255, 0.35);
+}
+.hero[data-bg="violet"] {
+  --art: 170, 140, 255; --art-light: 220, 205, 255;
+  --wave-h: 262; --wave-rgb: 190, 170, 255;
+  --hero-bg: radial-gradient(1200px 700px at 78% 30%, #3a1d7a 0%, #1a0f45 45%, #0a0620 100%);
+  --glow-a: rgba(160, 90, 255, 0.35); --glow-b: rgba(90, 120, 255, 0.25);
+}
+.hero[data-bg] { background: var(--hero-bg); }
+.hero[data-bg]::before { background: radial-gradient(circle, var(--glow-a), transparent 70%); }
+.hero[data-bg]::after { background: radial-gradient(circle, var(--glow-b), transparent 70%); }
+.hero[data-bg] .orbit-ring.r2, .hero[data-bg] .hero-deco-circle.dc2 { border-color: rgba(var(--art), 0.3); }
+.hero[data-bg] .orbit-dot, .hero[data-bg] .dc-glow { background: rgb(var(--art-light)); box-shadow: 0 0 12px rgb(var(--art)); }
+.hero[data-bg] .ripple-ring { border-color: rgba(var(--art), 0.6); }
+.hero[data-bg] .glass-badge { border-color: rgba(var(--art), 0.35); background: rgba(10, 14, 40, 0.5); }
+.hero[data-bg] .glass-badge .badge-icon { background: rgba(var(--art), 0.12); border-color: rgba(var(--art), 0.35); color: rgb(var(--art-light)); }
+.hero[data-bg] .hero-pill { border-color: rgba(var(--art), 0.35); }
+.hero[data-bg] .hero-pill svg { color: rgb(var(--art-light)); }
+.hero[data-bg] .h1-dot { background: #e30613; box-shadow: 0 0 14px rgba(227, 6, 19, 0.7); }
+.hero[data-bg] .tech-chips { border-color: rgba(var(--art), 0.22); }
+.hero[data-bg] .wordmark-live::before, .hero[data-bg] .hero-meter-core::before { background: radial-gradient(circle, rgba(var(--art), 0.3), transparent 68%); }
+
+/* Drop + hologram platform together */
+.hero[data-hero="dropholo"] .art-drop { display: block; width: 70%; }
+.hero[data-hero="dropholo"] .art-holo { display: block; }
+.hero[data-hero="dropholo"] .art-holo .holo-meter,
+.hero[data-hero="dropholo"] .art-holo .holo-beam { display: none; }
+.hero[data-hero="dropholo"] .art-holo .holo-ring { bottom: 4%; }
+.hero[data-hero="dropholo"] .art-holo .holo-ring.hr2 { bottom: 6%; }
+.hero[data-hero="dropholo"] .art-holo .holo-ring.hr3 { bottom: 2%; }
+.hero[data-hero="dropholo"] .holo-reading { left: -6%; top: 64%; }
+.hero[data-hero="dropholo"] .hero-meter-core { top: 42%; }
