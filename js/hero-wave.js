@@ -24,12 +24,14 @@
   let frame = 0;
   let hue = 196;
   let rgb = "110, 210, 235";
+  let extras = false;   // left binary rain + fibre bundle, turned on by a theme
 
   // Colours come from the hero's CSS variables, so colour themes can change them.
   function readColours() {
     const css = getComputedStyle(hero || canvas);
     hue = parseFloat(css.getPropertyValue("--wave-h")) || 196;
     rgb = css.getPropertyValue("--wave-rgb").trim() || "110, 210, 235";
+    extras = css.getPropertyValue("--wave-extras").trim() === "1";
   }
 
   function resize() {
@@ -49,6 +51,50 @@
     top = height * (small ? 0.84 : 0.72);
 
     drawDigitalLayer(small);
+    if (extras && !small) drawBinaryRain();
+  }
+
+  // Binary columns down the left edge, fading out towards the copy.
+  function drawBinaryRain() {
+    const d = digital.getContext("2d");
+    d.font = "10px ui-monospace, Menlo, Consolas, monospace";
+    for (let x = 8; x < width * 0.24; x += 16) {
+      const fade = 1 - x / (width * 0.24);
+      for (let y = 14; y < top; y += 13) {
+        if (Math.random() < 0.3) continue;
+        d.fillStyle = `rgba(${rgb}, ${(0.05 + Math.random() * 0.14) * fade})`;
+        d.fillText(Math.random() < 0.5 ? "0" : "1", x, y);
+      }
+    }
+  }
+
+  // A bundle of glowing fibres sweeping from the left edge down into the water.
+  function drawFibres(t) {
+    const n = 46;
+    ctx.globalCompositeOperation = "lighter";
+    ctx.lineWidth = 1.1;
+    for (let i = 0; i < n; i++) {
+      const f = i / (n - 1);
+      const sway = Math.sin(t * 0.5 + f * 3) * 14;
+      const y0 = height * (0.38 + f * 0.34);
+      const violet = i % 7 === 3;
+      const h = violet ? 275 : hue + (f - 0.5) * 20;
+      ctx.strokeStyle = `hsla(${h}, 90%, ${55 + f * 15}%, ${0.14 + (1 - f) * 0.34})`;
+      ctx.beginPath();
+      ctx.moveTo(-20, y0);
+      ctx.bezierCurveTo(width * 0.16, y0 + 40 + sway, width * 0.3, height * 0.66 - sway, width * (0.5 + f * 0.2), top + 30 + f * 40);
+      ctx.stroke();
+      if (i % 5 === 0) {
+        const k = (t * 0.08 + f) % 1;
+        const px = -20 + (width * (0.5 + f * 0.2) + 20) * k;
+        const py = y0 + (top + 30 + f * 40 - y0) * k * k;
+        ctx.fillStyle = `hsla(${h}, 100%, 75%, 0.8)`;
+        ctx.beginPath();
+        ctx.arc(px, py, 1.6, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    ctx.globalCompositeOperation = "source-over";
   }
 
   // Static background drawn once per resize: binary number columns and
@@ -121,6 +167,8 @@
     glow.addColorStop(1, `hsla(${hue}, 100%, 34%, 0.22)`);
     ctx.fillStyle = glow;
     ctx.fillRect(0, top - 60, width, height - top + 60);
+
+    if (extras && width >= 700) drawFibres(t);
 
     // Every segment goes into one of a few brightness buckets, so the whole
     // surface is drawn with BUCKETS strokes instead of thousands.

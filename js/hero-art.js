@@ -1,6 +1,6 @@
 // ==========================================================================
 // UzLitrPro — Hero art variant and colour theme.
-// Preview with ?hero=drop|sphere|holo|dropholo and ?bg=indigo|royal|violet|ocean
+// Preview with ?hero=drop|sphere|holo|dropholo and ?bg=petrol|emerald|steel|indigo|royal|violet|ocean
 // ==========================================================================
 
 (function () {
@@ -8,7 +8,7 @@
   if (!hero) return;
   const params = new URLSearchParams(location.search);
   const VARIANTS = ["drop", "sphere", "holo", "dropholo"];
-  const THEMES = ["indigo", "royal", "violet", "ocean"];
+  const THEMES = ["petrol", "emerald", "steel", "indigo", "royal", "violet", "ocean"];
   const asked = params.get("hero");
   if (VARIANTS.includes(asked)) hero.dataset.hero = asked;
   const bg = params.get("bg");

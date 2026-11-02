@@ -2993,3 +2993,38 @@ h1, h2, h3, h4 {
 .hero[data-hero="dropholo"] .art-holo .holo-ring.hr3 { bottom: 2%; }
 .hero[data-hero="dropholo"] .holo-reading { left: -6%; top: 64%; }
 .hero[data-hero="dropholo"] .hero-meter-core { top: 42%; }
+
+/* Teal "AI sample" themes: petrol (default), emerald, steel */
+.hero[data-bg="petrol"] {
+  --art: 80, 215, 225; --art-light: 170, 240, 245;
+  --wave-h: 188; --wave-rgb: 120, 220, 230; --wave-extras: 1;
+  --hero-bg:
+    radial-gradient(900px 600px at 72% 42%, #13525e 0%, transparent 70%),
+    radial-gradient(700px 500px at 10% 0%, #0f3a46 0%, transparent 70%),
+    linear-gradient(180deg, #0a2730 0%, #082029 60%, #061820 100%);
+  --glow-a: rgba(40, 190, 210, 0.25); --glow-b: rgba(120, 110, 230, 0.16);
+}
+.hero[data-bg="emerald"] {
+  --art: 70, 220, 190; --art-light: 170, 245, 225;
+  --wave-h: 172; --wave-rgb: 110, 225, 200; --wave-extras: 1;
+  --hero-bg:
+    radial-gradient(900px 600px at 72% 42%, #0f5248 0%, transparent 70%),
+    radial-gradient(700px 500px at 10% 0%, #0c3a35 0%, transparent 70%),
+    linear-gradient(180deg, #082621 0%, #061e1b 60%, #041614 100%);
+  --glow-a: rgba(40, 210, 170, 0.22); --glow-b: rgba(60, 160, 220, 0.16);
+}
+.hero[data-bg="steel"] {
+  --art: 130, 205, 225; --art-light: 200, 235, 245;
+  --wave-h: 195; --wave-rgb: 160, 210, 225; --wave-extras: 1;
+  --hero-bg:
+    radial-gradient(900px 600px at 72% 42%, #2f5562 0%, transparent 70%),
+    radial-gradient(700px 500px at 10% 0%, #263f4a 0%, transparent 70%),
+    linear-gradient(180deg, #1a2c34 0%, #15242b 60%, #101c22 100%);
+  --glow-a: rgba(120, 200, 220, 0.2); --glow-b: rgba(160, 150, 220, 0.12);
+}
+.hero[data-bg="petrol"] .btn-primary, .hero[data-bg="emerald"] .btn-primary, .hero[data-bg="steel"] .btn-primary {
+  background: linear-gradient(110deg, rgb(var(--art)), #1b8fa8);
+}
+.hero[data-bg="petrol"] .h1-dot, .hero[data-bg="emerald"] .h1-dot, .hero[data-bg="steel"] .h1-dot {
+  background: rgb(var(--art)); box-shadow: 0 0 14px rgba(var(--art), 0.8);
+}
