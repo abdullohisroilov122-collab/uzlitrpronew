@@ -63,12 +63,81 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero blueprint-bg">
+  <section class="hero blueprint-bg" data-hero="drop">
     <div class="hero-scene" aria-hidden="true">
       <canvas class="hero-particle-wave"></canvas>
       <span class="hero-deco-circle dc1"><span class="dc-glow"></span></span>
       <span class="hero-deco-circle dc2"><span class="dc-glow"></span></span>
       <span class="hero-deco-circle dc3"><span class="dc-glow"></span></span>
+      <!-- Shared drawing of the meter, reused by every hero variant -->
+      <svg width="0" height="0" style="position:absolute">
+        <defs>
+          <linearGradient id="brassG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f6dc93"/><stop offset="0.45" stop-color="#c9973d"/><stop offset="1" stop-color="#7a5418"/>
+          </linearGradient>
+          <linearGradient id="ringG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4f86e6"/><stop offset="0.5" stop-color="#1f4fb3"/><stop offset="1" stop-color="#12306f"/>
+          </linearGradient>
+          <radialGradient id="faceG" cx="0.4" cy="0.35" r="0.8">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d7e3ef"/>
+          </radialGradient>
+          <symbol id="uz-meter" viewBox="0 0 300 220">
+            <rect x="4" y="128" width="62" height="40" rx="6" fill="url(#brassG)"/>
+            <path d="M14 130v36M24 130v36M34 130v36M44 130v36" stroke="rgba(90,60,10,.45)" stroke-width="2"/>
+            <rect x="234" y="128" width="62" height="40" rx="6" fill="url(#brassG)"/>
+            <path d="M256 130v36M266 130v36M276 130v36M286 130v36" stroke="rgba(90,60,10,.45)" stroke-width="2"/>
+            <path d="M58 122 h184 v52 a20 20 0 0 1 -20 20 h-144 a20 20 0 0 1 -20 -20z" fill="url(#brassG)"/>
+            <ellipse cx="150" cy="108" rx="104" ry="72" fill="url(#ringG)"/>
+            <path d="M46 108 v26 a104 72 0 0 0 208 0 v-26 a104 72 0 0 1 -208 0z" fill="#163a86"/>
+            <ellipse cx="150" cy="104" rx="86" ry="58" fill="url(#faceG)"/>
+            <ellipse cx="126" cy="80" rx="46" ry="16" fill="rgba(255,255,255,.75)" transform="rotate(-12 126 80)"/>
+            <text x="150" y="74" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="15" fill="#1d3f8f">UzLitr<tspan fill="#e30613">Pro</tspan></text>
+            <rect x="104" y="84" width="92" height="22" rx="4" fill="#0f1729"/>
+            <text x="150" y="100" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="14" fill="#fff" letter-spacing="2">00128<tspan fill="#ff4d4d">47</tspan></text>
+            <circle cx="126" cy="128" r="11" fill="none" stroke="#1d3f8f" stroke-width="2"/>
+            <line x1="126" y1="128" x2="132" y2="120" stroke="#e30613" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="174" cy="128" r="11" fill="none" stroke="#1d3f8f" stroke-width="2"/>
+            <line x1="174" y1="128" x2="168" y2="136" stroke="#e30613" stroke-width="2.5" stroke-linecap="round"/>
+          </symbol>
+        </defs>
+      </svg>
+
+      <!-- Circuit traces with travelling light pulses, ending in glass icon nodes -->
+      <svg class="hero-circuit" viewBox="0 0 600 600" preserveAspectRatio="xMaxYMid meet">
+        <g class="trace-base">
+          <path d="M0 210 H180 L230 160 H420 L460 120 H560"/>
+          <path d="M0 260 H210 L250 220 H480"/>
+          <path d="M0 300 H300 L340 340 H470 L500 370 H560"/>
+          <path d="M0 340 H190 L240 390 H400 L440 430 H520"/>
+          <path d="M60 380 H170 L220 440 H330"/>
+          <path d="M120 170 V110 H300"/>
+        </g>
+        <g class="trace-pulse">
+          <path d="M0 210 H180 L230 160 H420 L460 120 H560"/>
+          <path d="M0 260 H210 L250 220 H480" style="animation-delay:-1.2s"/>
+          <path d="M0 300 H300 L340 340 H470 L500 370 H560" style="animation-delay:-2.1s"/>
+          <path d="M0 340 H190 L240 390 H400 L440 430 H520" style="animation-delay:-3s"/>
+        </g>
+        <g class="trace-dot"><circle cx="560" cy="120" r="4"/><circle cx="480" cy="220" r="4"/><circle cx="560" cy="370" r="4"/><circle cx="520" cy="430" r="4"/><circle cx="330" cy="440" r="3"/><circle cx="300" cy="110" r="3"/></g>
+      </svg>
+      <span class="circuit-node cn1"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg></span>
+      <span class="circuit-node cn2"><svg viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.5-8.97A6 6 0 0 1 18 10a4 4 0 0 1 0 8z"/></svg></span>
+      <span class="circuit-node cn3"><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1.4"/></svg></span>
+
+      <!-- Floating glass circuit boards -->
+      <svg class="float-pcb fp1" viewBox="0 0 140 100"><use href="#pcb"/></svg>
+      <svg class="float-pcb fp2" viewBox="0 0 140 100"><use href="#pcb"/></svg>
+      <svg class="float-pcb fp3" viewBox="0 0 140 100"><use href="#pcb"/></svg>
+      <svg width="0" height="0" style="position:absolute">
+        <symbol id="pcb" viewBox="0 0 140 100">
+          <path d="M70 6 L134 40 L70 74 L6 40 Z" fill="rgba(80,200,240,0.16)" stroke="rgba(150,230,255,0.7)" stroke-width="1.2"/>
+          <path d="M6 40 L6 50 L70 84 L70 74 Z" fill="rgba(40,140,190,0.35)"/>
+          <path d="M134 40 L134 50 L70 84 L70 74 Z" fill="rgba(30,110,160,0.45)"/>
+          <path d="M70 26 L96 40 L70 54 L44 40 Z" fill="rgba(10,30,50,0.85)" stroke="rgba(150,230,255,0.8)" stroke-width="1"/>
+          <path d="M30 34 L50 23 M90 23 L110 34 M30 46 L50 57 M90 57 L110 46" stroke="rgba(150,230,255,0.7)" stroke-width="1"/>
+          <circle cx="30" cy="34" r="2" fill="#7fe4ff"/><circle cx="110" cy="46" r="2" fill="#7fe4ff"/>
+        </symbol>
+      </svg>
     </div>
     <div class="container hero-grid">
       <div class="hero-copy">
@@ -83,14 +152,14 @@
           <a href="contact.html" class="btn btn-outline-light" data-i18n="hero_btn2">Buyurtma berish</a>
         </div>
         <div class="tech-chips" aria-label="Texnologiyalar va standartlar">
-          <span class="tech-chip">RS485</span>
-          <span class="tech-chip">IP68</span>
-          <span class="tech-chip">NB-IoT</span>
-          <span class="tech-chip">LoRa/LoRaWAN</span>
-          <span class="tech-chip">wM-Bus</span>
-          <span class="tech-chip">Smart Cloud</span>
-          <span class="tech-chip">ISO 4064</span>
-          <span class="tech-chip tech-chip-accent" data-i18n="badge_warranty">1 yil kafolat</span>
+          <span class="tech-chip">RS485<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 11h.01M10 11h.01M13 11h.01M16 11h.01M8.5 14h.01M11.5 14h.01M14.5 14h.01"/></svg></span>
+          <span class="tech-chip">IP68<svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 10.5a6 6 0 0 1-12 0C6 9.5 12 3 12 3z"/></svg></span>
+          <span class="tech-chip">NB-IoT<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M7.5 7.5a6.4 6.4 0 0 0 0 9M16.5 7.5a6.4 6.4 0 0 1 0 9M4.6 4.6a10.5 10.5 0 0 0 0 14.8M19.4 4.6a10.5 10.5 0 0 1 0 14.8"/></svg></span>
+          <span class="tech-chip">LoRa/LoRaWAN<svg viewBox="0 0 24 24"><path d="M12 10v11M8 21h8"/><circle cx="12" cy="8" r="2"/><path d="M8.2 4.2a5.5 5.5 0 0 0 0 7.6M15.8 4.2a5.5 5.5 0 0 1 0 7.6"/></svg></span>
+          <span class="tech-chip">wM-Bus<svg viewBox="0 0 24 24"><path d="M5 19V13M10 19V9M15 19V5M20 19V11"/></svg></span>
+          <span class="tech-chip">Smart Cloud<svg viewBox="0 0 24 24"><path d="M7 18a4.5 4.5 0 0 1-.5-8.97A6 6 0 0 1 18 10a4 4 0 0 1 0 8z"/></svg></span>
+          <span class="tech-chip">ISO 4064<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 21l4-2 4 2-1-7.5"/></svg></span>
+          <span class="tech-chip tech-chip-accent"><span data-i18n="badge_warranty">1 yil kafolat</span><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></span>
         </div>
       </div>
       <div class="hero-orbit-wrap" id="hero-orbit">
@@ -104,6 +173,47 @@
         <div class="orbit-ring r3"></div>
         <div class="orbit-dot d1"></div>
         <div class="orbit-dot d2"></div>
+
+        <!-- Hero art: water meter in a glass drop / glass sphere / hologram (variant set on .hero) -->
+        <div class="hero-art" aria-hidden="true">
+          <svg class="art-drop" viewBox="0 0 420 520">
+            <defs>
+              <radialGradient id="dropFill" cx="0.38" cy="0.55" r="0.75">
+                <stop offset="0" stop-color="rgba(190,240,255,0.10)"/>
+                <stop offset="0.65" stop-color="rgba(40,180,230,0.16)"/>
+                <stop offset="1" stop-color="rgba(60,200,255,0.42)"/>
+              </radialGradient>
+              <linearGradient id="dropRim" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="rgba(220,250,255,0.95)"/>
+                <stop offset="0.5" stop-color="rgba(90,210,255,0.35)"/>
+                <stop offset="1" stop-color="rgba(160,235,255,0.85)"/>
+              </linearGradient>
+              <radialGradient id="dropCaustic" cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stop-color="rgba(120,230,255,0.55)"/>
+                <stop offset="1" stop-color="rgba(120,230,255,0)"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="210" cy="505" rx="120" ry="12" fill="rgba(0,180,230,0.25)"/>
+            <path class="drop-shape" d="M210 8 C232 58 372 232 372 338 A162 162 0 0 1 48 338 C48 232 188 58 210 8 Z" fill="url(#dropFill)" stroke="url(#dropRim)" stroke-width="2.5"/>
+            <use href="#uz-meter" x="60" y="268" width="300" height="220"/>
+            <path d="M210 8 C232 58 372 232 372 338 A162 162 0 0 1 48 338 C48 232 188 58 210 8 Z" fill="rgba(160,230,255,0.07)"/>
+            <path d="M96 300 C96 230 150 150 196 82" stroke="rgba(255,255,255,0.45)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M84 340 C84 326 86 314 89 304" stroke="rgba(255,255,255,0.55)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="290" cy="420" rx="34" ry="14" fill="rgba(255,255,255,0.35)" transform="rotate(-35 290 420)"/>
+            <ellipse cx="210" cy="470" rx="110" ry="26" fill="url(#dropCaustic)"/>
+          </svg>
+          <div class="art-sphere">
+            <svg viewBox="0 0 300 220"><use href="#uz-meter"/></svg>
+          </div>
+          <div class="art-holo">
+            <svg class="holo-meter" viewBox="0 0 300 220"><use href="#uz-meter"/></svg>
+            <span class="holo-beam"></span>
+            <span class="holo-ring hr1"></span>
+            <span class="holo-ring hr2"></span>
+            <span class="holo-ring hr3"></span>
+            <span class="holo-reading">00128<b>47</b> m³</span>
+          </div>
+        </div>
 
              <div class="hero-meter-core">
           <div class="wordmark-live">
@@ -450,6 +560,7 @@
 <script src="js/sound.js"></script>
 <script src="js/branches-map.js"></script>
 <script src="js/hero-wave.js"></script>
+<script src="js/hero-art.js"></script>
 <script src="js/cart.js"></script>
 </body>
 </html>

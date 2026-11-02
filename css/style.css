@@ -2795,3 +2795,150 @@ h1, h2, h3, h4 {
 .product-spec .spec-table { max-width: none; }
 /* The card holds buttons and a table now, so it glows but doesn't move */
 .product-hero-card:hover, .product-hero-card:active { transform: none; }
+
+/* ==========================================================================
+   Hero art: meter in a glass drop / glass sphere / hologram,
+   circuit traces with light pulses, floating glass circuit boards
+   ========================================================================== */
+.hero-art { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.hero-art > * { display: none; }
+.hero[data-hero="drop"] .art-drop,
+.hero[data-hero="sphere"] .art-sphere,
+.hero[data-hero="holo"] .art-holo { display: block; }
+
+/* The wordmark sits on top of the art */
+.hero[data-hero] .hero-meter-core { z-index: 4; }
+.hero[data-hero] .ripple-wrap { opacity: 0.45; }
+
+/* --- Drop --- */
+.art-drop {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 76%;
+  transform: translate(-50%, -54%);
+  overflow: visible;
+  filter: drop-shadow(0 0 30px rgba(60, 200, 255, 0.35));
+  animation: dropFloat 6s ease-in-out infinite;
+}
+.art-drop .drop-shape { animation: dropGlow 4s ease-in-out infinite; }
+@keyframes dropFloat {
+  0%, 100% { transform: translate(-50%, -54%); }
+  50% { transform: translate(-50%, -57%); }
+}
+@keyframes dropGlow {
+  0%, 100% { stroke-opacity: 0.8; }
+  50% { stroke-opacity: 1; }
+}
+.hero[data-hero="drop"] .hero-meter-core { top: 42%; }
+
+/* --- Sphere --- */
+.art-sphere {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 66%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 26%, rgba(255, 255, 255, 0.55), transparent 22%),
+    radial-gradient(circle at 50% 60%, rgba(60, 190, 240, 0.12), rgba(40, 160, 220, 0.32) 70%, rgba(120, 220, 255, 0.55) 100%);
+  box-shadow: inset 0 0 40px rgba(140, 230, 255, 0.35), 0 0 50px rgba(60, 200, 255, 0.35);
+  animation: dropFloat2 6s ease-in-out infinite;
+}
+.art-sphere svg { position: absolute; left: 12%; top: 34%; width: 76%; }
+@keyframes dropFloat2 {
+  0%, 100% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, -53%); }
+}
+.hero[data-hero="sphere"] .hero-meter-core { top: 30%; }
+
+/* --- Hologram --- */
+.art-holo { position: absolute; inset: 0; }
+.holo-meter { position: absolute; left: 14%; top: 34%; width: 72%; animation: dropFloat3 5s ease-in-out infinite; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.5)); }
+@keyframes dropFloat3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.holo-beam {
+  position: absolute; left: 22%; right: 22%; top: 46%; bottom: 14%;
+  background: linear-gradient(to top, rgba(60, 210, 255, 0.35), transparent);
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+  opacity: 0.6;
+}
+.holo-ring { position: absolute; left: 50%; bottom: 12%; border-radius: 50%; border: 2px solid rgba(90, 220, 255, 0.7); transform: translateX(-50%); box-shadow: 0 0 18px rgba(60, 210, 255, 0.6); }
+.holo-ring.hr1 { width: 60%; height: 12%; animation: holoPulse 3s ease-in-out infinite; }
+.holo-ring.hr2 { width: 44%; height: 8%; bottom: 14%; opacity: 0.7; animation: holoPulse 3s ease-in-out infinite 0.5s; }
+.holo-ring.hr3 { width: 76%; height: 16%; bottom: 10%; opacity: 0.35; border-style: dashed; animation: spinFlat 18s linear infinite; }
+@keyframes holoPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+@keyframes spinFlat { to { transform: translateX(-50%) rotate(360deg); } }
+.holo-reading {
+  position: absolute; left: -4%; top: 60%;
+  padding: 8px 14px; border-radius: 12px;
+  font-family: ui-monospace, Menlo, monospace; font-size: 0.95rem; color: #dff7ff; letter-spacing: 0.08em;
+  background: rgba(10, 40, 60, 0.55); border: 1px solid rgba(90, 220, 255, 0.45);
+  box-shadow: 0 0 20px rgba(60, 210, 255, 0.35); backdrop-filter: blur(10px);
+}
+.holo-reading b { color: #ff6b6b; }
+.hero[data-hero="holo"] .hero-meter-core { top: 22%; }
+
+/* --- Circuit traces --- */
+.hero-circuit {
+  position: absolute; right: -2%; top: 0; height: 100%; width: 52%;
+  pointer-events: none; z-index: 0;
+}
+.hero-circuit path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.trace-base path { stroke: rgba(80, 200, 240, 0.22); stroke-width: 1.4; }
+.trace-pulse path {
+  stroke: rgba(140, 235, 255, 0.95); stroke-width: 2;
+  stroke-dasharray: 40 900; stroke-dashoffset: 940;
+  filter: drop-shadow(0 0 4px rgba(80, 220, 255, 0.9));
+  animation: tracePulse 4.2s linear infinite;
+}
+@keyframes tracePulse { to { stroke-dashoffset: 0; } }
+.trace-dot circle { fill: #7fe4ff; filter: drop-shadow(0 0 5px #3fd3ff); }
+
+.circuit-node {
+  position: absolute; z-index: 1; width: 52px; height: 52px; border-radius: 14px;
+  display: grid; place-items: center;
+  background: linear-gradient(145deg, rgba(120, 220, 255, 0.22), rgba(20, 60, 90, 0.35));
+  border: 1px solid rgba(140, 230, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 0 22px rgba(60, 200, 255, 0.35);
+  backdrop-filter: blur(8px);
+  animation: floaty 6s ease-in-out infinite;
+}
+.circuit-node svg { width: 24px; height: 24px; fill: none; stroke: #9be9ff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.circuit-node.cn1 { right: 3%; top: 18%; }
+.circuit-node.cn2 { right: 2%; top: 46%; animation-delay: 1.5s; }
+.circuit-node.cn3 { right: 24%; top: 9%; animation-delay: 3s; }
+
+/* --- Floating glass circuit boards --- */
+.float-pcb { position: absolute; z-index: 0; width: 110px; filter: drop-shadow(0 0 14px rgba(60, 200, 255, 0.35)); animation: pcbFloat 7s ease-in-out infinite; }
+.float-pcb.fp1 { left: 34%; top: 7%; width: 120px; }
+.float-pcb.fp2 { left: 1.5%; top: 16%; width: 80px; opacity: 0.75; animation-delay: 2s; }
+.float-pcb.fp3 { left: 46%; top: 52%; width: 70px; opacity: 0.6; animation-delay: 4s; }
+@keyframes pcbFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+/* --- Tech chips with icons in a glass panel --- */
+.tech-chips {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(140, 220, 255, 0.18);
+  backdrop-filter: blur(10px);
+}
+.tech-chip { display: inline-flex; align-items: center; gap: 8px; }
+.tech-chip svg { width: 16px; height: 16px; fill: none; stroke: rgb(var(--c)); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 4px rgba(var(--c), 0.8)); }
+
+@media (max-width: 900px) {
+  .hero-circuit, .circuit-node, .float-pcb { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .art-drop, .art-sphere, .holo-meter, .holo-ring, .trace-pulse path, .circuit-node, .float-pcb, .art-drop .drop-shape { animation: none !important; }
+}
+
+/* Phones: keep the logo and menu button off the screen edges */
+@media (max-width: 700px) {
+  .site-header .nav { padding-left: 16px; padding-right: 16px; }
+}
