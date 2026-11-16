@@ -13,7 +13,7 @@ const UZLITRPRO_CONTACT = {
   social: {
     telegram: "https://t.me/uzlitrpro_uz",
     instagram: "https://www.instagram.com/uzlitrpro",
-    facebook: "",
+    facebook: "https://www.facebook.com/share/1GrobLswPY/",
     youtube: "https://youtube.com/@uzlitrpro",
     linkedin: ""
   }
