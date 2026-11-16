@@ -19,7 +19,13 @@ const CART_PRODUCT_LABELS = {
 function getCart() {
   try {
     const raw = sessionStorage.getItem(CART_KEY);
-    return raw ? JSON.parse(raw) : [];
+    const items = raw ? JSON.parse(raw) : [];
+    // Keep only well-formed items, so nothing else from storage reaches the page.
+    return Array.isArray(items)
+      ? items
+          .map((item) => ({ size: parseInt(item && item.size, 10), qty: parseInt(item && item.qty, 10) }))
+          .filter((item) => CART_PRODUCT_LABELS[item.size] && item.qty > 0 && item.qty < 10000)
+      : [];
   } catch (e) {
     return [];
   }
@@ -33,6 +39,7 @@ function saveCart(cart) {
 }
 
 function addToCart(size, qty) {
+  size = parseInt(size, 10);
   qty = Math.max(1, parseInt(qty, 10) || 1);
   const cart = getCart();
   const existing = cart.find((item) => item.size === size);

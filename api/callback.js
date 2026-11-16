@@ -7,6 +7,37 @@
 
 const MAX_LENGTH = 200;
 
+// Only our own pages may send requests here.
+const ALLOWED_ORIGINS = [
+  "https://uzlitrpro.uz",
+  "https://www.uzlitrpro.uz",
+  "https://uzlitrpronew.vercel.app"
+];
+
+// Best-effort flood protection: at most RATE_LIMIT requests per IP in RATE_WINDOW_MS.
+// The counter lives in this function instance's memory, so it resets on cold starts.
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const recent = new Map();
+
+function tooManyRequests(ip) {
+  const now = Date.now();
+  const hits = (recent.get(ip) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  hits.push(now);
+  recent.set(ip, hits);
+  if (recent.size > 5000) recent.clear();
+  return hits.length > RATE_LIMIT;
+}
+
+function parseBody(req) {
+  if (req.body && typeof req.body === "object") return req.body;
+  try {
+    return JSON.parse(req.body || "{}");
+  } catch (error) {
+    return null;
+  }
+}
+
 function clean(value) {
   return String(value || "").replace(/\s+/g, " ").trim().slice(0, MAX_LENGTH);
 }
@@ -24,7 +55,18 @@ module.exports = async (req, res) => {
     return res.status(500).json({ ok: false, error: "Not configured" });
   }
 
-  const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
+  const origin = req.headers.origin;
+  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+    return res.status(403).json({ ok: false, error: "Forbidden" });
+  }
+
+  const ip = String(req.headers["x-forwarded-for"] || "").split(",")[0].trim() || "unknown";
+  if (tooManyRequests(ip)) {
+    return res.status(429).json({ ok: false, error: "Too many requests" });
+  }
+
+  const body = parseBody(req);
+  if (!body) return res.status(400).json({ ok: false, error: "Invalid request" });
 
   // Bots fill in the hidden field; people don't see it. Pretend it worked.
   if (body.website) return res.status(200).json({ ok: true });
