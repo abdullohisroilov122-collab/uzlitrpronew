@@ -9,12 +9,12 @@
 const UZLITRPRO_CONTACT = {
   phone: "+998770900550",
   phoneLabel: "+998 77 090 05 50",
-  telegram: "https://t.me/curinaut",
+  telegram: "https://t.me/uzlitrpro_operator_bot?start=site",
   social: {
-    telegram: "",  // e.g. "https://t.me/your_channel"
+    telegram: "https://t.me/uzlitrpro_uz",
     instagram: "https://www.instagram.com/uzlitrpro",
     facebook: "",
-    youtube: "",
+    youtube: "https://youtube.com/@uzlitrpro",
     linkedin: ""
   }
 };
