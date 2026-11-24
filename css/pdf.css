@@ -50,27 +50,43 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 .hero {
   --wave-h: 214;
   background:
-    radial-gradient(900px 600px at 78% 40%, #134bb8 0%, transparent 62%),
-    radial-gradient(700px 500px at 0% 0%, #0b2a6e 0%, transparent 70%),
-    linear-gradient(180deg, #071a45 0%, #0a2463 60%, #0d2f80 100%);
+    radial-gradient(640px 520px at 74% 46%, rgba(26, 104, 200, 0.45) 0%, transparent 70%),
+    radial-gradient(900px 500px at 10% 0%, rgba(10, 60, 120, 0.5) 0%, transparent 70%),
+    linear-gradient(180deg, #04213f 0%, #062a4e 55%, #072f57 100%);
   padding: 70px 0 150px;
 }
-.hero::before { background: radial-gradient(circle, rgba(60, 130, 255, 0.35), transparent 70%); }
-.hero::after { background: radial-gradient(circle, rgba(40, 110, 255, 0.25), transparent 70%); }
+.hero::before, .hero::after { opacity: 0.35; }
 .hero-deco-circle { display: none; }
 .hero-pill { border-color: rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.06); }
 .hero-pill svg { color: #7cc0ff; }
 .h1-dot { background: linear-gradient(135deg, #2ec5ff, #1f8bff); box-shadow: 0 0 14px rgba(46, 197, 255, 0.8); }
 .hero-actions .btn-outline-light { background: rgba(5, 20, 60, 0.4); }
 
-.hero-product { position: relative; max-width: 520px; margin: 0 auto; }
+.hero-product { position: relative; max-width: 540px; margin: 0 auto; }
 .hero-product-img {
+  display: block;
   width: 100%;
   height: auto;
-  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 52% 50%, #000 58%, transparent 100%);
-  mask-image: radial-gradient(ellipse 50% 50% at 52% 50%, #000 58%, transparent 100%);
-  animation: heroFloat 6s ease-in-out infinite;
+  /* soften only the outer edges so the picture melts into the hero */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 88%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 26%, #000 88%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0, #000 14%, #000 88%, transparent 100%), linear-gradient(to bottom, transparent 0, #000 26%, #000 88%, transparent 100%);
+  mask-composite: intersect;
+  animation: heroFloat 7s ease-in-out infinite;
 }
+/* soft light pulsing behind the meter */
+.hero-product::before {
+  content: "";
+  position: absolute;
+  inset: 12% 10% 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(60, 150, 255, 0.35), transparent 65%);
+  filter: blur(20px);
+  animation: heroGlow 5s ease-in-out infinite;
+  z-index: 0;
+}
+.hero-product-img { position: relative; z-index: 1; }
+@keyframes heroGlow { 0%, 100% { opacity: 0.6; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1.05); } }
 @keyframes heroFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 .hero-product .glass-badge {
   position: absolute;
@@ -93,8 +109,9 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 .hero-product .hp-b2 .badge-icon svg { color: #fff; }
 .hero-product .glass-badge strong { color: #fff; font-size: 0.95rem; }
 /* positioned over the badges baked into the picture */
-.hp-b1 { left: 9%; top: 17%; }
-.hp-b2 { right: 3.5%; top: 68%; animation-delay: 1.2s !important; }
+.hero-product .glass-badge { animation: none; min-height: 8%; }
+.hp-b1 { left: 5.5%; top: 19.5%; min-width: 24%; }
+.hp-b2 { right: 4.5%; top: 72.5%; min-width: 37%; }
 
 /* Technology chips with icons, sitting on the wave */
 .tech-chips { display: grid; grid-template-columns: repeat(4, max-content); gap: 10px; }
@@ -312,15 +329,31 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 /* Dealers */
 .dealers-head { position: relative; grid-template-columns: 1.05fr 1fr; align-items: center; }
 .dealers-head .num-grid { grid-column: 1 / -1; }
-.uzbekistan-map .map-region { fill: #1d5fe0; }
-.uzbekistan-map #UZTK.map-region:not(.selected):not(.hovered) { fill: #0d2f80; }
-.regions-map-card { background: var(--pdf-card); border-radius: 22px; box-shadow: var(--pdf-card-shadow); }
+/* Interactive map in the PDF look: deep navy 3D regions on a light glass card */
+.regions-map-card {
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background:
+    radial-gradient(600px 300px at 80% 0%, rgba(120, 180, 255, 0.25), transparent 70%),
+    repeating-radial-gradient(ellipse at 100% 0%, rgba(21, 80, 214, 0.05) 0 2px, transparent 2px 22px),
+    linear-gradient(160deg, #f4f8ff, #e6efff);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(21, 80, 214, 0.1), 0 30px 60px -30px rgba(13, 45, 120, 0.45);
+}
+.uzbekistan-map svg { filter: drop-shadow(0 18px 18px rgba(6, 30, 80, 0.3)); }
+.uzbekistan-map .map-region { paint-order: stroke; }
+.uzbekistan-map .map-neighbors text, .uzbekistan-map .map-neighbors { filter: none; }
+.uzbekistan-map .map-region { fill: #0e3a7e; stroke: rgba(170, 205, 255, 0.75); stroke-width: 1.2; }
+.uzbekistan-map #UZTK.map-region:not(.selected):not(.hovered) { fill: #0a2d66; }
+.uzbekistan-map .map-region.hovered, .uzbekistan-map .map-region.selected { fill: #071d45; }
+.uzbekistan-map .map-region-lift { fill: #1f6bff; stroke: #cfe1ff; }
+.region-selection-info { background: rgba(255, 255, 255, 0.75); border: 1px solid rgba(21, 80, 214, 0.12); border-radius: 14px; }
 .dealers-map-3d {
   width: 100%;
   max-width: 560px;
   justify-self: end;
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at center, #000 60%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 70% at center, #000 60%, transparent 100%);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, #000 70%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at center, #000 70%, transparent 100%);
 }
 .regions-map-section .num-tile { display: grid; grid-template-columns: auto 1fr; column-gap: 18px; align-items: center; }
 .regions-map-section .nt-ico { grid-row: span 2; border-radius: 14px; width: 54px; height: 54px; }
