@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /qr/
+Disallow: /api/
+
+Sitemap: https://www.uzlitrpro.uz/sitemap.xml
