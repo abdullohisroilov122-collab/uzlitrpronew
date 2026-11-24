@@ -14,6 +14,7 @@ const i18n = {
     hours: "Dushanba – Shanba, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Sifat kafolatiga ega brend",
+    video_btn: "Ishlab chiqarish videosi", video_h2: "Ishlab chiqarish jarayoni", video_eyebrow: "Video", 
     hero_h1_pre: "Aniq o'lchash ", hero_h1_em: "ishonchli", hero_h1_post: " natija",
     hero_p: "Eng so'nggi texnologiyalar asosida yaratilgan yangi avlod suv hisoblagichlari iste'molni to'liq nazorat qilish uchun eng oqilona tanlov.",
     hero_btn1: "Mahsulotlarni ko'rish", hero_btn2: "Buyurtma berish",
@@ -218,6 +219,7 @@ const i18n = {
     hours: "Пн – Сб, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Бренд с гарантией качества",
+    video_btn: "Видео производства", video_h2: "Процесс производства", video_eyebrow: "Видео", 
     hero_h1_pre: "Точное измерение", hero_h1_em: "надёжный", hero_h1_post: " результат",
     hero_p: "Счётчики воды нового поколения, созданные на основе новейших технологий, — самый разумный выбор для полного контроля потребления.",
     hero_btn1: "Смотреть продукцию", hero_btn2: "Оформить заказ",
@@ -422,6 +424,7 @@ const i18n = {
     hours: "Mon – Sat, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "A brand with a quality guarantee",
+    video_btn: "Production video", video_h2: "Production process", video_eyebrow: "Video", 
     hero_h1_pre: "Precise measurement ", hero_h1_em: "reliable", hero_h1_post: " result",
     hero_p: "New-generation water meters built on the latest technology — the smartest choice for full control over consumption.",
     hero_btn1: "View products", hero_btn2: "Request an order",

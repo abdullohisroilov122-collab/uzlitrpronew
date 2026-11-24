@@ -56,7 +56,7 @@
       for (let y = y0 + Math.random() * 20; y < height; y += 12) {
         const depth = (y - y0) / (height - y0);
         if (Math.random() < 0.35) continue;
-        d.fillStyle = `rgba(110, 210, 235, ${0.05 + depth * 0.16})`;
+        d.fillStyle = `rgba(120, 175, 255, ${0.05 + depth * 0.16})`;
         let bits = "";
         for (let i = 0; i < 4; i++) bits += Math.random() < 0.5 ? "0" : "1";
         d.fillText(bits, x, y);
@@ -69,7 +69,7 @@
     for (let i = 0; i < traces; i++) {
       let x = width * (0.6 + Math.random() * 0.38);
       let y = y0 + 20 + Math.random() * (height - y0 - 30);
-      d.strokeStyle = "rgba(0, 200, 230, 0.16)";
+      d.strokeStyle = "rgba(90, 160, 255, 0.16)";
       d.beginPath();
       d.moveTo(x, y);
       for (let k = 0; k < 4; k++) {
@@ -78,7 +78,7 @@
         d.lineTo(x, y);
       }
       d.stroke();
-      d.fillStyle = "rgba(0, 220, 240, 0.28)";
+      d.fillStyle = "rgba(110, 180, 255, 0.3)";
       d.beginPath();
       d.arc(x, y, 2, 0, Math.PI * 2);
       d.fill();
@@ -106,9 +106,9 @@
 
     // Glow under the water
     const glow = ctx.createLinearGradient(0, top - 60, 0, height);
-    glow.addColorStop(0, "rgba(0, 150, 200, 0)");
-    glow.addColorStop(0.45, "rgba(0, 150, 200, 0.12)");
-    glow.addColorStop(1, "rgba(0, 120, 170, 0.22)");
+    glow.addColorStop(0, "rgba(20, 100, 230, 0)");
+    glow.addColorStop(0.45, "rgba(20, 100, 230, 0.14)");
+    glow.addColorStop(1, "rgba(15, 80, 200, 0.25)");
     ctx.fillStyle = glow;
     ctx.fillRect(0, top - 60, width, height - top + 60);
 
@@ -141,7 +141,7 @@
     ctx.lineWidth = 1;
     for (let b = 0; b < BUCKETS; b++) {
       const k = (b + 1) / BUCKETS;
-      ctx.strokeStyle = `hsla(${196 - k * 10}, 100%, ${46 + k * 48}%, ${0.06 + k * 0.7})`;
+      ctx.strokeStyle = `hsla(${214 - k * 6}, 100%, ${46 + k * 48}%, ${0.06 + k * 0.7})`;
       ctx.stroke(paths[b]);
     }
     ctx.globalCompositeOperation = "source-over";
