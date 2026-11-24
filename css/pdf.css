@@ -647,3 +647,100 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   .catalog-hero-art { width: 100%; opacity: 0.18; }
   .cta-card { width: calc(100% - 32px); }
 }
+
+/* ==========================================================================
+   About — one-to-one with the PDF
+   ========================================================================== */
+.about-hero { padding: 56px 0 96px; }
+.about-hero .eyebrow, .about-hero .eyebrow::before { color: #22d3ee; }
+.about-hero .eyebrow::before { background: #22d3ee; }
+.about-hero h1 { max-width: 640px; font-size: clamp(2.3rem, 4.4vw, 3.5rem); line-height: 1.12; }
+.about-hero h1::after { background: #22d3ee; width: 76px; }
+.accent-words { color: #22d3ee; }
+.about-hero .page-hero-art { width: 55%; object-position: 30% 60%; }
+
+.about-story-grid { grid-template-columns: 1fr 1.25fr; gap: 56px; align-items: stretch; }
+.about-photo { position: relative; top: auto; }
+.about-photo img {
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  border-radius: 26px;
+  border: 6px solid #fff;
+  box-shadow: 0 0 0 1px rgba(21, 80, 214, 0.08), 0 30px 60px -30px rgba(13, 45, 120, 0.55);
+}
+.about-story { display: flex; flex-direction: column; justify-content: space-between; padding: 6px 0; }
+.about-story::before { left: 31px; top: 40px; bottom: 40px; border-left: 2px dotted #9dbcf0; }
+.story-row { grid-template-columns: 64px 1fr; gap: 26px; align-items: center; margin-bottom: 18px; }
+.story-row:last-child { margin-bottom: 0; }
+.story-row p { color: #0b1730; font-size: 1rem; line-height: 1.65; }
+.story-ico {
+  width: 64px;
+  height: 64px;
+  background: radial-gradient(circle at 50% 35%, #ffffff 55%, #eef4ff);
+  color: #1f6bff;
+  box-shadow: 0 0 0 1px #cfe0ff, 0 0 0 7px rgba(221, 233, 255, 0.6), 0 12px 24px -12px rgba(31, 107, 255, 0.55);
+}
+.story-ico svg { width: 28px; height: 28px; stroke-width: 1.7; }
+.accent-year { color: #1f6bff; font-weight: 800; }
+
+/* Mission and vision cards */
+.mv-grid { gap: 28px; }
+.mv-card { padding: 38px 40px 92px; border-radius: 24px; min-height: 300px; }
+.mv-card.c-primary {
+  background:
+    radial-gradient(500px 220px at 90% 0%, rgba(255, 255, 255, 0.18), transparent 70%),
+    linear-gradient(150deg, #1478f5 0%, #0b5ce0 50%, #0846b8 100%);
+  box-shadow: 0 30px 60px -30px rgba(11, 92, 224, 0.75);
+}
+.mv-card.c-light {
+  background: linear-gradient(160deg, #ffffff 0%, #f1f6ff 60%, #e8f1ff 100%);
+  border: 1px solid #c3d8fb;
+  box-shadow: 0 30px 60px -36px rgba(13, 45, 120, 0.45);
+}
+.mv-head { gap: 22px; margin-bottom: 22px; }
+.mv-head h2 { font-size: 1.75rem; padding-left: 22px; border-left-width: 2px; }
+.mv-card.c-primary .mv-head h2 { border-color: rgba(255, 255, 255, 0.55); }
+.mv-card.c-light .mv-head h2 { border-color: #1f6bff; color: #0b1730; }
+.mv-card-icon { width: 64px; height: 64px; border-radius: 18px; }
+.mv-card.c-primary .mv-card-icon {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.08));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.35), 0 10px 20px -10px rgba(0, 0, 0, 0.4);
+}
+.mv-card.c-light .mv-card-icon {
+  background: radial-gradient(circle at 50% 35%, #ffffff, #dce9ff);
+  color: #1f6bff;
+  box-shadow: 0 0 0 1px #c3d8fb, 0 12px 22px -12px rgba(31, 107, 255, 0.6);
+}
+.mv-card-icon svg { width: 32px; height: 32px; }
+.mv-card p { font-size: 1.02rem; line-height: 1.7; }
+.mv-card.c-primary p { color: rgba(255, 255, 255, 0.95); }
+.mv-card.c-light p { color: #1d2b48; }
+.mv-art {
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 34%;
+  object-fit: cover;
+  object-position: bottom;
+  -webkit-mask-image: linear-gradient(to top, #000 55%, transparent);
+  mask-image: linear-gradient(to top, #000 55%, transparent);
+}
+.mv-card.c-primary .mv-art { mix-blend-mode: normal; }
+.mv-card.c-light .mv-art { opacity: 0.9; }
+
+@media (max-width: 900px) {
+  .about-photo img { min-height: 0; height: auto; }
+  .story-row { grid-template-columns: 52px 1fr; gap: 18px; }
+  .story-ico { width: 52px; height: 52px; }
+  .about-story::before { left: 25px; }
+  .mv-card { padding: 30px 26px 80px; }
+}
+.mv-card.c-primary .mv-head h2 { color: #fff; }
+.mv-card.c-primary .mv-card-icon { color: #fff; }
+.mv-card.c-light .mv-card-icon, .mv-card.c-light .mv-card-icon svg { color: #1f6bff; }
+.mv-card.c-primary .mv-art {
+  height: 30%;
+  -webkit-mask-image: linear-gradient(to top, #000 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 30%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+}
