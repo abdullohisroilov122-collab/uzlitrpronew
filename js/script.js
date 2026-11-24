@@ -14,6 +14,7 @@ const i18n = {
     hours: "Dushanba – Shanba, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Sifat kafolatiga ega brend",
+    cert1_h: "Muvofiqlik sertifikati", cert2_h: "ISO muvofiqlik sertifikati", cert3_h: "IP68 himoya sertifikati", cert3_p: "Suv va changdan to'liq himoya", cert4_h: "Sifat sertifikati", cert4_p: "Zavod sinov natijasi", cert_dl: "Sertifikatni yuklab olish", 
     video_btn: "Ishlab chiqarish videosi", video_h2: "Ishlab chiqarish jarayoni", video_eyebrow: "Video", 
     hero_h1_pre: "Aniq o'lchash ", hero_h1_em: "ishonchli", hero_h1_post: " natija",
     hero_p: "Eng so'nggi texnologiyalar asosida yaratilgan yangi avlod suv hisoblagichlari iste'molni to'liq nazorat qilish uchun eng oqilona tanlov.",
@@ -219,6 +220,7 @@ const i18n = {
     hours: "Пн – Сб, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "Бренд с гарантией качества",
+    cert1_h: "Сертификат соответствия", cert2_h: "Сертификат соответствия ISO", cert3_h: "Сертификат защиты IP68", cert3_p: "Полная защита от воды и пыли", cert4_h: "Сертификат качества", cert4_p: "Результаты заводских испытаний", cert_dl: "Скачать сертификат", 
     video_btn: "Видео производства", video_h2: "Процесс производства", video_eyebrow: "Видео", 
     hero_h1_pre: "Точное измерение", hero_h1_em: "надёжный", hero_h1_post: " результат",
     hero_p: "Счётчики воды нового поколения, созданные на основе новейших технологий, — самый разумный выбор для полного контроля потребления.",
@@ -424,6 +426,7 @@ const i18n = {
     hours: "Mon – Sat, 9:00 AM – 6:00 PM",
 
     hero_eyebrow: "A brand with a quality guarantee",
+    cert1_h: "Certificate of conformity", cert2_h: "ISO conformity certificate", cert3_h: "IP68 protection certificate", cert3_p: "Full protection from water and dust", cert4_h: "Quality certificate", cert4_p: "Factory test results", cert_dl: "Download certificate", 
     video_btn: "Production video", video_h2: "Production process", video_eyebrow: "Video", 
     hero_h1_pre: "Precise measurement ", hero_h1_em: "reliable", hero_h1_post: " result",
     hero_p: "New-generation water meters built on the latest technology — the smartest choice for full control over consumption.",
@@ -650,14 +653,14 @@ function renderSpecTable(size) {
   const dict = i18n[currentLang];
   const val = specData[currentLang][size];
   table.innerHTML = `
-    <tr><td>${dict.spec_size}</td><td>${val.size}</td></tr>
-    <tr><td>${dict.spec_flow}</td><td>${val.flow}</td></tr>
-    <tr><td>${dict.spec_length}</td><td>${val.length}</td></tr>
-    <tr><td>${dict.spec_use}</td><td>${val.use}</td></tr>
-    <tr><td>${dict.spec_weight}</td><td>${val.weight}</td></tr>
-    <tr><td>${dict.spec_protection}</td><td>IP68</td></tr>
-    <tr><td>${dict.spec_standard}</td><td>O'zMsT ISO 4064-1:2024</td></tr>
-    <tr><td>${dict.spec_warranty}</td><td>${dict.stat2_val}</td></tr>
+    <tr><td><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M6 18 18 6"/></svg></span>${dict.spec_size}</td><td>${val.size}</td></tr>
+    <tr><td><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M3 13c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0M3 18c2-1.5 4-1.5 6 0s4 1.5 6 0 4-1.5 6 0"/></svg></span>${dict.spec_flow}</td><td>${val.flow}</td></tr>
+    <tr><td><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></svg></span>${dict.spec_length}</td><td>${val.length}</td></tr>
+    <tr><td><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span>${dict.spec_use}</td><td>${val.use}</td></tr>
+    <tr><td><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l2 12H4z"/><circle cx="12" cy="5.5" r="2.2"/></svg></span>${dict.spec_weight}</td><td>${val.weight}</td></tr>
+    <tr><td><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>${dict.spec_protection}</td><td>IP68</td></tr>
+    <tr><td><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg></span>${dict.spec_standard}</td><td>O'zMsT ISO 4064-1:2024</td></tr>
+    <tr><td><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>${dict.spec_warranty}</td><td>${dict.stat2_val}</td></tr>
   `;
 }
 
