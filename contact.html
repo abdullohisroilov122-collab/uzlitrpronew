@@ -64,7 +64,8 @@
 
 <main>
 
-  <section class="page-hero blueprint-bg">
+  <section class="page-hero contact-hero">
+    <img class="page-hero-art" src="assets/pdf/contact-hero.jpg" alt="" aria-hidden="true">
     <div class="container">
       <h1 data-i18n="contact_h1">Suv hisoblagichlariga buyurtma berish va bog'lanish</h1>
       <p data-i18n="contact_p">UzLitrPro suv hisoblagichlari, mahsulot narxlari, xarid shartlari va texnik yechimlar bo'yicha batafsil ma'lumot oling. Manzil: Toshkent, Yakkasaroy tumani, Rakatboshi MFY, O'rikzor 1-tor ko'chasi, 40-uy. Tel: +998 77 090 05 50.</p>
@@ -75,7 +76,7 @@
     <div class="container contact-grid">
 
       <div class="form-card reveal">
-        <h3 style="margin-bottom: 22px;" data-i18n="contact_form_h">Suv hisoblagich sotib olish va aloqa</h3>
+        <h3 class="form-title" data-i18n="contact_form_h">Suv hisoblagich sotib olish va aloqa</h3>
         <form id="contact-form">
           <div class="form-row">
             <div class="form-group">
@@ -106,7 +107,7 @@
             <label for="message" data-i18n="form_message">Xabaringiz</label>
             <textarea id="message" name="message" required data-i18n-placeholder="form_message_ph" placeholder="Buyurtma miqdori, yetkazib berish manzili yoki savolingizni yozing..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" data-i18n="form_submit">Yuborish</button>
+          <button type="submit" class="btn btn-primary"><span data-i18n="form_submit">Yuborish</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           <div class="form-success" id="form-success" data-i18n="form_success">Rahmat! Xabaringiz qabul qilindi — tez orada siz bilan bog'lanamiz.</div>
         </form>
       </div>
@@ -156,10 +157,12 @@
   <section class="section regions-map-section">
     <div class="container">
 
+      <div class="regions-map-layout">
       <div class="section-heading regions-map-heading reveal">
         <span class="eyebrow" data-map-i18n="eyebrow">HUDUDIY QAMROV</span>
         <h2 data-map-i18n="h">O‘zbekiston bo‘ylab UzLitrPro</h2>
         <p data-map-i18n="p">Hududni tanlang — xaritada viloyatni ustiga olib boring yoki bosing.</p>
+        <img class="regions-map-splash" src="assets/pdf/contact-splash.jpg" alt="" aria-hidden="true" loading="lazy">
       </div>
 
       <div class="regions-map-card reveal">
@@ -177,15 +180,17 @@
           </div>
         </div>
       </div>
+      </div>
 
     </div>
   </section>
   <!-- MAP -->
-  <section class="section section-alt" style="padding-top:0;">
-    <div class="container">
+  <section class="section address-section" style="padding-top:0;">
+    <div class="container address-layout">
       <div class="section-head reveal">
         <h2 data-i18n="contact_map_h2">Bizning manzilimiz</h2>
       </div>
+      <div class="address-map">
       <div class="map-card reveal">
         <iframe
           src="https://www.google.com/maps?q=41.277691,69.268832&z=16&output=embed"
@@ -196,7 +201,9 @@
       <a href="https://maps.google.com/maps?q=41.277691,69.268832&ll=41.277691,69.268832&z=16" target="_blank" rel="noopener" class="map-link reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
         <span data-i18n="contact_map_link">Google Xaritada ko'rish</span>
+        <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
       </a>
+      </div>
     </div>
   </section>
 

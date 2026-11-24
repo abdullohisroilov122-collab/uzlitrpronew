@@ -802,3 +802,62 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 .page-hero-light h1 { max-width: 760px; }
 .news-card { border: 1px solid #d6e3f8; border-bottom: 1px solid #d6e3f8; }
 .page-hero-light { padding-top: 60px; }
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+.contact-hero .page-hero-art { width: 50%; }
+.contact-hero h1 { max-width: 640px; }
+.contact-hero p { max-width: 560px; color: #d4e2fb; }
+.contact-grid { align-items: start; }
+.form-card { padding: 34px 34px 30px; border-radius: 24px; }
+.form-title { margin: 0 0 24px; padding-left: 14px; border-left: 4px solid #22b4ff; color: var(--pdf-ink); font-size: 1.5rem; }
+.form-group label { color: var(--pdf-ink); font-weight: 700; }
+.form-group input, .form-group select, .form-group textarea { background: #f1f6ff; border: 1px solid #d3e1f8; border-radius: 10px; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #1f6bff; box-shadow: 0 0 0 4px rgba(31, 107, 255, 0.12); background: #fff; }
+#contact-form .btn-primary { padding: 14px 34px; background: linear-gradient(180deg, #22b4ff, #1677e8); }
+.contact-info-list { gap: 16px; }
+.contact-info-tile { padding: 20px 22px; border-radius: 18px; gap: 18px; align-items: center; }
+.contact-info-tile .icon { width: 52px; height: 52px; border-radius: 14px; background: #ddeeff; color: #1677e8; flex-shrink: 0; }
+.contact-info-tile .icon svg { width: 26px; height: 26px; }
+.contact-info-tile strong { font-size: 1.08rem; color: var(--pdf-ink); }
+.contact-info-tile span { color: #34425f; font-size: 0.95rem; }
+
+/* Region map beside its heading, like the PDF */
+.regions-map-section { background: linear-gradient(180deg, #eef5ff, #f6f9ff); }
+.regions-map-layout { display: grid; grid-template-columns: 0.75fr 1.6fr; gap: 40px; align-items: center; }
+.regions-map-heading { position: relative; text-align: left; margin: 0; }
+.regions-map-heading h2 { font-size: clamp(2rem, 3.4vw, 2.7rem); line-height: 1.12; }
+.regions-map-heading h2::after { content: ""; display: block; width: 64px; height: 4px; border-radius: 2px; background: #22b4ff; margin-top: 16px; }
+.regions-map-heading .eyebrow { color: #1677e8; }
+.regions-map-splash { width: 120%; max-width: none; margin: 18px 0 0 -40%; -webkit-mask-image: linear-gradient(to right, transparent, #000 25%, #000 75%, transparent); mask-image: linear-gradient(to right, transparent, #000 25%, #000 75%, transparent); }
+
+/* Address: heading on the left, map on the right */
+.address-section { background: #f6f9ff; padding-bottom: 80px; }
+.address-layout { display: grid; grid-template-columns: 0.75fr 1.6fr; gap: 40px; align-items: center; }
+.address-layout .section-head { margin: 0; }
+.address-layout .section-head h2 { font-size: clamp(2rem, 3.2vw, 2.6rem); }
+.address-layout .section-head h2::after { content: ""; display: block; width: 64px; height: 4px; border-radius: 2px; background: #22b4ff; margin-top: 16px; }
+.map-card { border-radius: 20px; overflow: hidden; border: 1px solid #d3e1f8; box-shadow: var(--pdf-card-shadow); }
+.map-card iframe { height: 300px; display: block; }
+.map-link { color: #1677e8; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; }
+.map-link svg { width: 18px; height: 18px; }
+
+@media (max-width: 900px) {
+  .regions-map-layout, .address-layout { grid-template-columns: 1fr; }
+  .regions-map-splash { display: none; }
+  .contact-hero .page-hero-art { width: 100%; opacity: 0.25; }
+}
+.contact-hero h1 { font-size: clamp(2rem, 3.6vw, 2.9rem); max-width: 600px; }
+.contact-hero .page-hero-art { width: 56%; object-fit: cover; object-position: 30% 55%; }
+.regions-map-splash { width: 100%; margin: 22px 0 0; border-radius: 0; -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, #000 55%, transparent 100%); }
+.social-block {
+  max-width: none;
+  border: 1px solid #d3e1f8;
+  border-radius: 24px;
+  background:
+    radial-gradient(500px 200px at 100% 0%, rgba(120, 180, 255, 0.2), transparent 70%),
+    linear-gradient(160deg, #ffffff, #eef4ff);
+  box-shadow: var(--pdf-card-shadow);
+}
+.social-block h3, .social-block h2 { color: var(--pdf-ink); }
