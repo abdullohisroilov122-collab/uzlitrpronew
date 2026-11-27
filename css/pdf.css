@@ -114,7 +114,7 @@ h1, h2, h3 { letter-spacing: -0.02em; }
 .hp-b2 { right: 4.5%; top: 72.5%; min-width: 37%; }
 
 /* Technology chips with icons, sitting on the wave */
-.tech-chips { display: grid; grid-template-columns: repeat(4, max-content); gap: 10px; }
+.tech-chips { display: grid; grid-template-columns: repeat(3, max-content); gap: 10px; }
 .tech-chip {
   display: inline-flex;
   align-items: center;
