@@ -15,6 +15,7 @@ const i18n = {
 
     hero_eyebrow: "Sifat kafolatiga ega brend",
     cert1_h: "Muvofiqlik sertifikati", cert2_h: "ISO muvofiqlik sertifikati", cert3_h: "IP68 himoya sertifikati", cert3_p: "Suv va changdan to'liq himoya", cert4_h: "Sifat sertifikati", cert4_p: "Zavod sinov natijasi", cert_dl: "Sertifikatni yuklab olish", 
+    pl_h_pre: "Bizning", pl_h_em: "hamkorlarimiz", pl_build: "Qurilish sohasida", pl_water: "Suv ta'minoti sohasida", 
     video_btn: "Ishlab chiqarish videosi", video_h2: "Ishlab chiqarish jarayoni", video_eyebrow: "Video", 
     hero_h1_pre: "Aniq o'lchash ", hero_h1_em: "ishonchli", hero_h1_post: " natija",
     hero_p: "Eng so'nggi texnologiyalar asosida yaratilgan yangi avlod suv hisoblagichlari iste'molni to'liq nazorat qilish uchun eng oqilona tanlov.",
@@ -221,6 +222,7 @@ const i18n = {
 
     hero_eyebrow: "Бренд с гарантией качества",
     cert1_h: "Сертификат соответствия", cert2_h: "Сертификат соответствия ISO", cert3_h: "Сертификат защиты IP68", cert3_p: "Полная защита от воды и пыли", cert4_h: "Сертификат качества", cert4_p: "Результаты заводских испытаний", cert_dl: "Скачать сертификат", 
+    pl_h_pre: "Наши", pl_h_em: "партнёры", pl_build: "В строительной сфере", pl_water: "В сфере водоснабжения", 
     video_btn: "Видео производства", video_h2: "Процесс производства", video_eyebrow: "Видео", 
     hero_h1_pre: "Точное измерение", hero_h1_em: "надёжный", hero_h1_post: " результат",
     hero_p: "Счётчики воды нового поколения, созданные на основе новейших технологий, — самый разумный выбор для полного контроля потребления.",
@@ -427,6 +429,7 @@ const i18n = {
 
     hero_eyebrow: "A brand with a quality guarantee",
     cert1_h: "Certificate of conformity", cert2_h: "ISO conformity certificate", cert3_h: "IP68 protection certificate", cert3_p: "Full protection from water and dust", cert4_h: "Quality certificate", cert4_p: "Factory test results", cert_dl: "Download certificate", 
+    pl_h_pre: "Our", pl_h_em: "partners", pl_build: "Construction", pl_water: "Water supply", 
     video_btn: "Production video", video_h2: "Production process", video_eyebrow: "Video", 
     hero_h1_pre: "Precise measurement ", hero_h1_em: "reliable", hero_h1_post: " result",
     hero_p: "New-generation water meters built on the latest technology — the smartest choice for full control over consumption.",

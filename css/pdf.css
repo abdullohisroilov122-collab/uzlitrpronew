@@ -861,3 +861,92 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   box-shadow: var(--pdf-card-shadow);
 }
 .social-block h3, .social-block h2 { color: var(--pdf-ink); }
+
+/* ==========================================================================
+   Partner logos ("Bizning hamkorlarimiz")
+   ========================================================================== */
+.partners-logos {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0 0;
+  background:
+    radial-gradient(800px 360px at 50% 0%, rgba(30, 110, 255, 0.28), transparent 70%),
+    radial-gradient(600px 300px at 100% 100%, rgba(30, 110, 255, 0.25), transparent 70%),
+    linear-gradient(180deg, #050f2e 0%, #061a48 60%, #072a6e 100%);
+}
+.partners-logos .container { position: relative; z-index: 1; }
+.pl-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  color: #fff;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 30px;
+}
+.pl-title::before, .pl-title::after {
+  content: "";
+  flex: 1;
+  max-width: 260px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #1fa2ff);
+}
+.pl-title::after { background: linear-gradient(90deg, #1fa2ff, transparent); }
+.pl-title::before { margin-right: 0.6em; }
+.pl-title::after { margin-left: 0.6em; }
+.pl-accent { color: #22a8ff; }
+.pl-group { margin-bottom: 34px; }
+.pl-label { display: flex; align-items: center; gap: 22px; margin: 0 0 20px; }
+.pl-label::before, .pl-label::after { content: ""; flex: 1; height: 2px; background: linear-gradient(90deg, transparent, rgba(31, 162, 255, 0.85)); }
+.pl-label::after { background: linear-gradient(90deg, rgba(31, 162, 255, 0.85), transparent); }
+.pl-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 40px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  background: linear-gradient(180deg, rgba(10, 40, 100, 0.9), rgba(6, 26, 72, 0.9));
+  border: 2px solid #1f8fff;
+  box-shadow: 0 0 18px rgba(31, 143, 255, 0.55), inset 0 0 14px rgba(31, 143, 255, 0.25);
+}
+.pl-pill svg { width: 26px; height: 26px; color: #2aa6ff; }
+.pl-row { display: grid; grid-template-columns: var(--cols); gap: 14px; margin-bottom: 16px; }
+.pl-card {
+  display: grid;
+  place-items: center;
+  height: 102px;
+  padding: 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #e9f1ff 100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6), 0 10px 26px -10px rgba(0, 0, 0, 0.6), 0 0 22px rgba(80, 150, 255, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+.pl-card { background: linear-gradient(180deg, #ffffff 0%, #e4eeff 100%); }
+.pl-card img { width: 100%; height: 100%; object-fit: contain; }
+.pl-card:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px #fff, 0 16px 30px -12px rgba(0, 0, 0, 0.6), 0 0 28px rgba(80, 160, 255, 0.55); }
+.pl-bottom {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  object-position: center bottom;
+  margin-top: 6px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 30%);
+  mask-image: linear-gradient(to bottom, transparent, #000 30%);
+}
+@media (max-width: 900px) {
+  .pl-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pl-label { grid-column: 1 / -1; }
+  .pl-row { display: contents; }
+  .pl-bottom { height: 130px; }
+  .pl-card { height: 78px; }
+  .pl-pill { padding: 8px 22px; font-size: 1rem; }
+  .pl-title::before, .pl-title::after { max-width: 40px; }
+}
